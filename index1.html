@@ -2,10 +2,11 @@
 <html lang="en" ng-app="musicStore">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Home Page</title>
 </head>
 <body ng-controller="mainController">
 	<div id="main-header">
+
 		<div id="nav-user">
 			<a href="">Home</a>
 			<a href="">My Account</a>
@@ -13,15 +14,22 @@
 			<a href="">Checkout</a>
 			<a href="">Login</a>
 	    </div>
+
 		<div id="nav-header">
 			<img src="" alt="music">
 			<div id="search"></div>
 			<div id="store-status"></div>
 		</div>
+
 	</div>
 	<genre-list> daniel </genre-list>
+
 	<my-cart> kira </my-cart>
+	
 	<ng-view></ng-view>
-	<script src="app/angular.min.js"></script>
+
+	<script src="app/app/angular.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/Shared/Modules.js"></script>
 </body>
 </html>
