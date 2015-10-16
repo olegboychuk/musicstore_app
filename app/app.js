@@ -1,4 +1,4 @@
-var app=angular.module('musicStore',[]);
+var app=angular.module('musicStore',['User','Albums','Cart','Genre']);
 
 app.controller('mainController',function($scope){
 	
