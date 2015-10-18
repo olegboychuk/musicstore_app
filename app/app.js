@@ -1,6 +1,6 @@
-var app=angular.module('musicStore',['User','Albums','Cart','Genre']);
+var app = angular.module('musicStore',['User','Albums','Cart','Genre']);
 
-app.controller('mainController',function($scope){
+app.controller('mainController',function($scope, Cart){
 	
 	
 

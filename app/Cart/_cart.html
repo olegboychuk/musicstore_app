@@ -1,0 +1,19 @@
+<div id="cart">
+	<h1>My Cart</h1>
+	<p>There are {{  }} in your cart.</p>
+	<p>Cart Subtotal: {{  }} <button>Checkout</button></p>
+
+	<div>
+		<div ng-repeat="product in cart">
+			<img ng-src="{{ product.image }}" title="{{ product.name }}">
+			<div>
+				<strong ng-bind="product.name">Name: {{ product.name }}</strong><br>
+				<strong>Price: {{ product.price | currency }}</strong>
+			</div>
+		</div>
+
+		<div>
+			<strong>Total: {{ total | currency }}</strong>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+#cart{
+	width: 302px;
+    padding: 5px;
+    background-color: #F0F0F0;
+}
+#cart h1{
+	width: 95%;
+    background-color: #fff;
+    padding-left: 4%;
+}
+#cart p{
+	border-bottom: solid 1px #ADACAC;
+    padding-bottom: 15px;
+}
