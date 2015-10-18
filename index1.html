@@ -6,28 +6,27 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="mainController">
-	<div id="main-header">
 
+	<div id="main-header">
 		<div id="nav-user">
 			<a href="">Home</a>
-			<a href="" ng-class="">My Account</a>
+			<a href="" ng-show="" >My Account</a>
 			<a href="">My Wishlist</a>
 			<a href="">Check Out</a>
-			<a href="">Login</a>
+			<a href="" ng-hide="" >Login</a>
 	    </div>
-
 		<div id="nav-header">
 			<img src="" alt="music">
 			<div id="search"></div>
 			<div id="store-status"></div>
 		</div>
-
 	</div>
+
 	<genre-list> daniel </genre-list>
 
 	<my-cart> kira </my-cart>
 	
-	<ng-view></ng-view>
+	<div id="view-route"><ng-view></ng-view></div>
 
 	<script src="app/angular.min.js"></script>
 	<script src="app/app.js"></script>
