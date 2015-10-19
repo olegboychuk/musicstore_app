@@ -1,5 +1,5 @@
 GenreModule.directive('genre-list',function(){
-	return{
+	return {
 		restrict:'E',
 		tamplateUrl:'app/Genre/_genre-list.html'	
     };
