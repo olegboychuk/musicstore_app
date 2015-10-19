@@ -1,5 +1,17 @@
+html, body, div, span, p,
+a, img, strong, center, ul, li, form, label,
+aside, footer, header,
+menu, nav,input{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline:none;
+}
 
-/* ------ main menu ----- */
+/* ------ MAIN MENU ----- */
 #main-header{
 	width: 100%;
 	height: 150px;
@@ -9,12 +21,18 @@
 }
 #nav-header{
 	width: 100%;
-	height: 90px;
+	height: 80px;
 	background-color:red;
 }
+.search{
+	width: 250px;
+	height: 25px;
+	margin-left: 200px;
+	border:1px solid black;
+	background-color:white;
+}
 
-
-/* ------ cart ----- */
+/* ------ CART ----- */
 #cart{
 	width: 302px;
     padding: 5px;
