@@ -1,6 +1,7 @@
-GenreModule.directive('genreList',function(){
+GenreModule.directive('genre-list',function(){
 	return {
-		restrict:'E',
-		tamplateUrl:'app/Genre/_genre-list.html'	
+		restrict: 'E',
+		tamplateUrl: 'app/Genre/_genre-list.html',
+		controller: 'GenreController'
     };
 });

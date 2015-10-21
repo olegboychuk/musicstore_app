@@ -1,3 +1,4 @@
-GenreModule.controller('GenreController', function( $scope, $http ){
-
+GenreModule.controller('GenreController', function( $scope, GenreFactory,){
+	$scope.genres=GenreFactory.getAllGenres();
+	console.log("$scope.genres",$scope.genres);
 });
