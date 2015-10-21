@@ -1,3 +1,3 @@
-CartModule.controller('CartController', function( $scope, ProductService ){
+CartModule.controller('CartController', function( $scope ){
 	
 });

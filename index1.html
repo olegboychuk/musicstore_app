@@ -10,15 +10,15 @@
 	<div id="main-header">
 		<div id="nav-user">
 			<a href="">Home</a>&nbsp
-			<a href="" ng-show="" >My Account</a>&nbsp
+			<a href="" ng-show="">My Account</a>&nbsp
 			<a href="">My Wishlist</a>&nbsp
 			<a href="">Check Out</a>&nbsp
 			<a href="" ng-hide="" >Login</a>&nbsp
 	    </div>
 		<div id="nav-header">
 			<img src="" alt="music">
-			<div id="find-albom">
-				<input type="text" class="search" ng-model="Search albom">
+			<div id="find-album">
+				<input type="text" class="search" ng-model="Search album">
 			</div>
 			<div id="store-status"></div>
 		</div>
@@ -30,9 +30,20 @@
 	
 	<div id="view-route"><ng-view></ng-view></div>
 
-	<script src="angular.min.js"></script>
+	<script src="app/angular-1.1.5.js"></script>
 	<script src="app/app.js"></script>
 	<script src="app/Shared/Modules.js"></script>
+	
+	<script src="app/User/UserFactory.js"></script>
+
+	<script src="app/Genre/GenreFactory.js"></script>
+	<script src="app/Genre/GenreDirective.js"></script>
+	<script src="app/Genre/GenreController.js"></script>
+
+
+	<script src="app/Cart/CartFactory.js"></script>
 	<script src="app/Cart/CartDirective.js"></script>
+	<script src="app/Cart/CartController.js"></script>
+	
 </body>
 </html>

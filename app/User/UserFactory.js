@@ -1,21 +1,21 @@
-UserModule.factory( 'User',function( $http ){
+UserModule.factory( 'UserFactory',function( $http ){
 	var urlBase = 'api/user'
 	var user=[];
-	var User={};
+	var UserFactory={};
 
-	User.addUser = function(){
+	UserFactory.addUser = function(){
 		
 	};
 
-	User.matchUser = function(){
+	UserFactory.matchUser = function(){
 		$http.post(urlBase);
-		return false
+		return user;
 	};
 
-	User.getUserDetails =function(){
+	UserFactory.getUserDetails =function(){
 		
 	};
 
 
-	return User;
+	return UserFactory;
 });

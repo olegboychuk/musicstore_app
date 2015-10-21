@@ -1,4 +1,4 @@
-GenreModule.directive('genre-list',function(){
+GenreModule.directive('genreList',function(){
 	return {
 		restrict:'E',
 		tamplateUrl:'app/Genre/_genre-list.html'	

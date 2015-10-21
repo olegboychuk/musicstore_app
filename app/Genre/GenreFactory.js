@@ -1,6 +1,6 @@
-GenreModule.factory( 'GenreList',function( $http ){
+GenreModule.factory( 'GenreFactory',function( $http ){
     var urlBase = 'api/genre';
-    var GenreList = {};
+    var GenreFactory = {};
     var genres = ['Alternative', 'Blues', 'Box sets', 'Classical', 'Country', 'Dance', 'Heavy metal', 'Jazz', 'Rock-pop'];
 
     function addGenre( genreIndex ){
@@ -11,20 +11,20 @@ GenreModule.factory( 'GenreList',function( $http ){
         genres.splice( genres.indexOf( genreIndex ), 1 );
     };
 
-    GenreList.insertGenre = function( genreIndex ) {
+    GenreFactory.insertGenre = function( genreIndex ) {
         addGenre( genreIndex );
     };
 
-    GenreList.deleteGenre = function( genreIndex ) {
+    GenreFactory.deleteGenre = function( genreIndex ) {
         removeGenre( genreIndex );
     };
 
-    GenreList.getAllGenres = function() {
+    GenreFactory.getAllGenres = function() {
         return genres;
     };
 
 
-    return GenreList;
+    return GenreFactory;
 
 });
 

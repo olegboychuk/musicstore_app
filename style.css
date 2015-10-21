@@ -47,3 +47,11 @@ menu, nav,input{
 	border-bottom: solid 1px #ADACAC;
     padding-bottom: 15px;
 }
+
+/* ------ GENRE ----- */
+#genre{
+	width: 302px;
+    padding: 5px;
+    background-color: #F0F0F0;
+}
+
