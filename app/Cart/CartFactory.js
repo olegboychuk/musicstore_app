@@ -1,5 +1,5 @@
-CartModule.factory('CartFactory', function(  ){
-	var CartFactory = {};
+CartModule.factory('Cart', function( ProductService ){
+	var Cart = {};
 	var products = [];
 	var totalPrice = 0;
 
@@ -10,17 +10,14 @@ CartModule.factory('CartFactory', function(  ){
 	function removeProduct( productIndex ){
 		products.splice( products.indexOf( productIndex ), 1 );
 	};
-	
-	CartFactory.deleteProduct = function( productIndex ) {
+	Cart.deleteProduct = function( productIndex ) {
 		var price = ProductsService.getPrice( productIndex );
 		
 		if ( products.indexOf( productIndex ) != -1 ) {
 			totalPrice -= price;
 			removeProduct( productIndex );
-		}
-	}
-
-	CartFactory.insertProduct = function( productIndex ) {
+		}; 
+	Cart.insertProduct = function( productIndex ) {
 		var price = ProductsService.getPrice( productIndex );	
 		if ( products.indexOf( productIndex ) = -1  ) {
 			totalPrice += price;
@@ -28,15 +25,15 @@ CartModule.factory('CartFactory', function(  ){
 		}
 	}
 
-    CartFactory.getTotal = function() { 
+    Cart.getTotal = function() { 
 		return totalPrice;
 	}
     
-    CartFactory.getAll = function() {
+    Cart.getAll = function() {
 		return products;
     };
 	
-	CartFactory.getCartProducts = function() {
+	Cart.getCartProducts = function() {
 		var cartProducts = [];
 
 		for ( var i = 0; i < products.length; i++ )
@@ -45,7 +42,7 @@ CartModule.factory('CartFactory', function(  ){
 		return cartProducts;
 	}
 
-    return CartFactory;
+    return Cart;
 
 
 });

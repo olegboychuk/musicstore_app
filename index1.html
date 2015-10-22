@@ -6,29 +6,37 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="mainController">
-
-	<div id="main-header">
-		<div id="nav-user">
-			<a href="">Home</a>&nbsp
-			<a href="" ng-show="">My Account</a>&nbsp
-			<a href="">My Wishlist</a>&nbsp
-			<a href="">Check Out</a>&nbsp
-			<a href="" ng-hide="" >Login</a>&nbsp
-	    </div>
-		<div id="nav-header">
-			<img src="" alt="music">
-			<div id="find-album">
-				<input type="text" class="search" ng-model="Search album">
+		<div id="main-header">
+			<div id="wrapper">
+				<div id="nav-user">
+					<ul>
+						<li><a href="">Home</a>&nbsp</li>
+						<li><a href="" ng-show="">My Account</a>&nbsp</li>
+						<li><a href="">My Wishlist</a>&nbsp</li>
+						<li><a href="">Check Out</a>&nbsp</li>
+						<li><a href="" ng-hide="" >Login</a>&nbsp</li>
+					</ul>	
+			    </div>
+			</div>    
+			<div id="nav-header">
+				<div id="wrapper">
+					<img src="Images/logo.png" height="94" width="226">
+					<div id="find-album">
+						<input type="text" class="search" ng-model="Search album">
+					</div>
+					<div id="store-status"></div>
+				</div>	
 			</div>
-			<div id="store-status"></div>
 		</div>
-	</div>
-
-	<genre-list> daniel </genre-list>
-
-	<my-cart> kira </my-cart>
 	
-	<div id="view-route"><ng-view></ng-view></div>
+		<genre-list> daniel </genre-list>
+
+		<my-cart> kira </my-cart>
+		
+		<div id="view-route"><ng-view></ng-view></div>
+
+
+
 
 	<script src="app/angular-1.1.5.js"></script>
 	<script src="app/app.js"></script>
