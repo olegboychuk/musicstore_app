@@ -5,11 +5,11 @@ CartModule.factory('CartFactory', function(  ){
 
 	function addProduct( productIndex ){
 		products.push( productIndex );
-	};
+	}
 
 	function removeProduct( productIndex ){
 		products.splice( products.indexOf( productIndex ), 1 );
-	};
+	}
 	
 	CartFactory.deleteProduct = function( productIndex ) {
 		var price = ProductsService.getPrice( productIndex );
@@ -18,7 +18,7 @@ CartModule.factory('CartFactory', function(  ){
 			totalPrice -= price;
 			removeProduct( productIndex );
 		}
-	}
+	};
 
 	CartFactory.insertProduct = function( productIndex ) {
 		var price = ProductsService.getPrice( productIndex );	
@@ -26,11 +26,11 @@ CartModule.factory('CartFactory', function(  ){
 			totalPrice += price;
 			addProduct( productIndex );
 		}
-	}
+	};
 
     CartFactory.getTotal = function() { 
 		return totalPrice;
-	}
+	};
     
     CartFactory.getAll = function() {
 		return products;
