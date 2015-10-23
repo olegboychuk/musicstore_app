@@ -7,7 +7,6 @@
 </head>
 <body ng-controller="mainController">
 		<div id="main-header">
-			<div id="wrapper">
 				<div id="nav-user">
 					<ul>
 						<li><a href="">Home</a>&nbsp</li>
@@ -17,15 +16,14 @@
 						<li><a href="" ng-hide="" >Login</a>&nbsp</li>
 					</ul>	
 			    </div>
-			</div>    
+   
 			<div id="nav-header">
-				<div id="wrapper">
-					<img src="Images/logo.png" height="94" width="226">
+
+					<img class="logo" src="Images/logo.png" >
 					<div id="find-album">
-						<input type="text" class="search" ng-model="Search album">
+						<input type="text" class="search" />
 					</div>
 					<div id="store-status"></div>
-				</div>	
 			</div>
 		</div>
 		<genre-list> daniel </genre-list>
@@ -41,7 +39,7 @@
 	<script src="app/app.js"></script>
 	<script src="app/Shared/Modules.js"></script>
 	
-	<script src="app/User/UserFactory.js"></script>
+     <script src="app/User/UserFactory.js"></script>
 
 	<script src="app/Genre/GenreFactory.js"></script>
 	<script src="app/Genre/GenreDirective.js"></script>

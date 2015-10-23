@@ -17,10 +17,7 @@ body{
     margin: 0 auto;
 }
 /* ------ MAIN MENU ----- */
-#wrapper{
-	width: 900px;
-	margin: 0 auto;
-}
+
 #main-header{
 	width: 100%;
 	height: 150px;
@@ -65,7 +62,11 @@ body{
     float: left;
     margin-top: 25px;
 }
-
+img .logo{
+	height:94px;
+	width: 226px;
+	padding-left:15px;	
+}
 /* ------ CART ----- */
 #cart{
 	width: 302px;

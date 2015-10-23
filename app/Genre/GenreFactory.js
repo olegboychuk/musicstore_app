@@ -21,6 +21,7 @@ GenreModule.factory( 'GenreFactory',function(  ){
     };
 
     GenreFactory.getAllGenres = function() {
+        console.log("genres",genres);
         return genres;
     };
 

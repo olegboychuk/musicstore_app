@@ -1,15 +1,16 @@
 GenreModule.controller('GenreController', function( $scope, GenreFactory ){
 
-    init();
+    $scope.genres = GenreFactory.getAllGenres();
+    console.log("$scope.genres",$scope.genres);
+   
 
-    function init() {
 
-        $scope.genres = GenreFactory.getAllGenres();
+    // function init() {
 
-        console.log(GenreModule.genres);
+    //     $scope.genres = GenreFactory.getAllGenres();
 
-    }
+    //     console.log(GenreModule.genres);
 
-	//$scope.genres=GenreFactory.getAllGenres();
-	//console.log("$scope.genres",$scope.genres);
+    // }
+    // init();
 });
