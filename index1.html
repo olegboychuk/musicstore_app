@@ -6,33 +6,31 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="mainController">
-		<div id="main-header">
-				<div id="nav-user">
-					<ul>
-						<li><a href="">Home</a>&nbsp</li>
-						<li><a href="" ng-show="">My Account</a>&nbsp</li>
-						<li><a href="">My Wishlist</a>&nbsp</li>
-						<li><a href="">Check Out</a>&nbsp</li>
-						<li><a href="" ng-hide="" >Login</a>&nbsp</li>
-					</ul>	
-			    </div>
-   
-			<div id="nav-header">
 
-					<img class="logo" src="Images/logo.png" >
-					<div id="find-album">
-						<input type="text" class="search" />
-					</div>
-					<div id="store-status"></div>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#" ng-show="">My Account</a></li>
+					<li><a href="#">My Wishlist</a></li>
+					<li><a href="#">Checkout</a></li>
+					<li><a href="#" ng-hide="" >Log In</a></li>
+				</ul>	
+   			</nav>
+			<div id="nav-header">
+				<img class="logo" src="Images/logo.png" >
+				<div id="find-album">
+					<input type="text" class="search" />
+				</div>
+				<div id="store-status"></div>
 			</div>
-		</div>
+		</header>
+
 		<genre-list> daniel </genre-list>
 
 		<my-cart> kira </my-cart>
 		
 		<div id="view-route"><ng-view></ng-view></div>
-
-
 
 
 	<script src="app/angular-1.1.5.js"></script>
