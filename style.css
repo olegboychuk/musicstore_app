@@ -105,4 +105,9 @@ aside{
     color: white;
     font-size: 18px;
 }
+#music-genre div:active{
+	background-color: #000;
+	cursor:pointer;
+}
+
 
