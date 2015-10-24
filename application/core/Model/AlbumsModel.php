@@ -33,7 +33,7 @@ class AlbumModel extends Model{
 	/*	FETCH DETAILS OF ALBUM FROM DB
 	*/
 	public function getDetailsAlbum($id){
-		
+
 		$result = $this->_db->query(" SELECT * FROM albums WHERE album_id = $id ");
 			
 		if(result){
@@ -46,11 +46,33 @@ class AlbumModel extends Model{
 	}
 
 	/**
+	/*public function insertAlbum
 	/*	INSERT NEW ALBUM TO DB
 	*/
+	public function insertAlbum( $album ){
+		$succes = $this->_db->query ("INSERT INTO albums(album_name,album_artist,album_duration,album_release_year,album_description,album_long_description,album_created,album_price,album_stock ) VALUES ( '".$album['']."') ");
 		$album_id = $this->_db->insert_id;
 		return $album_id
 		//$succes = $this->_db->query("INSERT INTO genre_to_albums()  VALUES( '".."' ) ")
+	}
+
+	/**
+	/*public function updateAlbum
+	/*	EDIT DETAILS OF ALBUM AND IMAGE??? AND GENRE???
+	*/
+	public function updateAlbum( $album ){
+		$succes = $this->_db->query( "UPDATE albums AS a,  SET a.album_name = '".$album['']."', a.album_artist = '".$album['album_duration']."', a.album_release_year = '".$album['album_description']."', a.album_price = '".$album['album_price']."', a.album_stock = '".$album['album_stock']."' ");
+	}
+
+	/**
+	/*public function deleteAlbum
+	/*	DELETE ALBUM
+	*/
+	public function deleteAlbum($albumId){
+		$succes = $this->_db->query( " DELETE FROM albums WHERE album_id = '$albumId' " );
+		if ($succes) {
+			return true;
+		}
 	}
 
 }
