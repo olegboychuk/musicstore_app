@@ -45,6 +45,13 @@ class AlbumModel extends Model{
 		}
 	}
 
+	/**
+	/*	INSERT NEW ALBUM TO DB
+	*/
+		$album_id = $this->_db->insert_id;
+		return $album_id
+		//$succes = $this->_db->query("INSERT INTO genre_to_albums()  VALUES( '".."' ) ")
+	}
 
 }
 $db = new AlbumModel();
