@@ -3,6 +3,8 @@
  abstract class Controller(){
  	protected $model;
 
- 	abstract public function __construct()
+ 	abstract public function __construct();
+
+
 }
 ?>

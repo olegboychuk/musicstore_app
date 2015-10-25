@@ -32,7 +32,7 @@ class AlbumModel extends Model{
 	/*	FETCH ALL ALBUMS FROM DB
 	*/
 	public function getALLAlbums(){
-		$result = $this->_db->query("SELECT * FROM albums");
+		$result = $this->_db->query("SELECT * FROM albums WHERE ");
 
 		if(result){
 			$albums=array();
@@ -47,8 +47,8 @@ class AlbumModel extends Model{
 	/*public function getGroupAlbums
 	/*	FETCH GROUP ALBUMS FOR FIRST GET FROM DB????
 	*/
-	public function getGroupAlbums(){
-		$result=$this->_db->query("SELECT * FROM albums ORDER BY album_id DESC 23 LIMIT");
+	public function getGroupAlbums( $start_id,$stop_id  ){
+		$result=$this->_db->query( "SELECT * FROM albums ORDER BY album_id WHERE album_id = $start_id AND album_id = $stop_id" );
 
 		if(result){
 			$albums=array();
@@ -65,7 +65,7 @@ class AlbumModel extends Model{
 	*/
 	public function getDetailsAlbum( $id ){
 
-		$result = $this->_db->query( " SELECT * FROM albums WHERE album_id = $id ");
+		$result = $this->_db->query( "SELECT * FROM albums WHERE album_id = $id" );
 			
 		if(result){
 			$album_details=array();
@@ -81,7 +81,7 @@ class AlbumModel extends Model{
 	/*	INSERT NEW ALBUM TO DB
 	*/
 	public function insertAlbum( $album ){
-		$succes = $this->_db->query ("INSERT INTO albums(album_name,album_artist,album_duration,album_release_year,album_description,album_long_description,album_created,album_price,album_stock ) VALUES ( '".$album['']."') ");
+		$succes = $this->_db->query ( "INSERT INTO albums(album_name,album_artist,album_duration,album_release_year,album_description,album_long_description,album_created,album_price,album_stock ) VALUES ( '".$album['']."') ");
 		$album_id = $this->_db->insert_id;
 		return $album_id
 		//$succes = $this->_db->query("INSERT INTO genre_to_albums()  VALUES( '".."' ) ")
