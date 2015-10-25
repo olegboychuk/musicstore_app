@@ -46,9 +46,9 @@ class AlbumController{
 		$album_details = $this->model->getDetailsAlbum( $id );
 		
 		if( $album_details !== NULL )
-			return $album_details
+			return $album_details;
 		else
-			return false
+			return false;
 	}
 }
 
