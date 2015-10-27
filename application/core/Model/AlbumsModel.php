@@ -50,7 +50,7 @@ class AlbumModel extends Model{
 
 		$result=$this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
 
-		if(result){
+		if( $result ){
 			$albums=array();
 			while ($row = $result->fetch_assoc()) 
 			    $albums[]=$row;
@@ -104,7 +104,7 @@ class AlbumModel extends Model{
 			return true;
 		}
 	}
-	
+
 }
 $db = new AlbumModel();
 var_dump($db);
