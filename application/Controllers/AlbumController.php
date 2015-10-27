@@ -2,7 +2,7 @@
 require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 
-class AlbumController{
+class AlbumController extends Controller{
 	public $model;
 
 	public function __construct(){

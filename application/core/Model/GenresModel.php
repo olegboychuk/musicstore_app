@@ -75,7 +75,7 @@ class GenreModel extends Model{
     }
 
 }
-$db = new GenreModel();
-var_dump($db);
+// $db = new GenreModel();
+// var_dump($db);
 
 ?>

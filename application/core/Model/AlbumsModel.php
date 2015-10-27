@@ -24,6 +24,7 @@ class AlbumModel extends Model{
 			while ( $row = $result->fetch_assoc() ) 
 				$album_details[]=$row;
 	    }
+	    return $album_details;
 	}
 
 	/**
@@ -48,13 +49,13 @@ class AlbumModel extends Model{
 	*/
 	public function getAlbums( $start ){
 
-		$result=$this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
-
-		if( $result ){
+		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
 			$albums=array();
+		if( $result ){
+
 			while ($row = $result->fetch_assoc()) 
 			    $albums[]=$row;
-			
+			}
 			return $albums;
 		}
 	
@@ -83,7 +84,7 @@ class AlbumModel extends Model{
 	public function insertAlbum( $album ){
 		$succes = $this->_db->query ( "INSERT INTO albums(album_name,album_artist,album_duration,album_release_year,album_description,album_long_description,album_created,album_price,album_stock ) VALUES ( '".$album['']."') ");
 		$album_id = $this->_db->insert_id;
-		return $album_id
+		return $album_id;
 	}
 
 	/**
@@ -106,7 +107,7 @@ class AlbumModel extends Model{
 	}
 
 }
-$db = new AlbumModel();
-var_dump($db);
+// $db = new AlbumModel();
+// var_dump($db);
 
 ?>

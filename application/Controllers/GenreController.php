@@ -2,8 +2,7 @@
 require_once dirname (__FILE__). '/../core/Model/GenreModel.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 
-class GenreController
-{
+class GenreController extends Controller{
     public $model;
 
     public function __construct()
