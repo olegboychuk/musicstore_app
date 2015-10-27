@@ -1,5 +1,5 @@
 <?php 
-require_once dirname (__FILE__). '/../core/Model/AlbumModel.php';
+require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 
 class AlbumController{
@@ -25,11 +25,11 @@ class AlbumController{
 	}
 
 	/**
-	/*public function getALLAlbums
+	/*public function getAlbums
 	/*	FETCH ALL ALBUMS FROM DB
 	*/
-	public function getALLAlbums(){
-		$albums = $this->model->getALLAlbums();
+	public function getAlbums( $start ){
+		$albums = $this->model->getAlbums( $start );
 		
 		if ($albums !== NULL) 
 			return $albums;

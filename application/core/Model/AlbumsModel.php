@@ -23,7 +23,6 @@ class AlbumModel extends Model{
 		if ( $result->num_rows>0 ){
 			while ( $row = $result->fetch_assoc() ) 
 				$album_details[]=$row;
-				return $album_details;
 	    }
 	}
 
@@ -44,11 +43,12 @@ class AlbumModel extends Model{
 	}
 
      /**
-	/*public function getGroupAlbums
+	/*public function getAlbums
 	/*	FETCH GROUP ALBUMS FOR FIRST GET FROM DB????
 	*/
-	public function getGroupAlbums( $start_id,$stop_id  ){
-		$result=$this->_db->query( "SELECT * FROM albums ORDER BY album_id WHERE album_id = $start_id AND album_id = $stop_id" );
+	public function getAlbums( $start ){
+
+		$result=$this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
 
 		if(result){
 			$albums=array();
@@ -84,7 +84,6 @@ class AlbumModel extends Model{
 		$succes = $this->_db->query ( "INSERT INTO albums(album_name,album_artist,album_duration,album_release_year,album_description,album_long_description,album_created,album_price,album_stock ) VALUES ( '".$album['']."') ");
 		$album_id = $this->_db->insert_id;
 		return $album_id
-		//$succes = $this->_db->query("INSERT INTO genre_to_albums()  VALUES( '".."' ) ")
 	}
 
 	/**
@@ -99,13 +98,13 @@ class AlbumModel extends Model{
 	/*public function deleteAlbum
 	/*	DELETE ALBUM
 	*/
-	public function deleteAlbum($albumId){
+	public function deleteAlbum( $albumId ){
 		$succes = $this->_db->query( " DELETE FROM albums WHERE album_id = '$albumId' " );
 		if ($succes) {
 			return true;
 		}
 	}
-
+	
 }
 $db = new AlbumModel();
 var_dump($db);

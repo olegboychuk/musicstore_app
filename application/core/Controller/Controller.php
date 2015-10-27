@@ -5,6 +5,5 @@
 
  	abstract public function __construct();
 
-
 }
 ?>
