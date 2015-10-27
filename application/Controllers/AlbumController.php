@@ -51,5 +51,6 @@ class AlbumController extends Controller{
 			return false;
 	}
 }
-
+// $db = new AlbumController();
+// var_dump($db);
 ?>

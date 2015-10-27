@@ -1,13 +1,10 @@
-<<<<<<< Updated upstream
- <?php
-require_once dirname (__FILE__). '/../core/Model/AlbumModel.php';
-=======
+
 <?php
 require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
->>>>>>> Stashed changes
+require_once dirname (__FILE__). '/../Controllers/AlbumController.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 ///??? REQUIRE ONCE TO AlbumController
-// var_dump(__FILE__);
+
 class AlbumRestController extends AlbumController{
 	public $model;
 
@@ -72,5 +69,7 @@ class AlbumRestController extends AlbumController{
 		    return $this->createAnswer(  1,"empty result",402 ); 
 	}
 
-
 }
+
+// $db = new AlbumRestController();
+// var_dump($db);
