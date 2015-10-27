@@ -35,6 +35,8 @@ nav ul li{
 }
 nav ul li {
     transform: translateZ(0);
+    transition-property: color;
+    transition-duration: 0.3s;
 }
 nav ul li:before {
     content: "";
@@ -46,10 +48,13 @@ nav ul li:before {
     bottom: 0;
     background: #ED0019;
     transform: scaleY(0);
-    transform-origin: 50% 95%;
+    transform-origin: 50% 98%;
     transition-property: transform;
     transition-duration: 0.2s;
     transition-timing-function: ease-out;
+}
+nav ul li:hover, nav ul li:focus, nav ul li:active{
+    color: white;
 }
 nav ul li:hover:before, nav ul li:focus:before, nav ul li:active:before {
     transform: scaleY(1);
@@ -57,7 +62,7 @@ nav ul li:hover:before, nav ul li:focus:before, nav ul li:active:before {
 nav ul li:first-child{
     margin-left: 15px;
 }
-nav ul li a{
+nav ul li{
 	text-decoration: none;
 	color: #000;
 }

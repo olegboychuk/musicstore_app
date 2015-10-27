@@ -23,7 +23,7 @@ class AlbumModel extends Model{
 		if ( $result->num_rows>0 ){
 			while ( $row = $result->fetch_assoc() ) 
 				$album_details[]=$row;
-				return = $album_details;		
+				return $album_details;
 	    }
 	}
 
