@@ -28,15 +28,15 @@ class AlbumModel extends Model{
 	}
 
 	/**
-	/*public function getALLAlbums
+	/*public function getAl
 	/*	FETCH ALL ALBUMS FROM DB
 	*/
-	public function getALLAlbums(){
-		$result = $this->_db->query("SELECT * FROM albums WHERE ");
+	public function getAl(){
+		$result = $this->_db->query( "SELECT * FROM albums");
 
-		if(result){
+		if( result ){
 			$albums=array();
-			while ($row = $result->fetch_assoc()) 
+			while ( $row = $result->fetch_assoc() ) 
 			    $albums[]=$row;
 			
 			return $albums;
@@ -48,8 +48,8 @@ class AlbumModel extends Model{
 	/*	FETCH GROUP ALBUMS FOR FIRST GET FROM DB????
 	*/
 	public function getAlbums( $start ){
-
-		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
+		var_dump($start);
+		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 " );
 			$albums=array();
 		if( $result ){
 
@@ -107,7 +107,5 @@ class AlbumModel extends Model{
 	}
 
 }
-// $db = new AlbumModel();
-// var_dump($db);
 
 ?>
