@@ -1,8 +1,9 @@
 
 <?php
 require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
-require_once dirname (__FILE__). '/../Controllers/AlbumController.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
+require_once dirname (__FILE__). '/../Controllers/AlbumController.php';
+
 ///??? REQUIRE ONCE TO AlbumController
 
 class AlbumRestController extends AlbumController{
@@ -40,6 +41,20 @@ class AlbumRestController extends AlbumController{
 			return $this->createAnswer( 1,"invalid search",400 );
 	}
 
+    /**
+	/* public function getAl
+	/* GET ALBUMs FROM DB AND GET ANSWER FOR RESPONCE
+	*/
+	public function getAl(  ){
+		$albums = parent::getAl(  );
+
+		if ( is_array($albums) ) {
+			return $this->createAnswer( 0,array("albums"=>$albums) );
+		}elseif ( $albums == NULL  ) {
+			return $this->createAnswer( 1,"empty result",402 );
+		}else
+			return $this->createAnswer( 1,"invalid search",400 );
+	}
 
     /**
 	/* public function searchAlbums
