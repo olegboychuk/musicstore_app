@@ -48,8 +48,9 @@ class AlbumModel extends Model{
 	/*	FETCH GROUP ALBUMS FOR FIRST GET FROM DB????
 	*/
 	public function getAlbums( $start ){
-		var_dump($start);
+
 		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 " );
+			//echo("SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 ");
 			$albums=array();
 		if( $result ){
 

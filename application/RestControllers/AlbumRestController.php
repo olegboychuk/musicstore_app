@@ -25,7 +25,6 @@ class AlbumRestController extends AlbumController{
 		return $responce;
 	}
 
-
      /**
 	/* public function getAlbums
 	/* GET ALBUMs FROM DB AND GET ANSWER FOR RESPONCE
@@ -46,7 +45,7 @@ class AlbumRestController extends AlbumController{
 	/* GET ALBUMs FROM DB AND GET ANSWER FOR RESPONCE
 	*/
 	public function getAl(  ){
-		$albums = parent::getAl(  );
+		$albums = parent::getAl( );
 
 		if ( is_array($albums) ) {
 			return $this->createAnswer( 0,array("albums"=>$albums) );
