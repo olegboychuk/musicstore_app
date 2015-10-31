@@ -1,10 +1,12 @@
 <?php
-require_once dirname( __FILE__ ) . '/../application/REST/Slim/Slim.php';
+// require_once dirname( __FILE__ ) . '/../application/REST/Slim/Slim.php';
 
-\Slim\Slim::registerAutoloader();
-$app = new \Slim\Slim();
+// \Slim\Slim::registerAutoloader();
+// $app = new \Slim\Slim();
 
-$app->contentType('application/json');
+// $app->contentType('application/json');
 
-require_once dirname( __FILE__ ) . '/user.php';
-require_once dirname( __FILE__ ) . '/album.php';
+// // require_once dirname( __FILE__ ) . '/user.php';
+// require_once dirname( __FILE__ ) . '/album.php';
+
+// $app->run();

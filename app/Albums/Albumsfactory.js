@@ -20,18 +20,18 @@ AlbumsModule.factory( 'AlbumsFactory',function( $http,$q ){
 		return Albums[albumIndex].price;
 	}
 	
-	// function connectToAlbums(){
-	// 	return $http.get( urlBase );
-	// };
+	function connectToAlbums(){
+		return $http.get( urlBase );
+	};
 
-	// function getAlbums(){
-	// 	connectToAlbums();
-	// 	.success(function(albums){
-	// 		Albums = albums;
-	// 		console.log("Albums",Albums);
-	// 	});
-	// }
-	// getAlbums();
+	function getAlbums(){
+		connectToAlbums();
+		.success(function(albums){
+			Albums = albums;
+			console.log("Albums",Albums);
+		});
+	}
+	getAlbums();
 	console.log("AlbumsFactory",AlbumsFactory);
 	return AlbumsFactory;
 });
