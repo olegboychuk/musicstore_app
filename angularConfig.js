@@ -2,7 +2,7 @@
 app.config('appViewProvider',function( $routeProvider ){
 
 	$routeProvider
-	.when('/',{
+	.when('/home',{
 		templateUrl:"Albums/_home.html",
 		controller:'AlbumController'
 	});
