@@ -1,7 +1,7 @@
 
 AlbumsModule.controller( 'AlbumController',function( $log,$http,$scope,AlbumsFactory ){
 	
-	$scope.albums = [];
+	//$scope.albums = [];
     
  //    AlbumsFactory.promiseAlbums( 4 )
 	// .success( function( responce ){

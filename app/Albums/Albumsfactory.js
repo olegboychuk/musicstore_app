@@ -18,8 +18,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 
 	AlbumsFactory.getAlbums = function (){
-		var promise = deferred
-		console.log("promise",promise);
+		// var promise = deferred;
+		// console.log("promise",promise);
 		// promise.then(
 		//     function( payload ) {
 		//     	console.log("payload",payload);
@@ -63,6 +63,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 			console.log("deferred.promise",deferred.promise);
             return deferred.promise;
 	}
+
+	AlbumsFactory.getNext();
 
 	// function getAlbums(){
 	// 	connectToAlbums()

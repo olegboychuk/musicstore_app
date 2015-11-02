@@ -22,7 +22,7 @@ app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, 
 	// 	   $log.error('failure loading albums', errorPayload);
 	// 	}
 	// );
-	console.log("promise",promise);
+	
 
    // $scope.albums = AlbumsFactory.getAlbums(); 
   console.log("$scope.albums",$scope.albums);

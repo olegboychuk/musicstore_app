@@ -1,7 +1,7 @@
 
 <?php
 require_once dirname( __FILE__ ) . '/../application/REST/Slim/Slim.php';
-
+//HELLO
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 
