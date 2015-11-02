@@ -15,15 +15,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
     // AlbumsFactory.promiseAlbums = function(){
 	//  	return $http.get( urlBase );
 	// };
-	
-	// AlbumsFactory.getPrice = function( albumIndex ){		
- //        Album.price = Albums[albumIndex].album_price;
-	// 	return Album.price;
-	// };
 
-	function connectToAlbums(){
-		return $http.get( urlBase );
-	}; 
 
 	AlbumsFactory.getAlbums = function (){
 		var promise = deferred
@@ -47,7 +39,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
             return deferred.promise;
 		}
 
-		deferred = $q.defer();
+    	deferred = $q.defer();
 		requestedPage = loadedPages;
 				console.log( "requestedPage",requestedPage);
 		$http.get( urlBase +'/:'+ requestedPage )
@@ -62,7 +54,6 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 			    })
 			     Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
 			    console.log("data.result.albums",data.result.albums);
-
 			    console.log("startAlbums",Albums);
 		    })
 			.error( function(msg, code) {
@@ -72,5 +63,19 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 			console.log("deferred.promise",deferred.promise);
             return deferred.promise;
 	}
+
+	// function getAlbums(){
+	// 	connectToAlbums()
+
+	// 	.success(function(albums){
+	// 		Albums = albums;
+	// 		console.log("Albums",Albums);
+	// 	});
+	// }
+	// getAlbums();
+
+	console.log("AlbumsFactory",AlbumsFactory);
+	
+
 	return AlbumsFactory;
 });

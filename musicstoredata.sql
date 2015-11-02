@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `albums`
 --
-
+DROP TABLE IF EXISTS albums;
 CREATE TABLE IF NOT EXISTS `albums` (
 `album_id` int(9) NOT NULL,
   `album_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -63,7 +63,7 @@ INSERT INTO `albums` (`album_id`, `album_name`, `album_artist`, `album_duration`
 --
 -- Table structure for table `fb_users`
 --
-
+DROP TABLE IF EXISTS fb_users;
 CREATE TABLE IF NOT EXISTS `fb_users` (
   `user_id` int(9) NOT NULL,
   `user_fb_uid` bigint(13) NOT NULL
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `fb_users` (
 --
 -- Table structure for table `genres`
 --
-
+DROP TABLE IF EXISTS genres;
 CREATE TABLE IF NOT EXISTS `genres` (
 `genre_id` int(7) NOT NULL,
   `genre_parent_id` int(7) NOT NULL DEFAULT '0',
@@ -103,7 +103,7 @@ INSERT INTO `genres` (`genre_id`, `genre_parent_id`, `genre_name`) VALUES
 --
 -- Table structure for table `genres_to_albums`
 --
-
+DROP TABLE IF EXISTS genres_to_albums;
 CREATE TABLE IF NOT EXISTS `genres_to_albums` (
   `album_id` int(9) NOT NULL,
   `genre_id` int(7) NOT NULL
@@ -133,7 +133,8 @@ INSERT INTO `genres_to_albums` (`album_id`, `genre_id`) VALUES
 --
 -- Table structure for table `images`
 --
-
+--
+DROP TABLE IF EXISTS images;
 CREATE TABLE IF NOT EXISTS `images` (
 `image_id` bigint(12) NOT NULL,
   `image_path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -164,7 +165,7 @@ INSERT INTO `images` (`image_id`, `image_path`, `image_title`) VALUES
 --
 -- Table structure for table `images_to_albums`
 --
-
+DROP TABLE IF EXISTS images_to_albums;
 CREATE TABLE IF NOT EXISTS `images_to_albums` (
   `image_id` bigint(12) NOT NULL,
   `album_id` int(9) NOT NULL
@@ -194,7 +195,7 @@ INSERT INTO `images_to_albums` (`image_id`, `album_id`) VALUES
 --
 -- Table structure for table `orders`
 --
-
+DROP TABLE IF EXISTS orders;
 CREATE TABLE IF NOT EXISTS `orders` (
 `order_id` bigint(12) NOT NULL,
   `user_id` int(9) NOT NULL,
@@ -212,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 -- Table structure for table `orders_to_albums`
 --
-
+DROP TABLE IF EXISTS orders_to_albums;
 CREATE TABLE IF NOT EXISTS `orders_to_albums` (
   `order_id` bigint(12) NOT NULL,
   `album_id` int(9) NOT NULL
@@ -223,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `orders_to_albums` (
 --
 -- Table structure for table `users`
 --
-
+DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS `users` (
 `user_id` int(9) NOT NULL,
   `user_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,

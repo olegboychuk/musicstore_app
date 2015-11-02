@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="musicStore">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="checkout.css">
+</head>
+<body ng-controller="mainController">
+<!-- _____________________________ -->
+<!-- ___________HEADER____________ -->
+<!-- _____________________________ -->
+	<header>
+		<nav>
+			<div class="wrapper">
+				<ul>
+					<a href="index1.html"><li>Home</li></a>
+					<a href="#myAcoount" ng-show=""><li>My Account</li></a>
+					<a href="#myWishlist"><li>My Wishlist</li></a>
+					<a href="check-out-1.html"><li>Checkout</li></a>
+					<a href="#" ng-hide="" ><li>Log In</li></a>
+				</ul>	
+			</div>	
+			</nav>
+		<div id="nav-header">
+			<div class="wrapper">
+				<img class="logo" src="Images/logo.png" >
+				<div id="find-album">
+					<input type="text" class="search" />
+				</div>
+				<div id="store-status"></div>
+			</div>
+		</div>
+	</header>
+<!-- _____________________________ -->
+<!-- __________CHECK-OUT__________ -->
+<!-- _____________________________ -->		
+	<div class="wrapper">	
+		<div id="checkout-content">
+			<h1 class="check-out-h1">Checkout</h1>
+			<div class="forms cf">
+				<a href="check-out-1.html"><div class="sectionHead step cf"><>1</bold>Billing Information</div></a>
+				<a href="check-out-2.html"><div class="sectionHead cf"><bold>2</bold>Payment Information</div></a>
+				<a href="check-out-3.html"><div class="sectionHead cf three"><bold>3</bold>Order Review</div></a>
+
+				<ul id="order" class="order cf">
+
+					<div class="boxes">
+						<div class="line1 box1"><bold>Product name</bold></div>
+						<div class="line1 box2"><bold>Price</bold></div>
+						<div class="line1 box3"><bold>Qty</bold></div>
+						<div class="line1 box4"><bold>Subtotal</bold></div>
+					</div>
+
+					<div class="boxes2">
+						<div class="line2 box1">Madonna</div>
+						<div class="line2 box2">$50</div>
+						<div class="line2 box3">1</div>
+						<div class="line2 box4">$50</div>
+					</div>
+
+					<div class="boxes3">
+						<div class="line3 box1"><bold>Total</bold></div>
+						<div class="line3 box2"><bold>$50</bold></div>
+					</div>
+
+					
+					<div class="billingInfo-row full">	
+						<a href="#"><input type="button" value="Please Order" class="btn finalize" ></a>
+					</div>	
+					
+				</ul>
+
+			</div>
+		</div>	
+	</div>	

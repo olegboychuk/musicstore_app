@@ -14,7 +14,7 @@ class AlbumController extends Controller{
 	/*	FETCH SPECIFIC ALBUMS BY SEARCH FROM DB
 	*/
 	public function searchAlbums( $str ){
-		if ( strlen( $str ) < 3 ) 
+		if ( strlen($str) < 3 ) 
 			return false;
 		
 		$album_details = $this->model->searchAlbums( $str );
@@ -30,19 +30,6 @@ class AlbumController extends Controller{
 	*/
 	public function getAlbums( $start ){
 		$albums = $this->model->getAlbums( $start );
-		
-		if ($albums !== NULL) 
-			return $albums;
-		else
-			return false;	
-	}
-
-    /**
-	/*public function getAlbums
-	/*	FETCH ALL ALBUMS FROM DB
-	*/
-	public function getAl( ){
-		$albums = $this->model->getAl(  );
 		
 		if ($albums !== NULL) 
 			return $albums;

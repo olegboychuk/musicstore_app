@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="musicStore">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="checkout.css">
+</head>
+<body ng-controller="mainController">
+<!-- _____________________________ -->
+<!-- ___________HEADER____________ -->
+<!-- _____________________________ -->
+	<header>
+		<nav>
+			<div class="wrapper">
+				<ul>
+					<a href="index1.html"><li>Home</li></a>
+					<a href="#myAcoount" ng-show=""><li>My Account</li></a>
+					<a href="#myWishlist"><li>My Wishlist</li></a>
+					<a href="check-out-1.html"><li>Checkout</li></a>
+					<a href="#" ng-hide="" ><li>Log In</li></a>
+				</ul>	
+			</div>	
+			</nav>
+		<div id="nav-header">
+			<div class="wrapper">
+				<img class="logo" src="Images/logo.png" >
+				<div id="find-album">
+					<input type="text" class="search" />
+				</div>
+				<div id="store-status"></div>
+			</div>
+		</div>
+	</header>
+<!-- _____________________________ -->
+<!-- __________CHECK-OUT__________ -->
+<!-- _____________________________ -->		
+	<div class="wrapper">	
+		<div id="checkout-content">
+			<h1 class="check-out-h1">Checkout</h1>
+			<a href="check-out-1.html"><div class="sectionHead step cf"><span>1</span>Billing Information</div></a>
+			<a href="check-out-2.html"><div class="sectionHead cf two"><span>2</span>Payment Information</div></a>
+
+
+			<div id="billingInfo" class="paymentInfo cf">
+				<div id="payMethod" ng-app="ngAnimate">
+					<div class="check-element animate-hide" ng-show="checked">
+						<input type="radio" name="payMethod" id="first" value="first" class="glyphicon glyphicon-thumbs-up" ng-model="content">
+						<label for="first">Check / Money order</label><br>
+					</div>
+					<div class="first-element animate-hide" ng-hide="checked">
+						<input type="radio" name="payMethod" id="other" value="other" class="glyphicon glyphicon-thumbs-down" ng-model="content">
+						<label for="other">Credit Card (saved)</label>
+					</div>
+				</div>
+
+				<div>
+					<div id="paymentInfo" ng-show="content == 'card'">
+						<div class="billingInfo-row">
+							<p><label  class="label" for="Name on Card" class="active">Name on Card <span>*</span></label></p>
+							<input type="text" ng-model="form.nameoncard" ng-pattern="[a-zA-Z]" ng-minlength=3 ng-maxlength=20 required placeholder="Alex Turner">
+						</div>
+						<div class="billingInfo-row">
+							<p><label  class="label" for="Credit Card Type">Credit Card Type <span>*</span></label></p>
+							<input type="text" name="team" list="team_list" ng-model="form.cardtype" required>
+							<datalist id="team_list">
+								<option value="Visa">Visa</option>
+								<option value="Master Card">Master Card</option>
+							</datalist>
+						</div>
+						<div class="billingInfo-row">
+							<p><label  class="label" for="Credit Card Number">Credit Card Number <span>*</span></label></p>
+							<input type="text" x-autocompletetype="cc-number" maxlength="9" restrict-numeric card-number-validator card-number-formatter ng-model="form.cardnumber" ng-pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" required/>
+						</div>
+						
+						<div class="billingInfo-row year">
+							<p><label  class="label" for="Expiration date">Expiration Date <span>*</span></label></p>
+							<input name="mounth" list="mounth_list" ng-model="form.cardmounth" required>
+							<datalist id="mounth_list">
+								<option>01 (JAN)</option>
+								<option>02 (FEB)</option>
+								<option>03 (MAR)</option>
+								<option>04 (ARP)</option>
+								<option>05 (MAY)</option>
+								<option>06 (JUN)</option>
+								<option>07 (JUL)</option>
+								<option>08 (AUG)</option>
+								<option>09 (SEPT)</option>
+								<option>10 (OCT)</option>
+								<option>11 (NOV)</option>
+								<option>12 (DEC)</option>
+							</datalist>
+							<input name="year" list="year_list" ng-model="form.cardyear" required>
+							<datalist id="year_list">
+								<option value="2016"></option>
+								<option value="2017"></option>
+								<option value="2018"></option>
+								<option value="2019"></option>
+								<option value="2020"></option>
+								<option value="2021"></option>
+								<option value="2022"></option>
+								<option value="2023"></option>
+								<option value="2024"></option>
+								<option value="2025"></option>
+							</datalist>
+						</div>
+
+							<div class="billingInfo-row">
+								<p><label  class="label" for="Verification">Card Verification Number<span>*</span></label></p>
+								<input type="text" x-autocompletetype="cc-csc" restrict-numeric card-cvc-validator card-cvc-formatter ng-maxlength="4" ng-pattern="/\d*/" required/>
+							</div>
+						<!-- </div> -->
+					<div class="billingInfo-row full">	
+						<a href="#/checkout/step3"><input type="button" value="Continue" class="btn"></a>
+					</div>
+					</div>
+					
+				</div>
+				
+					
+				
+
+			</div>
+		</div>
+
+<a href="check-out-3.html"><div class="sectionHead cf"><span>3</span>Order Review</div></a>
+
+<script>
+// 	var thumbsUp = element(by.css('span.glyphicon-thumbs-up'));
+// 	var thumbsDown = element(by.css('span.glyphicon-thumbs-down'));
+
+// it('should first ng-show / ng-hide', function() {
+//   expect(thumbsUp.isDisplayed()).toBeFalsy();
+//   expect(thumbsDown.isDisplayed()).toBeTruthy();
+
+//   element(by.model('checked')).click();
+
+//   expect(thumbsUp.isDisplayed()).toBeTruthy();
+//   expect(thumbsDown.isDisplayed()).toBeFalsy();
+// });
+</script>
+	</div>	
