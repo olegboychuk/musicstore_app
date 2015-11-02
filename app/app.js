@@ -4,11 +4,14 @@ var app = angular.module( 'musicStore',['User','Albums','Cart','Genre']);
 app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){
 	console.log( "check controller " );
 	$scope.albums = [];
-
-	$scope.price = AlbumsFactory.getPrice(0);
-	console.log("$scope.$scope.price",$scope.price);
+	
+	$scope.getAlbums = function() {
+	   $scope.albums = AlbumsFactory.getAlbums();
+   };
+   
+   $scope.getAlbums();
      
-	// AlbumsFactory.getAlbums( 2 );
+	// var promise =  AlbumsFactory.getNext( 2 );
 	// promise.then(
 	//     function( payload ) {
 	//     	console.log("payload",payload);
@@ -19,8 +22,8 @@ app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, 
 	// 	   $log.error('failure loading albums', errorPayload);
 	// 	}
 	// );
-	// console.log("promise",promise);
+	console.log("promise",promise);
 
-   // $scope.albums = AlbumsFactory.getAlbums(2); 
-  // console.log("$scope.albums",$scope.albums);
+   // $scope.albums = AlbumsFactory.getAlbums(); 
+  console.log("$scope.albums",$scope.albums);
 });
