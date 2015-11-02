@@ -1,11 +1,17 @@
 "use strict";
-var app = angular.module( 'musicStore',['User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['ngRoute','User','Albums','Cart','Genre']);
 
-app.config(function( $routeProvider ){
+app.config(function( $routeProvider,$locationProvider ){
+
+ //    $routeProvider
+	// .when('/',{
+	// 	templateUrl:"_index1.html",
+	// 	controller:''
+	// });
 
 	$routeProvider
 	.when('/home',{
-		templateUrl:"Albums/_home.html",
+		templateUrl:"app/Albums/_home.html",
 		controller:'AlbumController'
 	});
 
@@ -14,6 +20,9 @@ app.config(function( $routeProvider ){
 		templateUrl:"_index1.html",
 		controller:''
 	});
+
+    $routeProvider
+	.otherwise({ redirectTo: '/' });
 });
 
 app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){
