@@ -18,18 +18,18 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 
 	AlbumsFactory.getAlbums = function (){
-		// var promise = deferred;
-		// console.log("promise",promise);
-		// promise.then(
-		//     function( payload ) {
-		//     	console.log("payload",payload);
-		//         Albums = payload;
-		//         console.log("$scope.albums",$scope.albums);
-		//     },
-		//     function(errorPayload) {
-		// 	   $log.error('failure loading albums', errorPayload);
-		// 	}
-		// )
+		var promise = deferred;
+		console.log("promise",promise);
+		promise.then(
+		    function( payload ) {
+		    	console.log("payload",payload);
+		        Albums = payload;
+		        console.log("$scope.albums",$scope.albums);
+		    },
+		    function(errorPayload) {
+			   $log.error('failure loading albums', errorPayload);
+			}
+		)
 			   return Albums;
 
 	};
