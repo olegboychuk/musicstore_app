@@ -49,7 +49,7 @@ class AlbumModel extends Model{
 	*/
 	public function getAlbums( $start ){
 
-		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 " );
+		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
 			//echo("SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 ");
 			$albums=array();
 		if( $result ){

@@ -1,5 +1,8 @@
 <main ng-controller="AlbumController">
-	
-<p>hello</p>
+	<div id ="head-albums" >
+		<div class="head-albums" ng-repeat="album in albums">{{album.album_name}}</div>	
+	</div>
+	<div id ="center-albums"></div>
+	<div id ="left-albums"></div>
 	
 </main>

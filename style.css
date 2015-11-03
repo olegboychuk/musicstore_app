@@ -143,6 +143,31 @@ aside{
     cursor: pointer;
 }
 
+
+
+/*------ HOME ------*/
+#view-route main #head-albums{
+   width: 100%;
+   height: 400px;
+}
+.head-albums:not(:first-child){
+    width: 200px;
+    height: 200px;
+    background: grey;
+    border:1px solid black;
+    float:left;
+    margin-left:10px;
+    position : relative;
+
+}
+.head-albums:first-child{
+    width: 400px;
+    height: 400px;
+    background: grey;
+    position : absolute;
+    clear:all;
+}
+
 /*____CHECKOUT____*/
 #content{
     width: 100%;
