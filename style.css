@@ -144,10 +144,10 @@ aside{
 }
 
 
-
 /*------ HOME ------*/
 #view-route main #head-albums{
-   width: 100%;
+   display: table;
+   width: 1200px;
    height: 400px;
 }
 .head-albums:not(:first-child){
@@ -156,16 +156,16 @@ aside{
     background: grey;
     border:1px solid black;
     float:left;
-    margin-left:10px;
-    position : relative;
+ /*   margin-left:100px;*/
+   position : absolute;
 
 }
 .head-albums:first-child{
     width: 400px;
     height: 400px;
     background: grey;
-    position : absolute;
-    clear:all;
+    position:relative;
+    clear:left;
 }
 
 /*____CHECKOUT____*/
