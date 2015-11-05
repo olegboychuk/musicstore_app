@@ -1,8 +1,11 @@
 <main ng-controller="AlbumController">
-	<div id ="head-albums" >
-		<div class="head-albums" ng-repeat="album in albums">{{album.album_name}}</div>	
+	<div id="head-albums">
+		<div class="head-albums"  ng-repeat="album in albums track by $index">{{album.album_name}}</div>	
 	</div>
-	<div id ="center-albums"></div>
-	<div id ="left-albums"></div>
-	
+	<div id ="center-albums">
+		<div class="center-albums"  ng-repeat="album in albums ">{{album.album_price}}</div>
+	</div>
+	<div id ="left-albums">
+		<div class= "left-albums" ng-repeat="album in albums ">{{album.album_artist}}</div>
+	</div>
 </main>

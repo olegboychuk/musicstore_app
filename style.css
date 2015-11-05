@@ -80,6 +80,7 @@ nav ul li{
 	height: 80px;
     width: auto;
     float: left;
+    margin-left: 32px;
 }
 
 .search{
@@ -98,17 +99,18 @@ img.logo{
 }
 
 
-/*   ----- ASIDE ----   
+   ----- ASIDE ----   
 aside{
 	padding:10px;
 }
-*/
+
 
 /* ------ CART ----- */
 #cart{
 	width: 302px;
     padding: 5px;
     background-color: #F0F0F0;
+    margin-left: 32px;
 }
 #cart h1{
 	width: 95%;
@@ -125,6 +127,8 @@ aside{
 	width: 302px;
     padding: 5px;
     background-color: #F0F0F0;
+    margin-left: 32px;
+    float: left;
 }
 
 #music-genre div{
@@ -143,30 +147,56 @@ aside{
     cursor: pointer;
 }
 
-
 /*------ HOME ------*/
 #view-route main #head-albums{
-   display: table;
-   width: 1200px;
-   height: 400px;
+   display:table;
+   width: 1216px;
+   margin: 0 auto;
 }
-.head-albums:not(:first-child){
+.head-albums{
     width: 200px;
     height: 200px;
     background: grey;
     border:1px solid black;
+    float:right;
+}
+.head-albums:nth-child(1){
+    width: 402px;
+    height: 402px;
+    background: red;
     float:left;
- /*   margin-left:100px;*/
-   position : absolute;
+    margin-left: 4px;
+}
+
+#center-albums{
+    float: right;
+    width: 742px;
+    margin-right: 178px;
+    height: 1000px;
+}
+.center-albums{
+    width: 200px;
+    height: 250px;
+    background: grey;
+    margin-left: 20px;
+    margin-top: 5px;
+    float: right;
+    border: 1px solid;
+}
+
+#left-albums{
+   width: 302px;
+   height: auto;
+   float:left;
+   margin-left:10px; 
+}
+.left-albums{
+    width: 200px;
+    height: 250px;
+    background: grey;
 
 }
-.head-albums:first-child{
-    width: 400px;
-    height: 400px;
-    background: grey;
-    position:relative;
-    clear:left;
-}
+
 
 /*____CHECKOUT____*/
 #content{
