@@ -125,11 +125,12 @@ aside{
 
 /* ------ GENRE ----- */
 #music-genre{
-	width: 302px;
+	width: 210px;
     padding: 5px;
     background-color: #F0F0F0;
-    margin-left: 32px;
-    float: left;
+    margin-left: 250px;
+    position: absolute;
+    margin-top: 20px;
 }
 
 #music-genre div{
@@ -170,35 +171,46 @@ albums{
     background: red;
     float:left;
     margin-left: 4px;
+    border: 1px solid black;
 }
 
 #center-albums{
     float: right;
     width: 742px;
     margin-right: 178px;
-    height: 1000px;
 }
 .center{
     width: 200px;
     height: 250px;
     background: grey;
-    margin-left: 20px;
-    margin-top: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
     float: right;
     border: 1px solid;
 }
 
 #left-albums{
-   width: 302px;
-   height: auto;
-   float:left;
-   margin-left:10px; 
+    width: 210px;
+    height: auto;
+    position: absolute;
+    margin-left: 264px;
+    margin-top: 315px;
 }
 .left{
     width: 200px;
     height: 250px;
     background: grey;
-
+    border: 1px solid black;
+    margin-top: 10px;
+}
+#backery{
+    width: 605px;
+    height: 20px;
+    padding: 10px;
+    margin-right: 177px;
+    background-color: #FFF;
+    float: right;
+    margin-top: 20px;
 }
 
 
