@@ -2,7 +2,6 @@
 AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var AlbumsFactory = {};
 	var Albums = [];
-	//var promise = getAlbums(1);
 	var urlBase = 'api/albums';
 	var loadedPages = 0;
 	var requestedPage = null;
@@ -12,25 +11,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		return Albums[albumIndex];
 	};
 
-    // AlbumsFactory.promiseAlbums = function(){
-	//  	return $http.get( urlBase );
-	// };
-
-
 	AlbumsFactory.getAlbums = function (){
 		var promise = deferred.promise;
-		// console.log("promise",promise);
-		// promise.then(
-		//     function( payload ) {
-		//     	console.log("payload",payload);
-		//         Albums = payload;
-		//     },
-		//     function(errorPayload) {
-		// 	   $log.error('failure loading albums', errorPayload);
-		// 	}
-		// )
-		// 	  	console.log("promiseAlbums",Albums);
-		
 	    return promise;
 	};
 
@@ -65,19 +47,6 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	}
 
 	AlbumsFactory.getNext();
-
-	// function getAlbums(){
-	// 	connectToAlbums()
-
-	// 	.success(function(albums){
-	// 		Albums = albums;
-	// 		console.log("Albums",Albums);
-	// 	});
-	// }
-	// getAlbums();
-
-	console.log("AlbumsFactory",AlbumsFactory);
 	
-
 	return AlbumsFactory;
 });

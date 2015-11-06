@@ -3,11 +3,11 @@ var app = angular.module( 'musicStore',['ngRoute','User','Albums','Cart','Genre'
 
 app.config(function( $routeProvider,$locationProvider ){
 
- //    $routeProvider
-	// .when('/',{
-	// 	templateUrl:"_index1.html",
-	// 	controller:''
-	// });
+    $routeProvider
+	.when('/',{
+		templateUrl:"_index1.html",
+		controller:''
+	});
 
 	$routeProvider
 	.when('/home',{

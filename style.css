@@ -107,6 +107,7 @@ aside{
 
 /* ------ CART ----- */
 #cart{
+    display:block;
 	width: 302px;
     padding: 5px;
     background-color: #F0F0F0;
@@ -153,14 +154,17 @@ aside{
    width: 1216px;
    margin: 0 auto;
 }
-.head-albums{
+albums{
+    /*padding: 10px;*/
+}
+.head:nth-child(1n+2){
     width: 200px;
     height: 200px;
     background: grey;
     border:1px solid black;
-    float:right;
+    float:left;
 }
-.head-albums:nth-child(1){
+.head:nth-child(1){
     width: 402px;
     height: 402px;
     background: red;
@@ -174,7 +178,7 @@ aside{
     margin-right: 178px;
     height: 1000px;
 }
-.center-albums{
+.center{
     width: 200px;
     height: 250px;
     background: grey;
@@ -190,7 +194,7 @@ aside{
    float:left;
    margin-left:10px; 
 }
-.left-albums{
+.left{
     width: 200px;
     height: 250px;
     background: grey;
