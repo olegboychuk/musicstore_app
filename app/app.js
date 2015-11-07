@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['ngRoute','User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albums','Cart','Genre']);
 
 app.config(function( $routeProvider,$locationProvider ){
 

@@ -1,42 +1,26 @@
 
 AlbumsModule.controller( 'AlbumController',function( $log,$http,$scope,AlbumsFactory ){
-	
 
-	// $scope.myCart = myCart;
-	// console.log("$scope.myCart",$scope.myCart);
 	$scope.albums = [];
+    $scope.loading = false;
 
-	var getAlbums = AlbumsFactory.getAlbums();
-	    $scope.myCart=false;
-	    getAlbums.then( function( data ){
-	  	$scope.albums = data.albums;
-	  	console.log(" albums[i]", $scope.albums);
-  	    });
+    $scope.loadAlbums = function(){
+		var getAlbums = AlbumsFactory.getNextPage();
+		getAlbums.then( function( data ){
+		  	$scope.albums = data.albums;
+		  	console.log( "albums[i]", $scope.albums );
+	  	});
+	}
+    $scope.loadAlbums();
 
 
-	//  var albums = [];
-	//  $scope.headAlbums = [];
-	
-	// var getAlbums = AlbumsFactory.getAlbums();
-	//     getAlbums.then( function( data ){
-	//   	albums = data.albums;
-	//   	console.log("albums0",albums[2]);
-	//   	var headAlbums = [];
-	//   	for (var i = 0; i<albums.length; i++) {
-	//   		console.log(" albums[i]", albums[i]);
-
-	//   		 $scope.headAlbums.push(albums[i]);	
- //  	    };
-  	     
- //  	    console.log("$scope.headAlbums",$scope.headAlbums);
-	//   	console.log("albums",albums);
-	//   });
-
-	// var showHeadAlbums = function(){	  	
-	//   	getAlbums.then( function( data ){
-	// 	  	albums = data.albums;
-		  	
-	//     });    
-	// }
-	// showHeadAlbums();
+    $scope.loadMore = function() {
+    	$scope.loading = true;
+	    var last = $scope.albums [$scope.albums.length - 1];
+	    console.log(" last[i]", last);
+	    for(var i = 1; i <= 2; i++) {
+	    	$scope.loadAlbums();
+	        $scope.albums.push(last + i);
+	    }
+   };
 });

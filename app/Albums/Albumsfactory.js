@@ -11,14 +11,26 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		return Albums[albumIndex];
 	};
 
-	AlbumsFactory.getAlbums = function (){
-		var promise = deferred.promise;
-	    return promise;
-	};
+	// AlbumsFactory.getNextAlbums = function(){		
+	// 	var promise = deferred.promise;
+	// 	promise.then( function( data ){
+	// 	  	Albums = data.albums;
+	// 	  	console.log(" Albums22",Albums);			
+ //  	   		console.log(" Albums22",Albums);
+ //  	    return Albums;	
+ //  	    });	
+	// } 
 
-	AlbumsFactory.getNext = function (){
+	// AlbumsFactory.getAlbums = function (){
+	// 	var promise = deferred.promise;
+	//     return promise;
+	// };
+
+	AlbumsFactory.getNextPage = function (){
+
 		if( requestedPage !== null){
             return deferred.promise;
+            console.log( "requestedPage1",requestedPage);
 		}
 
     	deferred = $q.defer();
@@ -31,22 +43,22 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		        loadedPages++;
 		        console.log("loadedPages",loadedPages);
 		        deferred.resolve({
-			       // album: data.result.albums[0].album_price,
 			        albums: data.result.albums 
 			    })
-			     Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
 			    console.log("data.result.albums",data.result.albums);
-			    console.log("startAlbums",Albums);
+			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
+			    console.log("albums.splice",Albums);
 		    })
 			.error( function(msg, code) {
 			    deferred.reject(msg);
 			    $log.error(msg, code);
 			})
+
 			console.log("deferred.promise",deferred.promise);
             return deferred.promise;
 	}
 
-	AlbumsFactory.getNext();
+	AlbumsFactory.getNextPage();
 	
 	return AlbumsFactory;
 });

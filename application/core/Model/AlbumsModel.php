@@ -4,6 +4,8 @@ require_once dirname(__FILE__).'/Model.php';
 
 class AlbumModel extends Model{
 	
+
+
 	/**
 	/*public function __construct
 	/*	hold connection  with DB
@@ -31,17 +33,51 @@ class AlbumModel extends Model{
 	/*public function getAl
 	/*	FETCH ALL ALBUMS FROM DB
 	*/
-	public function getAl(){
-		$result = $this->_db->query( "SELECT * FROM albums");
+	//public function getAl(){
+	// 	$result = $this->_db->query( "SELECT * FROM albums");
+    // SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id
+    //                               join images as i ON ia.image_id = i.image_id
 
-		if( result ){
-			$albums=array();
-			while ( $row = $result->fetch_assoc() ) 
-			    $albums[]=$row;
+
+	// 	if( result ){
+	// 		$albums=array();
+	// 		while ( $row = $result->fetch_assoc() ) 
+	// 		    $albums[]=$row;
 			
-			return $albums;
+	// 		return $albums;
+	// 	}
+	// }
+		/**
+	/*private function getImages
+	/*	FETCH IMAGES OF ALBUMS FROM DB
+	*/
+	private function getImages( $albums ){
+		
+		foreach ( $albums as $value ) {
+			$id = $value[album_id];
+				//var_dump( $id );
+				// var_dump( $albums );				
+				// var_dump( $album_id );
+				// $x=explode('array',$album_id);
+				// print_r($x);
+		    $succes = $this->_db->query(" SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
+                                  join images as i ON ia.image_id = i.image_id ");
+	       //$succes = $this->_db->query( "SELECT image_id FROM images_to_albums WHERE album_id = $id" );
+			echo " SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
+                                  join images as i ON ia.image_id = i.image_id ";
+			var_dump( $succes );
+			
+			if ( $succes ) {
+				
+				while ( $row = $succes->fetch_assoc() ) {
+					var_dump($row);
+					//$result = $this->_db->query("SELECT ")
+				}
+			}
+
 		}
 	}
+
 
      /**
 	/*public function getAlbums
@@ -50,16 +86,16 @@ class AlbumModel extends Model{
 	public function getAlbums( $start ){
 
 		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
-			//echo("SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 2 ");
+			
 			$albums=array();
 		if( $result ){
 
-			while ($row = $result->fetch_assoc()) 
-			    $albums[]=$row;
+			while ($row = $result->fetch_assoc() ) 
+			    $albums[]=$row;	   
 			}
+			//$this->getImages( $albums );
 			return $albums;
-		}
-	
+		}	
 
 	/**
 	/*public function getDetailsAlbum
@@ -71,7 +107,7 @@ class AlbumModel extends Model{
 			
 		if(result){
 			$album_details=array();
-			while ($row = $result->fetch_assoc()) 
+			while ( $row = $result->fetch_assoc() ) 
 			    $albums[]=$row;
 			
 			return $album_details;
@@ -106,7 +142,10 @@ class AlbumModel extends Model{
 			return true;
 		}
 	}
-
 }
 
+// $db = new AlbumModel();
+
+// $albums= $db->getAlbums(0);
+// var_dump($albums);
 ?>

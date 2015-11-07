@@ -1,12 +1,18 @@
 <main ng-controller="AlbumController">
+
 	<div id="head-albums">
 		<div class="head albums"  ng-repeat="album in albums | limitTo : 9: 0 track by $index ">{{album.album_name }}</div>	
 	</div>
+
 	<div id="backery"><p>New Products</p></div>
-	<div id ="center-albums">
-		<div class="center albums"  ng-repeat="album in albums | limitTo :12 :0 track by $index">{{album.album_name}}</div>
+	<div infinite-scroll="loadMore()" infinite-scroll-distance='20'>
+		<div id ="center-albums">
+			<div class="center albums"  ng-repeat="album in albums | limitTo :12 :0 track by $index">{{album.album_name}}</div>
+		</div>
 	</div>
+
 	<div id ="left-albums">
 		<div class= "left albums" ng-repeat="album in albums | limitTo :2 :0 track by $index ">{{album.album_artist}}</div>
 	</div>
+
 </main>

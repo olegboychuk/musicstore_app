@@ -61,7 +61,7 @@ nav ul li:hover, nav ul li:focus, nav ul li:active{
     color: white;
 }
 nav ul li:hover:before, nav ul li:focus:before, nav ul li:active:before {
-    transform: scaleY(1);
+    transform: scaleY(2);
 }
 nav ul li:first-child{
     margin-left: 15px;
