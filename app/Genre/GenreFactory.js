@@ -1,5 +1,5 @@
-GenreModule.factory( 'GenreFactory',function(  ){
-    //var urlBase = 'api/genre';
+GenreModule.factory( 'GenreFactory', [ $scope, $http, function( $scope, $http ){
+    var urlBase = 'api/genre';
     var GenreFactory = {};
     var genres = ['Alternative', 'Blues', 'Box sets', 'Classical', 'Country', 'Dance', 'Heavy metal', 'Jazz', 'Rock-pop'];
 
@@ -21,6 +21,15 @@ GenreModule.factory( 'GenreFactory',function(  ){
     };
 
     GenreFactory.getAllGenres = function() {
+        $http.get("application/core/Model/GenresModel.php")
+            .success(function(data){
+                $scope.data = data;
+                console.log("getAllGenresSuccess");
+            })
+            .error(function(){
+                $scope.data = "error in fetching data";
+            });
+
         console.log("genres",genres);
         return genres;
     };
@@ -28,5 +37,5 @@ GenreModule.factory( 'GenreFactory',function(  ){
 
     return GenreFactory;
 
-});
+}]);
 
