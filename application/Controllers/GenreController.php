@@ -1,5 +1,5 @@
 <?php
-require_once dirname (__FILE__). '/../core/Model/GenreModel.php';
+require_once dirname (__FILE__). '/../core/Model/GenresModel.php';
 require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 
 class GenreController extends Controller{
@@ -7,12 +7,12 @@ class GenreController extends Controller{
 
     public function __construct()
     {
-        $this->model = new GenreController();
+        $this->model = new GenreModel();
     }
 
     /**
-     * /*public function getAllGenres
-     * /*    FETCH ALL GENRES FROM DB
+     /*public function getAllGenres
+     /*FETCH ALL GENRES FROM DB
      */
     public function getAllGenres()
     {

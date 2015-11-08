@@ -11,7 +11,7 @@ AlbumsModule.controller( 'AlbumController',function( $log,$http,$scope,AlbumsFac
 		  	console.log( "albums[i]", $scope.albums );
 	  	});
 	}
-    $scope.loadAlbums();
+    // $scope.loadAlbums();
 
 
     $scope.loadMore = function() {

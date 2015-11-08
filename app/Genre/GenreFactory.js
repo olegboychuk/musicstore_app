@@ -1,8 +1,8 @@
-GenreModule.factory( 'GenreFactory', [ $scope, $http, function( $scope, $http ){
-    var urlBase = 'api/genre';
+GenreModule.factory( 'GenreFactory',  function(  $http ){
+    var urlBase = 'api/genres';
     var GenreFactory = {};
-    var genres = ['Alternative', 'Blues', 'Box sets', 'Classical', 'Country', 'Dance', 'Heavy metal', 'Jazz', 'Rock-pop'];
-
+   // var genres = ['Alternative', 'Blues', 'Box sets', 'Classical', 'Country', 'Dance', 'Heavy metal', 'Jazz', 'Rock-pop'];
+    var Genres = [];
 
     function addGenre( genreIndex ){
         genres.push( genreIndex )
@@ -20,22 +20,37 @@ GenreModule.factory( 'GenreFactory', [ $scope, $http, function( $scope, $http ){
         removeGenre( genreIndex );
     };
 
-    GenreFactory.getAllGenres = function() {
-        $http.get("application/core/Model/GenresModel.php")
+      GenreFactory.getAllGenres = function() {
+        $http.get(urlBase)
             .success(function(data){
-                $scope.data = data;
-                console.log("getAllGenresSuccess");
+                Genres = data.result.genres;
+                console.log("getAllGenresSuccess",Genres);
             })
             .error(function(){
-                $scope.data = "error in fetching data";
+                Genres = "error in fetching data";
             });
 
-        console.log("genres",genres);
-        return genres;
+        console.log("genres",Genres);
+        return Genres;
     };
+
+    // GenreFactory.getAllGenres = function() {
+    //     $http.get("application/core/Model/GenresModel.php")
+    //         .success(function(data){
+    //             console.log("getAllGenresSuccess",Genres);
+    //             Genres = data;
+    //             console.log("getAllGenresSuccess",Genres);
+    //         })
+    //         .error(function(){
+    //             Genres = "error in fetching data";
+    //         });
+
+    //     console.log("genres",Genres);
+    //     return Genres;
+    // };
 
 
     return GenreFactory;
 
-}]);
+});
 

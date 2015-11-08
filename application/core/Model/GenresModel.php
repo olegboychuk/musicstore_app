@@ -19,16 +19,14 @@ class GenreModel extends Model{
     public function getAllGenres(){
         $query = $this->_db->query("SELECT * FROM genres ");
 
-        $results = $this->_db->query($query);
+        // $results = $this->_db->query($query);
         $genres = array();
 
         if($query){
-
-            while ($row = $results->fetch_assoc())
+            while ($row = $query->fetch_assoc())
                 $genres[] = $row;
-
         }
-
+       // print_r($genres);
         return $genres;
     }
 
@@ -46,7 +44,6 @@ class GenreModel extends Model{
             $genre = $row;
 
         }
-
         return $genre;
     }
 
