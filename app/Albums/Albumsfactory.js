@@ -43,7 +43,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		        loadedPages++;
 		        console.log("loadedPages",loadedPages);
 		        deferred.resolve({
-			        albums: data.result.albums 
+			        Albums: data.result.albums 
 			    })
 			    console.log("data.result.albums",data.result.albums);
 			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
