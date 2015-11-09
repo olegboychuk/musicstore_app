@@ -3,8 +3,6 @@
 require_once dirname(__FILE__).'/Model.php';
 
 class AlbumModel extends Model{
-	
-
 
 	/**
 	/*public function __construct
@@ -55,17 +53,13 @@ class AlbumModel extends Model{
 		
 		foreach ( $albums as $value ) {
 			$id = $value[album_id];
-				//var_dump( $id );
-				// var_dump( $albums );				
-				// var_dump( $album_id );
-				// $x=explode('array',$album_id);
-				// print_r($x);
+				
 		    $succes = $this->_db->query(" SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
                                   join images as i ON ia.image_id = i.image_id ");
 	       //$succes = $this->_db->query( "SELECT image_id FROM images_to_albums WHERE album_id = $id" );
 			echo " SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
                                   join images as i ON ia.image_id = i.image_id ";
-			var_dump( $succes );
+			//var_dump( $succes );
 			
 			if ( $succes ) {
 				
@@ -85,7 +79,7 @@ class AlbumModel extends Model{
 	*/
 	public function getAlbums( $start ){
 
-		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 9 " );
+		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 23 " );
 			
 			$albums=array();
 		if( $result ){

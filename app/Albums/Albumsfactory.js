@@ -21,10 +21,10 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
  //  	    });	
 	// } 
 
-	// AlbumsFactory.getAlbums = function (){
-	// 	var promise = deferred.promise;
-	//     return promise;
-	// };
+	AlbumsFactory.getAlbums = function (){
+		var promise = deferred.promise;
+	    return promise;
+	};
 
 	AlbumsFactory.getNextPage = function (){
 

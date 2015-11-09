@@ -155,8 +155,11 @@ aside{
    width: 1216px;
    margin: 0 auto;
 }
-albums{
-    /*padding: 10px;*/
+.albums{
+    width: 200px;
+    height: 250px;
+    background: grey;
+    border: 1px solid;
 }
 .head:nth-child(1n+2){
     width: 200px;
@@ -176,17 +179,17 @@ albums{
 
 #center-albums{
     float: right;
-    width: 742px;
+    width: 636px;
     margin-right: 178px;
 }
 .center{
-    width: 200px;
+   /* width: 200px;
     height: 250px;
-    background: grey;
+    background: grey;*/
     margin-left: 10px;
     margin-top: 10px;
     float: right;
-    border: 1px solid;
+   /* border: 1px solid;*/
 }
 
 #left-albums{
@@ -197,11 +200,25 @@ albums{
     margin-top: 315px;
 }
 .left{
+    /*width: 200px;
+    height: 250px;
+    background: grey;*/
+    /*border: 1px solid black;*/
+    margin-top: 10px;
+}
+#page{
+    float: right;
+    width: 636px;
+    margin-right: 178px;
+}
+.page{
+    display: inline-table;
     width: 200px;
     height: 250px;
     background: grey;
-    border: 1px solid black;
+    border: 1px solid;
     margin-top: 10px;
+    margin-left: 10px;
 }
 #backery{
     width: 605px;
