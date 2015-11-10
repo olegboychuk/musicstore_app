@@ -49,24 +49,20 @@ class AlbumModel extends Model{
 	/*private function getImages
 	/*	FETCH IMAGES OF ALBUMS FROM DB
 	*/
-	private function getImages( $albums ){
-		
+	private function getImages( $albums,$start ){
+		$fullalbums=array();
+
 		foreach ( $albums as $value ) {
 			$id = $value[album_id];
 				
-		    $succes = $this->_db->query(" SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
-                                  join images as i ON ia.image_id = i.image_id ");
-	       //$succes = $this->_db->query( "SELECT image_id FROM images_to_albums WHERE album_id = $id" );
-			echo " SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = $id
-                                  join images as i ON ia.image_id = i.image_id ";
-			//var_dump( $succes );
+		    $succes = $this->_db->query(" SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.image_id
+                                  join images as i ON ia.image_id = i.image_id ORDER BY album_created DESC LIMIT  $start, 23");
 			
-			if ( $succes ) {
-				
+			if ( $succes ) {			
 				while ( $row = $succes->fetch_assoc() ) {
-					var_dump($row);
-					//$result = $this->_db->query("SELECT ")
+					$fullalbums[]=$row;
 				}
+				return $fullalbums;
 			}
 
 		}
@@ -87,8 +83,8 @@ class AlbumModel extends Model{
 			while ($row = $result->fetch_assoc() ) 
 			    $albums[]=$row;	   
 			}
-			//$this->getImages( $albums );
-			return $albums;
+			
+			return $this->getImages( $albums,$start );
 		}	
 
 	/**

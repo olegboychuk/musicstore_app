@@ -229,7 +229,10 @@ aside{
     float: right;
     margin-top: 20px;
 }
-
+.busy{
+    position:fixed;
+    
+}
 
 /*____CHECKOUT____*/
 #content{

@@ -30,7 +30,6 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 		if( requestedPage !== null){
             return deferred.promise;
-            console.log( "requestedPage1",requestedPage);
 		}
 
     	deferred = $q.defer();
@@ -43,7 +42,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		        loadedPages++;
 		        console.log("loadedPages",loadedPages);
 		        deferred.resolve({
-			        Albums: data.result.albums 
+			        albums: data.result.albums 
 			    })
 			    console.log("data.result.albums",data.result.albums);
 			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
@@ -53,12 +52,10 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 			    deferred.reject(msg);
 			    $log.error(msg, code);
 			})
-
-			console.log("deferred.promise",deferred.promise);
             return deferred.promise;
 	}
 
-	AlbumsFactory.getNextPage();
+	//AlbumsFactory.getNextPage();
 	
 	return AlbumsFactory;
 });

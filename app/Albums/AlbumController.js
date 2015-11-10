@@ -19,14 +19,9 @@ AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory )
 
         var getAlbums = AlbumsFactory.getNextPage();
         getAlbums.then( function( data ){
-		  	var albums = data.Albums;
+		  	var albums = data.albums;
 		  	console.log("albums000",albums);
 		    for(var i = 0; i< albums.length; i++) {	
-		       console.log("$scope.albums.length",$scope.albums.length);
-		       console.log("$scope.albums",$scope.albums);    		        
-		       console.log("i",i);
-		       console.log("albums111",albums);
-		       console.log("albums[i]",albums[i]);
 		       $scope.albums.push(albums[i]); 
 		       console.log("$scope.albums333",$scope.albums);        
 		    }
