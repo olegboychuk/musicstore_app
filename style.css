@@ -155,6 +155,23 @@ aside{
    width: 1216px;
    margin: 0 auto;
 }
+main .info-head{
+    width: 100%;
+    height: 25%;
+    background: rgba(0, 0, 0, 1);
+    margin-top: -17px;
+    position: relative;
+}
+main .info-head p.head-name{
+    color:white;
+    font-size:16px;
+}
+main .info-head p.head-artist{
+    color:red;
+    font-size:14px;
+}
+
+
 .albums{
     width: 200px;
     height: 250px;
@@ -162,6 +179,10 @@ aside{
     border: 1px solid;
     overflow:hidden;
 }
+.albums img,.page img{
+    width: 100%;
+}
+
 .head:nth-child(1n+2){
     width: 200px;
     height: 200px;
@@ -183,35 +204,65 @@ aside{
 .head img{
     width: 100%;
 }
-#head-albums #info-head{
-    width: 100%;
-    height: 30%;
-    background: rgba(0, 0, 0, 0.5)
-    margin-top: -63px;
+.head:nth-child(1n+2) div{
+   /* width: 100%;
+    height: 25%;*/
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: -53px;
     position: relative;
 }
-#head-albums p.head-name{
-    color:white;
-    font-size:18px;
+.head:nth-child(1) div{
+    width: 100%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: -83px;
+    position: relative;
 }
-#head-albums p.head-artist{
+
+.head:nth-child(1n+2) p.head-name{
+    color:white;
+    font-size:17px;
+    position: absolute;
+    left: 0;
+    padding: 5px;
+}
+.head:nth-child(1n+2) p.head-artist{
+    color:red;
+    font-size:15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+}
+
+.head:nth-child(1) p.head-name{
+    color:white;
+    font-size:22px;
+    position: absolute;
+    left: 0;
+    padding: 5px;
+}
+.head:nth-child(1) p.head-artist{
     color:red;
     font-size:18px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
 }
+
+
 #center-albums{
     float: right;
     width: 636px;
     margin-right: 178px;
 }
 .center{
-   /* width: 200px;
-    height: 250px;
-    background: grey;*/
     margin-left: 10px;
     margin-top: 10px;
     float: right;
-   /* border: 1px solid;*/
 }
+
 
 #left-albums{
     width: 210px;
@@ -221,12 +272,10 @@ aside{
     margin-top: 315px;
 }
 .left{
-    /*width: 200px;
-    height: 250px;
-    background: grey;*/
-    /*border: 1px solid black;*/
     margin-top: 10px;
 }
+
+
 #page{
     float: right;
     width: 636px;
@@ -241,6 +290,7 @@ aside{
     margin-top: 10px;
     margin-left: 10px;
 }
+
 #backery{
     width: 605px;
     height: 20px;
@@ -250,6 +300,7 @@ aside{
     float: right;
     margin-top: 20px;
 }
+
 .busy{
     position:fixed;
     

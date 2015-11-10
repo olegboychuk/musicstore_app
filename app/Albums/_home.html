@@ -1,27 +1,32 @@
 <main ng-controller="AlbumController">
 
 	<div id="head-albums">
-		<div class="head"  ng-repeat="album in albums | limitTo : 9: 0 track by $index ">
+		<div class="head" ng-repeat="album in albums | limitTo : 9: 0 track by $index ">
 			<img ng-src="Images/{{album.image_path}}" alt="">		
-			<div id="info-head">
-			    <p class="head-name">{{album.album_name}}</p>
-				<p class="head-artist">{{album.album_artist}}</p>
+			<div class="info-head">
+			    <p class="head-name">{{album.album_name | limitTo:25 }}</p>
+				<p class="head-artist">{{album.album_artist }}</p>
 			</div>		
 		</div>	
 	</div>
 
 	<div id="backery"><p>New Products</p></div>
-		<div id ="center-albums">
-			<div class="center albums"  ng-repeat="album in albums | limitTo :12 :12 track by $index">
-				<img ng-src="Images/{{album.image_path}}" alt="">				
-				{{album.album_artist}}
-			</div>
+	
+	<div id ="center-albums">
+		<div class="center albums"  ng-repeat="album in albums | limitTo :12 :12 track by $index">
+			<img ng-src="Images/{{album.image_path}}" alt="">				
+			<div class="info-head">
+			    <p class="head-name">{{album.album_name}}</p>
+		    </div>
 		</div>
+	</div>
 	
 	<div id ="left-albums">
 		<div class= "left albums" ng-repeat="album in albums | limitTo :2 :10 track by $index ">
 			<img ng-src="Images/{{album.image_path}}" alt="">
-			{{album.album_artist}}
+			<div class="info-head">
+			    <p class="head-name">{{album.album_name}}</p>
+		    </div>
 		</div>
 	</div>
 
@@ -30,6 +35,9 @@
 		<div id="page">
 		    <div class="page" ng-repeat="album in albums  track by $index">
 				<img ng-src="Images/{{album.image_path}}" alt="">
+		        <div class="info-head">
+				    <p class="head-name">{{album.album_name}}</p>
+		        </div>
 		    </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 
-AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory ){
+AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory){
     $scope.busy = false;
 	$scope.albums = [];
     $scope.loading = false;
