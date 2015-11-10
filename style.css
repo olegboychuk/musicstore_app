@@ -160,6 +160,7 @@ aside{
     height: 250px;
     background: grey;
     border: 1px solid;
+    overflow:hidden;
 }
 .head:nth-child(1n+2){
     width: 200px;
@@ -176,7 +177,25 @@ aside{
     margin-left: 4px;
     border: 1px solid black;
 }
-
+.head:nth-child(1) img{
+    width: 100%;
+}
+.head img{
+    width: 100%;
+}
+#head-albums #info-head{
+    width: 100%;
+    height: 30%;
+    background: rgba(0, 0, 0, 0.5)
+}
+#head-albums p.head-name{
+    color:white;
+    font-size:18px;
+}
+#head-albums p.head-artist{
+    color:red;
+    font-size:18px;
+}
 #center-albums{
     float: right;
     width: 636px;

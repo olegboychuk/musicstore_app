@@ -21,11 +21,11 @@ AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory )
         getAlbums.then( function( data ){
 		  	var albums = data.albums;
 		  	console.log("albums000",albums);
-		    for(var i = 0; i< albums.length; i++) {	
+		    for(var i = 0; i<albums.length; i++) {	
 		       $scope.albums.push(albums[i]); 
 		       console.log("$scope.albums333",$scope.albums);        
 		    }
 		    $scope.busy = false;
-	   });	    
-   };
+	    });	    
+    };
 });

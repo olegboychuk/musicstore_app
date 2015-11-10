@@ -34,28 +34,26 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
     	deferred = $q.defer();
 		requestedPage = loadedPages;
-				console.log( "requestedPage",requestedPage);
-		$http.get( urlBase +'/:'+ requestedPage )
 
-		    .success( function( data ) {	        
+		$http.get( urlBase +'/:'+ requestedPage )
+		    .success( function( data ) {
+
 		        requestedPage = null;
 		        loadedPages++;
-		        console.log("loadedPages",loadedPages);
+
 		        deferred.resolve({
 			        albums: data.result.albums 
 			    })
-			    console.log("data.result.albums",data.result.albums);
-			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );
-			    console.log("albums.splice",Albums);
+			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );	
 		    })
 			.error( function(msg, code) {
 			    deferred.reject(msg);
 			    $log.error(msg, code);
 			})
-            return deferred.promise;
+        return deferred.promise;
 	}
 
-	//AlbumsFactory.getNextPage();
+	AlbumsFactory.getNextPage();
 	
 	return AlbumsFactory;
 });
