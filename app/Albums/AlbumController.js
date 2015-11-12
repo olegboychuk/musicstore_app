@@ -12,15 +12,20 @@ AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory){
 	// }
  //    $scope.loadAlbums();
 
-    $scope.loadMore = function() {
+    $scope.loadMore = function( indexAlbum ) {
+    	if(!indexAlbum){
+    		console.log("indexAlbum",indexAlbum);
+    	}
+
     	if ($scope.busy)  return;
     	//$scope.loading = true;
         $scope.busy = true;
 
-        var getAlbums = AlbumsFactory.getNextPage();
+        var getAlbums = AlbumsFactory.getNextPage( );
         getAlbums.then( function( data ){
 		  	var albums = data.albums;
-             console.log("albums.length",albums.length);
+            console.log("albums.length",albums.length);
+            console.log("albums.length",$scope.albums.length);
 		    for(var i = 0; i<albums.length; i++) {	
 		       console.log("albums.length",albums.length);
 		       $scope.albums.push( albums[i] ); 
@@ -32,8 +37,8 @@ AlbumsModule.controller( 'AlbumController',function( $log,$scope,AlbumsFactory){
 	    });	    
     };
 
-    $scope.chooseAlbum = function (indexAllbum){
-    	var album = AlbumsFactory.getAlbumDetails(indexAllbum);
+    $scope.selectAlbum = function ( indexAlbum ){
+    	var album = AlbumsFactory.getAlbumDetails( indexAlbum );
     }
 
 });

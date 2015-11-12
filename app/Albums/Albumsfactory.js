@@ -28,8 +28,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	    return promise;
 	};
 
-	AlbumsFactory.getNextPage = function (){
-
+	AlbumsFactory.getNextPage = function (  ){
+		console.log("requestedPage",requestedPage);
 		if( requestedPage !== null){
             return deferred.promise;
 		}
