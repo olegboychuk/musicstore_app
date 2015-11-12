@@ -49,24 +49,24 @@ class AlbumModel extends Model{
 	/*private function getImages
 	/*	FETCH IMAGES OF ALBUMS FROM DB
 	*/
-	private function getImages( $albums,$start ){
-		$fullalbums=array();
+	// private function getImages( $albums,$start ){
+	// 	$fullalbums=array();
 
-		foreach ( $albums as $value ) {
-			$id = $value[album_id];
+	// 	foreach ( $albums as $value ) {
+	// 		$id = $value[album_id];
 				
-		    $succes = $this->_db->query(" SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.image_id
-                                  join images as i ON ia.image_id = i.image_id ORDER BY album_created DESC LIMIT  $start, 23");
+	// 	    $succes = $this->_db->query(" SELECT * FROM albums as a JOIN images_to_albums as ia ON a.album_id = ia.image_id
+ //                                  JOIN images as i ON ia.image_id = i.image_id ");
 			
-			if ( $succes ) {			
-				while ( $row = $succes->fetch_assoc() ) {
-					$fullalbums[]=$row;
-				}
-				return $fullalbums;
-			}
+	// 		if ( $succes ) {			
+	// 			while ( $row = $succes->fetch_assoc() ) {
+	// 				$fullalbums[]=$row;
+	// 			}
+	// 			return $fullalbums;
+	// 		}
 
-		}
-	}
+	// 	}
+	// }
 
 
      /**
@@ -74,8 +74,9 @@ class AlbumModel extends Model{
 	/*	FETCH GROUP ALBUMS FOR FIRST GET FROM DB????
 	*/
 	public function getAlbums( $start ){
-
-		$result = $this->_db->query( "SELECT * FROM albums ORDER BY album_created DESC LIMIT  $start, 23 " );
+		var_dump($start);
+		$result = $this->_db->query( " SELECT * FROM albums as a JOIN images_to_albums as ia ON a.album_id = ia.image_id
+                                  JOIN images as i ON ia.image_id = i.image_id  ORDER BY album_created DESC LIMIT  $start, 23 " );
 			
 			$albums=array();
 		if( $result ){
@@ -134,8 +135,8 @@ class AlbumModel extends Model{
 	}
 }
 
-// $db = new AlbumModel();
+$db = new AlbumModel();
 
-// $albums= $db->getAlbums(0);
-// var_dump($albums);
+$albums= $db->getAlbums(1);
+var_dump($albums);
 ?>

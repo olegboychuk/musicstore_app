@@ -25,7 +25,7 @@ app.config(function( $routeProvider,$locationProvider ){
 
 	$routeProvider
 	.when('/album/:id',{
-		templateUrl:"_index1.html",
+		templateUrl:"_album.html",
 		controller:''
 	});
 

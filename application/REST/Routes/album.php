@@ -14,10 +14,10 @@ $app->get('/albums/:start',function( $start ) use ( $album, $app ){
 	echo json_encode( $al ); 
 });
 
-$app->get('/albums/',function(  ) use ( $album ){
-	$al=$album->getAl();
+$app->get('/album/:id',function( $id ) use ( $album ){
+	$album=$album->getDetailsAlbum( $id );
 	
-	echo json_encode( $al ); 
+	echo json_encode( $album ); 
 });
 
 $app->post('',function() use ( $album ){

@@ -8,6 +8,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var deferred = null;
 
 	AlbumsFactory.getAlbumDetails = function( albumIndex ){		
+		
+
 		return Albums[albumIndex];
 	};
 
@@ -44,7 +46,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		        deferred.resolve({
 			        albums: data.result.albums 
 			    })
-			    Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );	
+			  //  Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );	
 		    })
 			.error( function(msg, code) {
 			    deferred.reject(msg);
