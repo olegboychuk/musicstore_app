@@ -38,12 +38,36 @@
 		<div id="newCostumers" class="regFile">
 			<header>NEW COSTUMERS</header>
 			<p>By creating an account in our store, you will able to move throught the checkout process faster, store multiple shipping adresses, view and truck your ordersin your account and more.</p>
-			<input type="button" class="btn reg" value="Create an Account">
+			<input type="button" id="createAccount" ng-click="" class="btn reg" value="Create an Account">
 		</div>
 		<div id="registrCostumers" class="regFile">
 			<header>REGISTERED COSTUMERS</header>
+			<p>If you have an account with us, please log in.</p>
+			
+			<label for="email">Email Address<span>*</span></label>
+			<input type="email" name="email" id="email">
+
+			<label for="pass">Password<span>*</span></label>
+			<input type="password" name="pass" id="pass">
+
+			<input type="button" value="Login" id="loginBtn"  class="btn log">
+		</div>
+		<div id="registr">
+			<h2>Registration <p>X</p></h2>
+
+			<label>Profile Informations</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name">
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name">
+
+			<label>Login Datas</label>
+			<input type="email" name="email" id="email" placeholder="E-mail adress">				
+			<input type="pass" name="pass" id="pass" placeholder="Password">
+			<input type="pass" name="pass" id="pass" placeholder="Password confirmation">
+
+			<input type="button" value="Register" id="regBtn"  class="btn reg">
 		</div>
 	</div>
+
 
 	</body>
 	</html>
