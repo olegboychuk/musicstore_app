@@ -12,10 +12,10 @@ var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albu
 app.config(function( $routeProvider,$locationProvider ){
 
     $routeProvider
-	// .when('/',{
-	// 	templateUrl:"_index1.html",
-	// 	controller:''
-	// });
+	.when('/',{
+		templateUrl:"app/Albums/_home.html",
+		controller:'AlbumsController'
+	});
 
 	$routeProvider
 	.when('/home',{
@@ -26,7 +26,7 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/album/:id',{
 		templateUrl:"_album.html",
-		controller:'AlbumController'
+		controller:'AlbumsController'
 	});
 
     $routeProvider

@@ -26,7 +26,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		$http.get( urlBase +'/:'+ requestedPage )
 		.success( function( data ) {
 
-			Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );		    
+			//Albums.splice( requestedPage++, data.result.albums.length ,data.result.albums );		    
 		   	console.log("Albums.splice",Albums);
 	       
 	        loadedPages++;
@@ -35,16 +35,13 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
             deferred.resolve({
 		        albums: data.result.albums 
 		    })
-		    console.log("albums1111",data.result.albums);
-		   	 
+		    console.log("albums1111",data.result.albums);	   	 
 		   	requestedPage = null;
-		    // for(var i = 0; i<loadedPages; i++) {	
-	     //       // alert("123");
-	     //       console.log("loadedPages5",loadedPages);
-	     //       console.log("requestedPage",requestedPage);
-	     //     //  Albums.push(data.result.albums[i]);
-		    //     Albums.splice( requestedPage, data.result.albums.length ,data.result.albums[i] );		    
-	    	// }
+
+		    for(var i = 0; i<loadedPages; i++) {	
+	         //  Albums.push(data.result.albums[i]);
+		        Albums.splice( i, data.result.albums.length ,data.result.albums[i] );		    
+	    	}
 	   	})
 	   	.error( function(msg, code) {
 			    deferred.reject(msg);

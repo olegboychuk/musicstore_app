@@ -33,7 +33,7 @@
 	<div infinite-scroll="loadMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='3'>
 		<div ng-show='busy'>Loading data...</div>
 		<div id="page">
-		    <div class="page" ng-repeat="album in next albums  track by $index" >
+		    <div class="page" ng-repeat="album in nextalbums  track by $index" >
 				<img ng-src="Images/{{album.image_path}}" alt="">
 		        <div class="info-head">
 				    <p class="head-name">{{album.album_name}}</p>

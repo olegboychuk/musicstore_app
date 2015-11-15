@@ -6,12 +6,21 @@ AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory)
     $scope.nextalbums = [];
     
     $scope.loadMore= function(next){
-        $scope.nextalbums = AlbumsFactory.getNextPage( )
+        if ($scope.busy)  return;
+        $scope.loading = true;
+        $scope.busy = true;
+            var nextalbums = AlbumsFactory.getNextPage( );
+            nextalbums.then(function(data){
+                $scope.nextalbums=data;
+            })
+        console.log("nextalbums",$scope.nextalbums);
+        $scope.busy = false;
     }
 
     $scope.toogleAlbum = function ( indexAlbum ){
         $scope.album = AlbumsFactory.getAlbumDetails( indexAlbum );
-        console.log("$scope.album",$scope.album);   
+        console.log("AlbumsFactory.getAlbumDetails( indexAlbum )",AlbumsFactory.getAlbumDetails( indexAlbum ));   
+        console.log(" indexAlbum )",indexAlbum);   
     }
 
     $scope.loadAlbums = function(){
