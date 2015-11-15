@@ -5,7 +5,7 @@ ol, ul {
   width: 75%;
 }
 .check-out-h1{
-  width: 100%;
+  width: 99%;
   height: 35px;
   background-color: #fff;
   padding-left: 15px;
@@ -201,6 +201,9 @@ a{
   background-image: url(Images/back-spam-active.png);
   background-repeat: no-repeat;
   color: #666;
+}
+.na span{
+  color: #fff;
 }
 .sectionHead span{
   background-image: url(Images/back-spam.png); 
