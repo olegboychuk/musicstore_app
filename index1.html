@@ -9,23 +9,27 @@
 <body ng-controller="mainController">
 
 		<header>
-			<nav>
+		<nav>
+			<div class="wrapper">
 				<ul>
-					<a href="#home"><li>Home</li></a>
+					<a href="index1.html"><li>Home</li></a>
 					<a href="#myAcoount" ng-show=""><li>My Account</li></a>
 					<a href="#myWishlist"><li>My Wishlist</li></a>
 					<a href="check-out-1.html"><li>Checkout</li></a>
-					<a href="#" ng-hide="" ><li>Log In</li></a>
+					<a href="login.php" ng-hide="" ><li>Log In</li></a>
 				</ul>	
-   			</nav>
-			<div id="nav-header">
+			</div>	
+			</nav>
+		<div id="nav-header">
+			<div class="wrapper">
 				<img class="logo" src="Images/logo.png" >
 				<div id="find-album">
 					<input type="text" class="search" />
 				</div>
 				<div id="store-status"></div>
 			</div>
-		</header>
+		</div>
+	</header>
 		<div id="view-route"><ng-view></ng-view></div>
 		<genre-list> daniel </genre-list>
 
@@ -40,7 +44,7 @@
 	<script src="app/Shared/Modules.js"></script>
 	
 	<script	src="app/Albums/AlbumsFactory.js"></script>
-    <script	src="app/Albums/AlbumsController.js"></script>
+    <script	src="app/Albums/AlbumController.js"></script>
 
 
     <script src="app/User/UserFactory.js"></script>

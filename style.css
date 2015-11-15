@@ -63,9 +63,9 @@ nav ul li:hover, nav ul li:focus, nav ul li:active{
 nav ul li:hover:before, nav ul li:focus:before, nav ul li:active:before {
     transform: scaleY(2);
 }
-nav ul li:first-child{
+/*nav ul li:first-child{
     margin-left: 15px;
-}
+}*/
 nav ul li{
 	text-decoration: none;
 	color: #000;
@@ -80,7 +80,7 @@ nav ul li{
 	height: 80px;
     width: auto;
     float: left;
-    margin-left: 32px;
+    /*margin-left: 32px;*/
 }
 
 .search{
@@ -336,4 +336,24 @@ main .info-head p.head-artist{
 }
  #content aside h1{
     width: 92%;
- }
+}
+
+/*__________*/
+/*__LOG_IN__*/
+
+.regFile{
+    width: 558px;
+    float: left;
+    border: solid 1px;
+    height: 400px;
+    padding: 15px;
+    background-color: #fff;
+}
+.regFile header{
+    border-bottom: solid 1px grey;
+    height: 30px;
+}
+#newCostumers{
+    margin-right: 20px;
+
+}
