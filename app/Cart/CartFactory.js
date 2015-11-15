@@ -11,20 +11,19 @@ CartModule.factory('CartFactory', function(  ){
 		products.splice( products.indexOf( productIndex ), 1 );
 	}
 	
+	CartFactory.insertProduct = function( productIndex ) {
+		var price = ProductsService.getPrice( productIndex );	
+		if ( products.indexOf( productIndex ) = -1  ) {
+			totalPrice += price;
+			addProduct( productIndex );
+		}
+	};
 	CartFactory.deleteProduct = function( productIndex ) {
 		var price = ProductsService.getPrice( productIndex );
 		
 		if ( products.indexOf( productIndex ) != -1 ) {
 			totalPrice -= price;
 			removeProduct( productIndex );
-		}
-	};
-
-	CartFactory.insertProduct = function( productIndex ) {
-		var price = ProductsService.getPrice( productIndex );	
-		if ( products.indexOf( productIndex ) = -1  ) {
-			totalPrice += price;
-			addProduct( productIndex );
 		}
 	};
 
