@@ -20,35 +20,9 @@ GenreModule.factory( 'GenreFactory',  function(  $http ){
         removeGenre( genreIndex );
     };
 
-      GenreFactory.getAllGenres = function() {
-        $http.get(urlBase)
-            .success(function(data){
-                Genres = data.result.genres;
-                console.log("getAllGenresSuccess",Genres);
-            })
-            .error(function(){
-                Genres = "error in fetching data";
-            });
-
-        console.log("genres",Genres);
-        return Genres;
+    GenreFactory.getAllGenres = function() {
+       return $http.get(urlBase);
     };
-
-    // GenreFactory.getAllGenres = function() {
-    //     $http.get("application/core/Model/GenresModel.php")
-    //         .success(function(data){
-    //             console.log("getAllGenresSuccess",Genres);
-    //             Genres = data;
-    //             console.log("getAllGenresSuccess",Genres);
-    //         })
-    //         .error(function(){
-    //             Genres = "error in fetching data";
-    //         });
-
-    //     console.log("genres",Genres);
-    //     return Genres;
-    // };
-
 
     return GenreFactory;
 

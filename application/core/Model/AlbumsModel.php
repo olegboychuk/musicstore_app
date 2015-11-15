@@ -77,9 +77,9 @@ class AlbumModel extends Model{
 
 		$result = $this->_db->query( " SELECT * FROM albums as a JOIN images_to_albums as ia ON a.album_id = ia.image_id
                                   JOIN images as i ON ia.image_id = i.image_id  ORDER BY album_created DESC LIMIT  $start, 23 " );
-			
+		
 			$albums=array();
-		if( $result ){
+		if( $result -> num_rows > 0 ){
 
 			while ($row = $result->fetch_assoc() ) 
 			    $albums[]=$row;	   
@@ -137,6 +137,6 @@ class AlbumModel extends Model{
 
 // $db = new AlbumModel();
 
-// $albums= $db->getAlbums(1);
+// $albums= $db->getAlbums(150);
 // var_dump($albums);
 ?>

@@ -1,13 +1,13 @@
 "use strict";
 var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albums','Cart','Genre']);
 
-app.filter('capitalize', function() {
-  return function(input, scope) {
-    if (input!=null)
-    input = input.toLowerCase();
-    return input.substring(0,1).toUpperCase()+input.substring(1);
-  }
-});
+// app.filter('capitalize', function() {
+//   return function(input, scope) {
+//     if (input!=null)
+//     input = input.toLowerCase();
+//     return input.substring(0,1).toUpperCase()+input.substring(1);
+//   }
+// });
 
 app.config(function( $routeProvider,$locationProvider ){
 
@@ -20,13 +20,13 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/home',{
 		templateUrl:"app/Albums/_home.html",
-		controller:'AlbumController'
+		controller:'AlbumsController'
 	});
 
 	$routeProvider
 	.when('/album/:id',{
 		templateUrl:"_album.html",
-		controller:''
+		controller:'AlbumController'
 	});
 
     $routeProvider
