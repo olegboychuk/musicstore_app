@@ -20,14 +20,14 @@ $app->get('/album/:id',function( $id ) use ( $album ){
 	echo json_encode( $album ); 
 });
 
-$app->post('',function() use ( $album ){
+// $app->post('',function() use ( $album ){
 
-});
+// });
 
-$app->put('',function() use ( $album ){
+// $app->put('',function() use ( $album ){
 
-});
+// });
 
-$app->delete('',function() use ( $album ){
+// $app->delete('',function() use ( $album ){
 
-});
+// });

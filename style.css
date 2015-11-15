@@ -357,3 +357,11 @@ main .info-head p.head-artist{
     margin-right: 20px;
 
 }
+.regFile p{
+    text-align: justify;
+    padding: 20px 0;
+}    
+.regFile .btn{
+    width: 200px;
+    float: left;
+}

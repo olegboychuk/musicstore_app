@@ -1,4 +1,4 @@
-CartModule.controller('CartController',["$scope", "ngCart",function( $scope, ngCart ){ 
-	$scope.ngCart = ngCart;
+CartModule.controller('CartController',["$scope", function( $scope  ){ 
+
 	
 }]);

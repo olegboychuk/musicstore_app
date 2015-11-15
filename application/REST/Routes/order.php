@@ -13,14 +13,14 @@ $app->get('',function() use ( $order ){
 
 });
 
-$app->post('',function() use ( $order ){
+// $app->post('',function() use ( $order ){
 
-});
+// });
 
-$app->put('',function() use ( $order ){
+// $app->put('',function() use ( $order ){
 
-});
+// });
 
-$app->delete('',function() use ( $order ){
+// $app->delete('',function() use ( $order ){
 
-});
+// });

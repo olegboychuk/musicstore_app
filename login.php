@@ -37,7 +37,8 @@
 
 		<div id="newCostumers" class="regFile">
 			<header>NEW COSTUMERS</header>
-			<p>By creating an account in our store</p>
+			<p>By creating an account in our store, you will able to move throught the checkout process faster, store multiple shipping adresses, view and truck your ordersin your account and more.</p>
+			<input type="button" class="btn reg" value="Create an Account">
 		</div>
 		<div id="registrCostumers" class="regFile">
 			<header>REGISTERED COSTUMERS</header>
