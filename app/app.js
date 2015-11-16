@@ -25,8 +25,8 @@ app.config(function( $routeProvider,$locationProvider ){
 
 	$routeProvider
 	.when('/album/:id',{
-		templateUrl:"_album.html",
-		controller:'AlbumsController'
+		templateUrl:"app/Albums/_album.html",
+		controller:'SelectedAlbumController'
 	});
 
     $routeProvider
@@ -34,6 +34,5 @@ app.config(function( $routeProvider,$locationProvider ){
 });
 
 app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){
-	console.log( "check controller " );
  
 });

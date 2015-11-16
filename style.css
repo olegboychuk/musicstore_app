@@ -10,6 +10,9 @@ menu, nav,input{
     vertical-align: baseline;
     outline:none;
 }
+a:hover{
+    cursor:pointer;
+}
 body{
 	min-width: 1200px;
     direction: ltr;
@@ -304,6 +307,15 @@ main .info-head p.head-artist{
 .busy{
     position:fixed;
     
+}
+
+/*____ALBUM____*/
+#view-album{
+   display:table;
+   width: 1216px;
+   margin: 0 auto;
+   height: 480px;
+   background-color:red;
 }
 
 /*____CHECKOUT____*/

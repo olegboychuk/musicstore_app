@@ -1,26 +1,30 @@
 
 AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory){
+    AlbumsController = {};
     $scope.busy = false;
 	$scope.albums = [];
     $scope.loading = false;
     $scope.nextalbums = [];
     
+    // AlbumsController.returnAlbum = function(indexAlbum){
+        
+        $scope.toogleAlbum = function ( indexAlbum ){   
+            $scope.album = AlbumsFactory.getAlbumDetails( indexAlbum );
+            console.log( "$scope.album",$scope.album );   
+            console.log( "indexAlbum",indexAlbum);  
+        }
+    // }
+
     $scope.loadMore= function(next){
         if ($scope.busy)  return;
         $scope.loading = true;
         $scope.busy = true;
-            var nextalbums = AlbumsFactory.getNextPage( );
+            var nextalbums = AlbumsFactory.getNextPage( 1 );
             nextalbums.then(function(data){
                 $scope.nextalbums=data;
             })
         console.log("nextalbums",$scope.nextalbums);
         $scope.busy = false;
-    }
-
-    $scope.toogleAlbum = function ( indexAlbum ){
-        $scope.album = AlbumsFactory.getAlbumDetails( indexAlbum );
-        console.log("AlbumsFactory.getAlbumDetails( indexAlbum )",AlbumsFactory.getAlbumDetails( indexAlbum ));   
-        console.log(" indexAlbum )",indexAlbum);   
     }
 
     $scope.loadAlbums = function(){
@@ -31,7 +35,12 @@ AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory)
 		})	
     };
    $scope.loadAlbums();
-    
+   
+   //AlbumsController.returnAlbum();
+
+    return AlbumsController;
+
+
   //  $scope.loadMore = function( ) {  	
     //	if ($scope.busy)  return;
     	//$scope.loading = true;
