@@ -1,7 +1,7 @@
 
 AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory){
     $scope.busy = false;
-	$scope.albums = [];
+	  $scope.albums = [];
     $scope.loading = false;
     $scope.nextalbums = [];
     

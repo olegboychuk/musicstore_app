@@ -24,6 +24,18 @@ app.config(function( $routeProvider,$locationProvider ){
 	});
 
 	$routeProvider
+	.when('/login',{
+		templateUrl:"app/User/_login.html",
+		controller:'UserController'
+	});
+
+	$routeProvider
+	.when('/registr',{
+		templateUrl:"app/User/_registr.html",
+		controller:'UserController'
+	});
+
+	$routeProvider
 	.when('/album/:id',{
 		templateUrl:"_album.html",
 		controller:'AlbumsController'

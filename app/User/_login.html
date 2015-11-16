@@ -1,0 +1,29 @@
+
+
+<main  ng-controller="UserController">
+	<div class="wrapper">
+		<h1 class="check-out-h1">Login or Create an Account</h1>
+
+		<div id="newCostumers" class="regFile">
+			<header>NEW COSTUMERS</header>
+			<p>By creating an account in our store, you will able to move throught the checkout process faster, store multiple shipping adresses, view and truck your ordersin your account and more.</p>
+			<input type="button" id="createAccount" ng-click="showMe();" class="btn reg" value="Create an Account">
+		</div>
+		<div id="registrCostumers" class="regFile">
+			<header>REGISTERED COSTUMERS</header>
+			<p>If you have an account with us, please log in.</p>
+			
+			<label for="email">Email Address<span>*</span></label>
+			<input type="email" name="email" id="email">
+
+			<label for="pass">Password<span>*</span></label>
+			<input type="password" name="pass" id="pass">
+
+			<input type="button" value="Login" id="loginBtn"  class="btn log">
+		</div>
+		
+	</div>
+</main>
+
+
+
