@@ -140,9 +140,13 @@ aside{
     border-bottom: 1px solid #F0F0F0;
     padding: 5px;
     background-color: #fb0002;
-    color: white;
     font-size: 18px;
+    color:white;
 }
+#music-genre div a{
+    color:white;
+}
+
 #music-genre div:active{
 	background-color: #000;
 }
@@ -277,8 +281,6 @@ main .info-head p.head-artist{
 .left{
     margin-top: 10px;
 }
-
-
 #page{
     float: right;
     width: 636px;
@@ -294,7 +296,7 @@ main .info-head p.head-artist{
     margin-left: 10px;
 }
 
-#backery{
+#bread-crump{
     width: 605px;
     height: 20px;
     padding: 10px;
@@ -311,11 +313,12 @@ main .info-head p.head-artist{
 
 /*____ALBUM____*/
 #view-album{
-   display:table;
-   width: 1216px;
-   margin: 0 auto;
-   height: 480px;
-   background-color:red;
+    width: 625px;
+    margin-right: 177px;
+    float: right;
+    margin-top: 10px;
+    height: 400px;
+    background-color: red;
 }
 
 /*____CHECKOUT____*/
@@ -395,7 +398,6 @@ main .info-head p.head-artist{
     position: absolute;
     left: 30%;
     top: 17%;
-
 }
 #registr input#lastName{
     margin-bottom: 20px;

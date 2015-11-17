@@ -11,11 +11,11 @@ var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albu
 
 app.config(function( $routeProvider,$locationProvider ){
 
-    $routeProvider
-	.when('/',{
-		templateUrl:"app/Albums/_home.html",
-		controller:'AlbumsController'
-	});
+ //    $routeProvider
+	// .when('/',{
+	// 	templateUrl:"app/Albums/_home.html",
+	// 	controller:'AlbumsController'
+	// });
 
 	$routeProvider
 	.when('/home',{
@@ -36,8 +36,14 @@ app.config(function( $routeProvider,$locationProvider ){
 	});
 
 	$routeProvider
-	.when('/album/:id',{
+	.when('/album:id',{
 		templateUrl:"app/Albums/_album.html",
+		controller:'SelectedAlbumController'
+	});
+
+	$routeProvider
+	.when('/genre-albums:id',{
+		templateUrl:"app/Albums/_genre-albums.html",
 		controller:'SelectedAlbumController'
 	});
 

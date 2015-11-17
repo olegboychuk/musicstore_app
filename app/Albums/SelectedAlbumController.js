@@ -1,9 +1,9 @@
 AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory,AlbumsController,$routeParams ){
-	$scope.param = $routeParams.id;
+	var albumId = $routeParams.id;
 	$scope.album = []; 
 
-	console.log("$scope.param",$scope.param);
-	var album = AlbumsFactory.getAlbumDetails ( $scope.param );
+	console.log("albumId",albumId);
+	$scope.album = AlbumsFactory.getAlbumDetails ( albumId );
 	console.log("album9999",album);
 	
 	// $scope.toogleAlbum = function ( $scope.param ){   

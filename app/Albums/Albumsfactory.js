@@ -9,7 +9,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var deferred = null;
 
 	AlbumsFactory.getAlbumDetails = function( albumIndex ){		
-        console.log("Albums1",Albums);
+        console.log("Albums3",Albums[3]);
 		return Albums[albumIndex];
 	};	
 
@@ -28,18 +28,19 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	        loadedPages+=data.result.albums.length;
 	        console.log("loadedPages",loadedPages);  
            
-            Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );		    
-	        console.log("Albums",Albums);
+            // /Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );		    
+	        //Albums.push( data.result ); 
+	        //console.log( "Albums",Albums );
            
+           // for(var i = 0; i<loadedPages; i++) {	
+	       //    Albums.push(data.result.albums[i]); 
+		    //     //Albums.splice( i, data.result.albums.length ,data.result.albums[i] );		    
+	    	// }
+
             deferred.resolve({
 		        albums: data.result.albums 
 		    })
-		   	requestedPage = null;
-
-		    // for(var i = 0; i<loadedPages; i++) {	
-	     //      Albums.push(data.result.albums[i]); 
-		    //     //Albums.splice( i, data.result.albums.length ,data.result.albums[i] );		    
-	    	// }
+		   	requestedPage = null;	    
 	   	})
 	   	.error( function(msg, code) {
 			    deferred.reject(msg);
@@ -47,7 +48,6 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		});
 
         return deferred.promise;
-
 	}
      
 	AlbumsFactory.getAlbums = function (){

@@ -2,44 +2,42 @@
 AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory){
     AlbumsController = {};
     $scope.busy = false;
-	  $scope.albums = [];
+	$scope.albums = [];
     $scope.loading = false;
     $scope.nextalbums = [];
-    
-    // AlbumsController.returnAlbum = function(indexAlbum){
         
-        $scope.toogleAlbum = function ( indexAlbum ){   
-            $scope.album = AlbumsFactory.getAlbumDetails( indexAlbum );
-            console.log( "$scope.album",$scope.album );   
-            console.log( "indexAlbum",indexAlbum);  
-        }
+    // $scope.toogleAlbum = function ( indexAlbum ){   
+    //     console.log( "indexAlbum",indexAlbum );  
+    //     $scope.album = AlbumsFactory.getAlbumDetails( indexAlbum );  
     // }
 
     $scope.loadMore= function(next){
-        if ($scope.busy)  return;
+        if($scope.busy)  return;
         $scope.loading = true;
         $scope.busy = true;
-            var nextalbums = AlbumsFactory.getNextPage(  );
-            nextalbums.then(function(data){
-                $scope.nextalbums=data;
-            })
+       
+        var nextalbums = AlbumsFactory.getNextPage( );
+        nextalbums.then( function( data ){
+            console.log("data",data);
+            $scope.albums.push( data );
+            console.log("$scope.albums11",$scope.albums.length);
+        }),function(error){
+           console.log("error",error);
+           alert(error);
+        }
         console.log("nextalbums",$scope.nextalbums);
         $scope.busy = false;
     }
 
     $scope.loadAlbums = function(){
 		var getAlbums = AlbumsFactory.getNextPage();
-		getAlbums.then(function(data){
+		getAlbums.then( function( data ){
 			$scope.albums = data.albums;
-			console.log("getalbums",$scope.albums.length );
-		})	
+			console.log( "getalbums00",data );
+		});	
     };
+
    $scope.loadAlbums();
-   
-   //AlbumsController.returnAlbum();
-
-    return AlbumsController;
-
 
   //  $scope.loadMore = function( ) {  	
     //	if ($scope.busy)  return;
