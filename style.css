@@ -385,7 +385,7 @@ main .info-head p.head-artist{
     display: block;
 }
 #registr{
-    display: none;
+    /*display: none;*/
     width: 300px;
     padding: 20px;
     margin: 0 auto;

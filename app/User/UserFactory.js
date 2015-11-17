@@ -12,7 +12,7 @@ UserModule.factory( 'UserFactory',function( $http ){
 		return user;
 	};
 
-	UserFactory.getUserDetails =function(){
+	UserFactory.getUserDetails = function(){
 		
 	};
 

@@ -23,14 +23,14 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		requestedPage = loadedPages;
 
 		$http.get( urlBase +'/:'+ requestedPage )
-		.success( function( data ) {
+		.success( function( data ) {	   	 
 
-			// Albums.splice( requestedPage++, data.result.albums.length ,data.result.albums );		    
-	  //       console.log("Albums",Albums);	   	 
-
-	        loadedPages++;
-	        //console.log("loadedPages",loadedPages);  
-            
+	        loadedPages+=data.result.albums.length;
+	        console.log("loadedPages",loadedPages);  
+           
+            Albums.splice( requestedPage, data.result.albums.length ,data.result.albums );		    
+	        console.log("Albums",Albums);
+           
             deferred.resolve({
 		        albums: data.result.albums 
 		    })
