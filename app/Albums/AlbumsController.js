@@ -2,7 +2,7 @@
 AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory){
     AlbumsController = {};
     $scope.busy = false;
-	$scope.albums = [];
+	  $scope.albums = [];
     $scope.loading = false;
     $scope.nextalbums = [];
     
@@ -19,7 +19,7 @@ AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory)
         if ($scope.busy)  return;
         $scope.loading = true;
         $scope.busy = true;
-            var nextalbums = AlbumsFactory.getNextPage( 1 );
+            var nextalbums = AlbumsFactory.getNextPage(  );
             nextalbums.then(function(data){
                 $scope.nextalbums=data;
             })
