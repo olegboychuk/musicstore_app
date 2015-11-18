@@ -1,3 +1,8 @@
-<main>
+<div id="bread-crump" ng-show="true">		
 	<p>albums you selected by genre</p>
+</div>
+<main>
+	<div id="genres-albums">
+		<div class="albums" ng-repeat="album in albums track by $index"></div>
+	</div>
 </main>

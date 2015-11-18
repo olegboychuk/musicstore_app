@@ -259,7 +259,7 @@ main .info-head p.head-artist{
 }
 
 
-#center-albums{
+#center-albums,#genres-albums{
     float: right;
     width: 636px;
     margin-right: 178px;

@@ -5,7 +5,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 	console.log("albumId",albumId);
 	$scope.album = AlbumsFactory.getAlbumDetails( albumId );
 	// getAlbum.then( function(data){
- //        console.log("albumId",data);
+        console.log("$scope.album",$scope.album);
 	// 	$scope.album = data;
 	// });
 	console.log("AlbumsFactory.getAlbumDetails ( albumId )",AlbumsFactory.getAlbumDetails ( albumId ));

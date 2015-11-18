@@ -7,13 +7,19 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var requestedPage = null;
 	var deferred = null;
  
-	AlbumsFactory.getAlbumDetails = function( albumIndex ){		
-        console.log("Albums3",Albums);
-		return Albums.indexOf(Albums.albumIndex);
+	AlbumsFactory.getAlbumDetails = function( albumId ){		
+        console.log("Albumsindexof",Albums);
+       
+        for (var i = 0; i<=Albums.length ; i++) {
+        	var theAlbum = Albums[i].find(albumId);
+        console.log("Albumsindexof",theAlbum);
+        };
+		return Albums.indexOf(theAlbum);
 	};	
 
 	function createListAlbums( stockAlbums ){
 		console.log("stockAlbums",stockAlbums.length);
+	
 		var i = 0;
 		for ( i = i;i<=stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 
