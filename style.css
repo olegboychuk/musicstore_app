@@ -178,7 +178,6 @@ main .info-head p.head-artist{
     font-size:14px;
 }
 
-
 .albums{
     width: 200px;
     height: 250px;
@@ -318,7 +317,31 @@ main .info-head p.head-artist{
     float: right;
     margin-top: 10px;
     height: 400px;
-    background-color: red;
+  /*  background-color: red;*/
+}
+
+#view-album img{
+    /*float:left;*/
+   /* padding: 5px;*/
+}
+
+.smallExtraImg *{
+   /* clear:both;*/
+    height: 87px;
+    float: left;
+    padding: 2px;
+    width: 87px;
+}
+
+.album-details{
+    width: 50%;
+    float:left;
+    padding-left: 20px;
+}
+
+.album-details h2{
+    color:grey;
+    margin-top: -260px;
 }
 
 /*____CHECKOUT____*/

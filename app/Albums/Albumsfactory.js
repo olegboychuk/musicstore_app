@@ -9,13 +9,23 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
  
 	AlbumsFactory.getAlbumDetails = function( albumId ){		
         console.log("Albumsindexof",Albums);
-       
-        for (var i = 0; i<=Albums.length ; i++) {
-        	var theAlbum = Albums[i].find(albumId);
-        console.log("Albumsindexof",theAlbum);
-        };
-		return Albums.indexOf(theAlbum);
+        var key = "album_id";
+        var index = findIndex(Albums, key, albumId);
+        console.log("Albumsindexof",index);
+		return Albums[index];
 	};	
+
+	function findIndex(Albums, key, value) {
+
+		for (var i = 0; i < Albums.length; i++) {
+		 
+			if (Albums[i][key] == value) {
+				console.log("i",i);
+			    return i;
+			}
+		}
+		return null;
+	}
 
 	function createListAlbums( stockAlbums ){
 		console.log("stockAlbums",stockAlbums.length);

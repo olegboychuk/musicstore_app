@@ -1,8 +1,23 @@
 
 <main ng-controller = "SelectedAlbumController">
-	<div id="bread-crump" ng-show="true"><p>ALBUMS</p></div>
-	<div id="view-album">
-	    <p>hello Album you selected</p>
+	<div id="bread-crump" ng-show="true"><p>hello Album you selected</p></div>
+	<div id="view-album">	    
+	    
+	    <img ng-src="Images/{{album.image_path}}" alt="">
+	    <div class="smallExtraImg">
+	    	<img ng-src="Images/{{album.image_path}}" alt="">
+	    	<img ng-src="Images/{{album.image_path}}" alt="">
+	    	<img ng-src="Images/{{album.image_path}}" alt="">
+	    </div>				
+		<div>
+			<div class="album-details">
+				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
+				<p class="stock">Availability: In stock</p>
+				<hr>
+				<p class="stock">Only {{stock}} left</p>
+			</div>
+			<div id="cart-view"></div>
+		</div>
 	</div>
 </main>
 
