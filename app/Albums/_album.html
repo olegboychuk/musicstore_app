@@ -14,7 +14,12 @@
 				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
 				<p class="stock">Availability: In stock</p>
 				<hr>
-				<p class="stock">Only {{stock}} left</p>
+				<p class="count">Only {{stock}} left</p><br>
+				<p class="album-price"> {{price | currency:"$"}}</p><br>
+				<p class="introduction">
+					We are glad to welcome you in our store.You've made a right decision by choosen our
+					store.
+				</p>
 			</div>
 			<div id="cart-view"></div>
 		</div>

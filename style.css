@@ -21,7 +21,7 @@ body{
     background-color:#E3E3E3;
 }
 .wrapper{
-    width: 1200px;
+    width: 860px;
     margin: 0 auto;
 }
 /* ------ MAIN MENU ----- */
@@ -34,6 +34,7 @@ header{
 nav{
 	height: 40px;
 	background-color:white;
+    padding-left: 15px;
 }
 nav ul li{
 	float: left;
@@ -128,12 +129,12 @@ aside{
 
 /* ------ GENRE ----- */
 #music-genre{
-	width: 210px;
+	width: 215px;
     padding: 5px;
     background-color: #F0F0F0;
-    margin-left: 250px;
+    margin-left: 225px;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 #music-genre div{
@@ -259,31 +260,29 @@ main .info-head p.head-artist{
 
 
 #center-albums,#genres-albums{
-    float: right;
-    width: 636px;
-    margin-right: 178px;
+    float: left;
+    width: 652px;
+    margin-left:450px;
 }
 .center{
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 10px;
-    float: right;
+    float: left;
 }
 
 
 #left-albums{
-    width: 210px;
-    height: auto;
     position: absolute;
-    margin-left: 264px;
-    margin-top: 377px;
+    margin-left: 245px;
+    margin-top: 430px;
 }
 .left{
     margin-top: 10px;
 }
 #page{
-    float: right;
-    width: 636px;
-    margin-right: 178px;
+    float: left;
+    width: 652px;
+    margin-left: 450px;
 }
 .page{
     display: inline-table;
@@ -292,16 +291,16 @@ main .info-head p.head-artist{
     background: grey;
     border: 1px solid;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 #bread-crump{
-    width: 605px;
+    width: 858px;
     height: 20px;
     padding: 10px;
-    margin-right: 177px;
+    margin-left: 225px;
     background-color: #FFF;
-    float: right;
+    float: left;
     margin-top: 20px;
 }
 
@@ -313,8 +312,8 @@ main .info-head p.head-artist{
 /*____ALBUM____*/
 #view-album{
     width: 625px;
-    margin-right: 177px;
-    float: right;
+    margin-left: 477px;
+    float: left;
     margin-top: 10px;
     height: 400px;
   /*  background-color: red;*/
@@ -337,11 +336,24 @@ main .info-head p.head-artist{
     width: 50%;
     float:left;
     padding-left: 20px;
+    margin-top: -15px;
+}
+.album-details:nth-child(n){
+    color:grey;
+    font-size:14px;
 }
 
 .album-details h2{
     color:grey;
     margin-top: -260px;
+}
+.album-price{
+    font-size:22px;
+    color:red;
+}
+.stock{
+    color: black;
+    font-weight: bold;
 }
 
 /*____CHECKOUT____*/
