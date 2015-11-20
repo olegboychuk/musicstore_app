@@ -1,5 +1,5 @@
 
-<main ng-controller = "SelectedAlbumController">
+<main ng-controller = "SelectedAlbumController" ng-init="loadAlbum()">
 	<div id="bread-crump" ng-show="true"><p>hello Album you selected</p></div>
 	<div id="view-album">	    
 	    
@@ -12,13 +12,14 @@
 		<div>
 			<div class="album-details">
 				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
-				<p class="stock">Availability: In stock</p>
+				<p class="stock" ng-class="checkStock()">Availability:
+					<span ng-class="yesStock">In stock</span>
+					<span ng-class="noStock">Out of the stock</span>
+				</p>
 				<hr>
-				<p class="count">Only {{stock}} left</p><br>
+				<p class="count"> Only {{album.album_stock}} left</p><br>
 				<p class="album-price"> {{price | currency:"$"}}</p><br>
-				<p class="introduction">
-					We are glad to welcome you in our store.You've made a right decision by choosen our
-					store.
+				<p class="introduction">{{introduction}}
 				</p>
 			</div>
 			<div id="cart-view"></div>

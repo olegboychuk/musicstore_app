@@ -355,6 +355,21 @@ main .info-head p.head-artist{
     color: black;
     font-weight: bold;
 }
+.strike {
+    text-decoration: line-through;
+}
+.bold {
+    font-weight: bold;
+}
+.red {
+    color: green;
+}
+.noStock{
+    display:block;
+}
+.yesStock{
+    display:block;
+}
 
 /*____CHECKOUT____*/
 #content{

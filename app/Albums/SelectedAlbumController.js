@@ -1,15 +1,35 @@
 AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory,$routeParams ){
+	
 	var albumId = $routeParams.id;
 	$scope.album = []; 
-	console.log("albumId",albumId);
-	var album = AlbumsFactory.getAlbumDetails( albumId );
+	$scope.noStock = false;
+    $scope.yesStock = false;
+	$scope.deleted =false;
+
+	$scope.loadAlbum =function(){
+		var album = AlbumsFactory.getAlbumDetails( albumId );
+
+		$scope.album = album;
+	    // $scope.stock = album.album_stock;  
+	    $scope.price = album.album_price;
+	}
+	$scope.loadAlbum();
 	
+	var intro = AlbumsFactory.getIntro();
+    $scope.introduction =intro[0].intro;
+
+    //  $scope.checkStock = function(){
+    // 	if ( album.album_stock > 0 ){
+    // 		console.log("$scope.stock",$scope.stock);
+    // 		$scope.deleted=true;
+    // 	}
+    // }
+	
+    //console.log("$scope.checkStock()",checkStock());
 //to fix if render the page we lost album!! !
 
-	$scope.album = album;
-    $scope.stock = album.album_stock;  
-    $scope.price = album.album_price;
-    console.log("album.album_stock",album);
+
+
 
 	//console.log("AlbumsFactory.getAlbumDetails ( albumId )",AlbumsFactory.getAlbumDetails ( albumId ));
 	

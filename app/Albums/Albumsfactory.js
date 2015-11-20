@@ -6,15 +6,32 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var loadedPages = 0;
 	var requestedPage = null;
 	var deferred = null;
- 
+    var Intro = [{ intro : "We are glad to welcome you in our store.You've made a right decision by choosen our store.Our company will give you the magic of the music world because we all have the same passion.It so amazing to fell the rhythm and good vibes to enjoy the perfect perfomance and just to be devoted fan of this magic of sound."}];
+				
+	/**
+	/*  public function getIntro
+	/*	return object 
+	*/
+	AlbumsFactory.getIntro = function(){
+		return Intro;
+	};	
+
+    /**
+	/*  public function getAlbumDetails
+	/*	get album id 
+	/*  return album from array of albums 
+	*/
 	AlbumsFactory.getAlbumDetails = function( albumId ){		
-        console.log("Albumsindexof",Albums);
         var key = "album_id";
         var index = findIndex(Albums, key, albumId);
-        console.log("Albumsindexof",index);
 		return Albums[index];
 	};	
 
+    /**
+	/*  function findIndex
+	/*	get array of albums ,key of the object, and sting as value
+	/*  return index of the array
+	*/
 	function findIndex(Albums, key, value) {
 
 		for (var i = 0; i < Albums.length; i++) {
@@ -27,6 +44,12 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		return null;
 	}
 
+    /**
+	/*  function createListAlbums
+	/*  
+	/*	get 
+	/*  return 
+	*/
 	function createListAlbums( stockAlbums ){
 		console.log("stockAlbums",stockAlbums.length);
 	
@@ -38,6 +61,12 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		return Albums;
 	}
 
+    /**
+	/*  function createListAlbums
+	/*  
+	/*	get 
+	/*  return 
+	*/
 	AlbumsFactory.getNextPage = function (){
 			
 	    if( requestedPage !== null){
