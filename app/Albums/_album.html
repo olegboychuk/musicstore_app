@@ -14,15 +14,25 @@
 				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
 				<p class="stock">Availability:			
 					<span ng-class = "{inStock:album.album_stock>0,outStock:album.album_stock<=0}">In stock</span>
-					<span ng-show = "outStock">Out of the stock</span>
 				</p>
 				<hr>
 				<p class="count"> Only {{album.album_stock}} left</p><br>
 				<p class="album-price"> {{album.album_price | currency:"$"}}</p><br>
-				<p class="introduction">{{introduction}}
+				<p class="introduction">{{introduction | limitTo:320:0}}
 				</p>
 			</div>
-			<div id="cart-view"></div>
+			<div id="manage-cart">
+				<p class="total">Total Price:{{totalprice}}</p>
+				<hr>
+				<div class="manage-quantety">
+					 <label>Qty: <input type="number" ng-class="display-quantety" min="1" max="10" step="1" ng-model="quantety"></label>
+					<button class="add" min="1" max="10" step="2" ng-click = "addToQuantety()"> + </button><br>
+					<button class="remove" min="1" max="10" step="1" ng-click = "removeFromQuantety()"> - </button>
+					<button id="add-to-cart"  ng-click="addToCart(  )">Add to Cart</button>
+				</div>
+				<hr>
+				<button id="wishlist"><img src="" class="heart" alt="">Add to Wishlist</button>
+			</div>
 		</div>
 	</div>
 </main>

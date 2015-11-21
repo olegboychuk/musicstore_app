@@ -365,6 +365,27 @@ span.outStock{
      opacity:0.5;
 }
 
+
+#manage-cart{
+    width: 316px;
+    margin-left: 292px;
+    height: 110px;
+    margin-top: 15px;
+    background-color: white;
+    position: absolute;
+    padding: 20px;
+}
+
+.manage-quantety button:nth-child(2n){
+    height: 15px;
+}
+.manage-quantety input{
+    width: 30px;
+    border: 1px solid black;
+    padding: 6px 0px 7px 15px;
+}
+
+
 /*____CHECKOUT____*/
 #content{
     width: 100%;

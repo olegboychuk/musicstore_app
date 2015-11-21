@@ -63,10 +63,11 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	}
 
     /**
-	/*  function createListAlbums
-	/*  
-	/*	get 
-	/*  return 
+	/*  function getNextPage
+	/*  get json object from ajax and create list of Albums
+	/* 
+	/*	get json object from ajax
+	/*  return deffer promise
 	*/
 	AlbumsFactory.getNextPage = function (){
 			
@@ -76,12 +77,11 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
     	deferred = $q.defer();
 		requestedPage = loadedPages;
-        console.log("requestedPage",requestedPage);  
+
 		$http.get( urlBase +'/:'+ requestedPage )
 		.success( function( data ) {	   	 
 
 	        loadedPages+=data.result.albums.length;
-	        console.log("loadedPages",loadedPages);  
             
             deferred.resolve({
 		        albums: data.result.albums 

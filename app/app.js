@@ -52,5 +52,5 @@ app.config(function( $routeProvider,$locationProvider ){
 });
 
 app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){
- 
+
 });
