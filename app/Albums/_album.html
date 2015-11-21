@@ -12,13 +12,13 @@
 		<div>
 			<div class="album-details">
 				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
-				<p class="stock" ng-class="checkStock()">Availability:
-					<span ng-class="yesStock">In stock</span>
-					<span ng-class="noStock">Out of the stock</span>
+				<p class="stock">Availability:			
+					<span ng-class = "{inStock:album.album_stock>0,outStock:album.album_stock<=0}">In stock</span>
+					<span ng-show = "outStock">Out of the stock</span>
 				</p>
 				<hr>
 				<p class="count"> Only {{album.album_stock}} left</p><br>
-				<p class="album-price"> {{price | currency:"$"}}</p><br>
+				<p class="album-price"> {{album.album_price | currency:"$"}}</p><br>
 				<p class="introduction">{{introduction}}
 				</p>
 			</div>

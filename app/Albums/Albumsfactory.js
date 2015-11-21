@@ -24,6 +24,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	AlbumsFactory.getAlbumDetails = function( albumId ){		
         var key = "album_id";
         var index = findIndex(Albums, key, albumId);
+
 		return Albums[index];
 	};	
 
@@ -33,7 +34,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	/*  return index of the array
 	*/
 	function findIndex(Albums, key, value) {
-
+	
 		for (var i = 0; i < Albums.length; i++) {
 		 
 			if (Albums[i][key] == value) {

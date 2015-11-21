@@ -132,7 +132,7 @@ aside{
 	width: 215px;
     padding: 5px;
     background-color: #F0F0F0;
-    
+    margin-left: 225px;
     position: absolute;
     margin-top: 70px;
 }
@@ -355,20 +355,14 @@ main .info-head p.head-artist{
     color: black;
     font-weight: bold;
 }
-.strike {
-    text-decoration: line-through;
+span.inStock{
+   color: #008500;
+   font-weight: bold;
 }
-.bold {
-    font-weight: bold;
-}
-.red {
-    color: green;
-}
-.noStock{
-    display:block;
-}
-.yesStock{
-    display:block;
+span.outStock{
+     text-decoration: line-through;
+     color:grey;
+     opacity:0.5;
 }
 
 /*____CHECKOUT____*/
