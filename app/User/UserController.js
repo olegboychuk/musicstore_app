@@ -1,11 +1,13 @@
 LoginModule.controller('UserController', function($scope){
 
   $scope.showMe = function(){
-    $scope.show = true;
+  	console.log("ggggg");
+    $scope.visible = !$scope.visible;
+  };
+  
+  $scope.hideMe = function(){
+    $scope.visible=false;
   }
-  // $scope.hideMe = function(){
-  //   $scope.visible=false;
-  // }
 });
 
 

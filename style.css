@@ -486,7 +486,7 @@ span.outStock{
     display: block;
 }
 #registr{
-    /*display: none;*/
+    display: none;
     width: 300px;
     padding: 20px;
     margin: 0 auto;
@@ -516,6 +516,10 @@ span.outStock{
     float: right;
     font-size: 17px;
     color: #DFDFDF;
+}
+#registr p:hover{
+    cursor: pointer;
+    color: red;
 }
 .regFile p{
     text-align: justify;
