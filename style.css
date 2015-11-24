@@ -29,7 +29,7 @@ body{
     background-color:#E3E3E3;
 }
 .wrapper{
-    width: 860px;
+    width: 1200px;
     margin: 0 auto;
 }
 /* ------ MAIN MENU ----- */
@@ -154,6 +154,7 @@ aside{
 }
 #music-genre div a{
     color:white;
+    display: block;
 }
 
 #music-genre div:active{
@@ -168,7 +169,7 @@ aside{
 /*------ HOME ------*/
 #view-route main #head-albums{
    display:table;
-   width: 1216px;
+   width: 100%;
    margin: 0 auto;
    position: relative;
 }
