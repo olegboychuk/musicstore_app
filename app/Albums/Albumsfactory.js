@@ -45,6 +45,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		return null;
 	}
 
+
     /**
 	/*  function createListAlbums
 	/*  

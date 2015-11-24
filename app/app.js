@@ -44,7 +44,7 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
-		controller:'SelectedAlbumController'
+		controller:'AlbumsControler'
 	});
 
     $routeProvider

@@ -10,6 +10,14 @@ menu, nav,input{
     vertical-align: baseline;
     outline:none;
 }
+button{
+    height: 30px;
+    background-color: black;
+    border: none;
+    color: white;
+    outline: none
+}
+
 a:hover{
     cursor:pointer;
 }
@@ -134,7 +142,7 @@ aside{
     background-color: #F0F0F0;
     margin-left: 225px;
     position: absolute;
-    margin-top: 70px;
+    margin-top: 470px;
 }
 
 #music-genre div{
@@ -162,6 +170,7 @@ aside{
    display:table;
    width: 1216px;
    margin: 0 auto;
+   position: relative;
 }
 main .info-head{
     width: 100%;
@@ -365,26 +374,49 @@ span.outStock{
      opacity:0.5;
 }
 
-
 #manage-cart{
     width: 316px;
     margin-left: 292px;
     height: 110px;
     margin-top: 15px;
-    background-color: white;
+    background-color: rgb(240, 240, 240);
     position: absolute;
     padding: 20px;
 }
 
-.manage-quantety button:nth-child(2n){
-    height: 15px;
+.manage-quantety{
+    width: 150px;
+}
+
+.manage-quantety input{
+    height: 27px;
+}
+
+.manage-quantety button:nth-child(2n) {
+    position: absolute;
+    margin-left: 4px;
+    height: 17px;
+    width: 19px;
+    color:white;
+}
+
+.manage-quantety button:nth-child(2n+1) {
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 4px;
+    height: 17px;
+    width: 19px;
+    color:white;
 }
 .manage-quantety input{
     width: 30px;
     border: 1px solid black;
     padding: 6px 0px 7px 15px;
 }
-
+.add-to-cart{
+   float:right;
+   margin-top: -38px;
+}
 
 /*____CHECKOUT____*/
 #content{
