@@ -44,11 +44,11 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
-		controller:'AlbumsControler'
+		controller:'AlbumsController'
 	});
 
     $routeProvider
-	.otherwise({ redirectTo: '/' });
+	.otherwise({ redirectTo: '/home' });
 });
 
 app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){

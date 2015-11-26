@@ -22,12 +22,16 @@ class GenreModel extends Model{
         // $results = $this->_db->query($query);
         $genres = array();
 
-        if($query){
-            while ($row = $query->fetch_assoc())
+        if ($query){
+            while ($row = $query->fetch_assoc()) {
                 $genres[] = $row;
+            }
         }
+
        // print_r($genres);
         return $genres;
+
+
     }
 
     /**

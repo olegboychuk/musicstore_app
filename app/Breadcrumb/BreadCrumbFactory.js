@@ -1,0 +1,4 @@
+BreadCrumbModule.factory( 'BreadCrumbFactory',  function(  ){
+
+});
+
