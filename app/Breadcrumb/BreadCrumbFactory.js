@@ -1,4 +1,0 @@
-BreadCrumbModule.factory( 'BreadCrumbFactory',  function(  ){
-
-});
-
