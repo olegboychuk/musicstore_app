@@ -1,4 +1,4 @@
-
+ 
 AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var AlbumsFactory = {};
 	var Albums = [];
@@ -53,8 +53,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	/*  return 
 	*/
 	function createListAlbums( stockAlbums ){
-		console.log("stockAlbums",stockAlbums.length);
-	
+		
 		var i = 0;
 		for ( i = i;i<=stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 

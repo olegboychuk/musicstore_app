@@ -4,6 +4,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 	$scope.album = null;
 	$scope.inStock = false;
     $scope.quantety = "1";
+    $scope.headclass = true;
     var price = 0;
 	console.log(" $scope.totalPrice", $scope.totalPrice);
 

@@ -7,6 +7,7 @@ $album = new AlbumRestController();
 
 $app->get('/albums/:start',function( $start ) use ( $album, $app ){
 	// global $app;
+	// ???explode
 	$start = explode(':', $start);
 
 	$al=$album->getAlbums( $start[1] );

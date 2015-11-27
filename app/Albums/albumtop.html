@@ -1,0 +1,11 @@
+<div ng-show="headclass" ng-controller="AlbumsController">
+	<div id="head-albums">
+		<div class="head" ng-repeat="album in albums | limitTo : 9: 0 track by $index ">
+			<a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
+			<div class="info-head">
+			    <p class="head-name">{{album.album_name | limitTo:25 }}</p>
+				<p class="head-artist">{{album.album_artist }}</p>
+			</div>		
+		</div>	
+    </div>
+</div>

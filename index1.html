@@ -10,34 +10,30 @@
 
 	<header>
 		<nav>
-			<div class="wrapper">
-				<ul>
-					<a href="#home"><li>Home</li></a>
-					<a href="#myAcoount" ng-show=""><li>My Account</li></a>
-					<a href="#myWishlist"><li>My Wishlist</li></a>
-					<a href="check-out-1.html"><li>Checkout</li></a>
-					<a href="#login" ng-hide="" ><li>Log In</li></a>
-				</ul>	
-			</div>	
+			<ul>
+				<a href="#home"><li>Home</li></a>
+				<a href="#myAcoount" ng-show=""><li>My Account</li></a>
+				<a href="#myWishlist"><li>My Wishlist</li></a>
+				<a href="check-out-1.html"><li>Checkout</li></a>
+				<a href="#login" ng-hide="" ><li>Log In</li></a>
+			</ul>	
 		</nav>
 		<div id="nav-header">
-			<div class="wrapper">
-				<a href="#home"><img class="logo" src="Images/logo.png" ></a>
-				<!-- <img class="logo" src="Images/logo.png" > -->
-				<div id="find-album">
-					<input type="text" class="search" />
-				</div>
-				<div id="store-status"></div>
+			<a href="#home"><img class="logo" src="Images/logo.png" ></a>
+			<!-- <img class="logo" src="Images/logo.png" > -->
+			<div id="find-album">
+				<input type="text" class="search" />
 			</div>
+			<div id="store-status"></div>
 		</div>
 	</header>
 
-        <!--<bread-crumb></bread-crumb>-->
-		<genre-list></genre-list>
-		<my-cart></my-cart>
-		<div id="view-route"><ng-view></ng-view></div>
-		
 
+	<!-- 	<div id="bread-crump" ng-show="false"></div> -->
+	<!-- <genre-list> daniel </genre-list> -->
+	<!-- <my-cart> kira </my-cart> -->
+	<div id="view-route"><ng-view></ng-view></div>
+		
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -50,6 +46,7 @@
 	<script	src="app/Albums/AlbumsFactory.js"></script>
     <script	src="app/Albums/AlbumsController.js"></script>
     <script	src="app/Albums/SelectedAlbumController.js"></script>
+
 
     <script src="app/User/UserFactory.js"></script>
     <script src="app/User/UserController.js"></script>

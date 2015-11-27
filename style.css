@@ -28,21 +28,29 @@ body{
     margin: 0 auto;
     background-color:#E3E3E3;
 }
+<<<<<<< HEAD
+
+=======
 .wrapper{
     width: 1200px;
     margin: 0 auto;
 }
+>>>>>>> origin/master
 /* ------ MAIN MENU ----- */
 
 header{
 	width: 100%;
 	height: 120px;
 }
+
 /*--- navigation---*/
 nav{
 	height: 40px;
 	background-color:white;
-    padding-left: 15px;
+/*    padding-left: 15px;*/
+}
+nav ul{
+    margin-left: 15%;
 }
 nav ul li{
 	float: left;
@@ -89,10 +97,10 @@ nav ul li{
 	background-color: #FD0002;
 }
 #nav-header img{
-	height: 80px;
+    height: 80px;
     width: auto;
     float: left;
-    /*margin-left: 32px;*/
+    margin-left: 15%;
 }
 
 .search{
@@ -111,7 +119,20 @@ img.logo{
 }
 
 
+<<<<<<< Updated upstream
 /* ----- ASIDE ---- */
+=======
+<<<<<<< HEAD
+ng-view{
+   background: black; 
+}
+
+
+ /*   ----- ASIDE ----  */ 
+=======
+/* ----- ASIDE ---- */
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 aside{
 	padding:10px;
 }
@@ -135,6 +156,7 @@ aside{
     padding-bottom: 15px;
 }
 
+
 /* ------ GENRE ----- */
 #music-genre{
 	width: 215px;
@@ -142,7 +164,7 @@ aside{
     background-color: #F0F0F0;
     margin-left: 225px;
     position: absolute;
-    margin-top: 470px;
+    margin-top: 68px;
 }
 
 #music-genre div{
@@ -154,7 +176,15 @@ aside{
 }
 #music-genre div a{
     color:white;
+<<<<<<< Updated upstream
     display: block;
+=======
+<<<<<<< HEAD
+    display:block;
+=======
+    display: block;
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 }
 
 #music-genre div:active{
@@ -166,12 +196,20 @@ aside{
     cursor: pointer;
 }
 
+
 /*------ HOME ------*/
 #view-route main #head-albums{
+<<<<<<< HEAD
+    display: table;
+    margin: 0 auto;
+    width: 1200px;
+    height: 400px;
+=======
    display:table;
    width: 100%;
    margin: 0 auto;
    position: relative;
+>>>>>>> origin/master
 }
 main .info-head{
     width: 100%;
@@ -204,16 +242,16 @@ main .info-head p.head-artist{
     width: 200px;
     height: 200px;
     background: grey;
-    border:1px solid black;
-    float:left;
+    /* border: 1px solid black; */
+    float: left;
 }
 .head:nth-child(1){
-    width: 402px;
-    height: 402px;
+    width: 400px;
+    height: 400px;
     background: red;
-    float:left;
-    margin-left: 4px;
-    border: 1px solid black;
+    float: left;
+    margin-left: 0px;
+    /* border: 1px solid black; */
 }
 .head:nth-child(1) img{
     width: 100%;
@@ -319,6 +357,7 @@ main .info-head p.head-artist{
     
 }
 
+
 /*____ALBUM____*/
 #view-album{
     width: 625px;
@@ -326,16 +365,9 @@ main .info-head p.head-artist{
     float: left;
     margin-top: 10px;
     height: 400px;
-  /*  background-color: red;*/
-}
-
-#view-album img{
-    /*float:left;*/
-   /* padding: 5px;*/
 }
 
 .smallExtraImg *{
-   /* clear:both;*/
     height: 87px;
     float: left;
     padding: 2px;
@@ -451,7 +483,7 @@ span.outStock{
     width: 92%;
 }
 
-/*__________*/
+
 /*__LOG_IN__*/
 .btn:hover{
     background-color: grey;
