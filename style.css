@@ -199,18 +199,12 @@ aside{
 
 /*------ HOME ------*/
 #view-route main #head-albums{
-<<<<<<< HEAD
     display: table;
     margin: 0 auto;
     width: 1200px;
     height: 400px;
-=======
-   display:table;
-   width: 100%;
-   margin: 0 auto;
-   position: relative;
->>>>>>> origin/master
 }
+
 main .info-head{
     width: 100%;
     height: 25%;
