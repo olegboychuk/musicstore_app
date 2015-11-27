@@ -1,9 +1,9 @@
 <main ng-controller="AlbumsController">
 	<div ng-include="'app/Albums/_albumtop.html'"></div>
-	
+	<div id="wrapper">
+
+	<bread-crumb></bread-crumb>
 	<genre-list> daniel </genre-list>	
-	
-	<div id="bread-crump"><p>New Products</p></div>
 	
 	<div id ="center-albums">
 		<div class="center albums" ng-repeat="album in albums | limitTo :12 :12 track by $index" >
@@ -26,7 +26,7 @@
 	<div infinite-scroll="loadMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='3'>
 		<div ng-show='busy'>Loading data...</div>
 		<div id="page">
-		    <div class="page" ng-repeat="album in albums  track by $index" ">
+		    <div class="page" ng-repeat="album in albums  track by $index" >
 				<a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
 		        <div class="info-head">
 				    <p class="head-name">{{album.album_name}}</p>
@@ -34,4 +34,6 @@
 		    </div>
         </div>
     </div>
+
+</div>
 </main>

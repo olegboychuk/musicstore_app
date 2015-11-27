@@ -28,14 +28,7 @@ body{
     margin: 0 auto;
     background-color:#E3E3E3;
 }
-<<<<<<< HEAD
 
-=======
-.wrapper{
-    width: 1200px;
-    margin: 0 auto;
-}
->>>>>>> origin/master
 /* ------ MAIN MENU ----- */
 
 header{
@@ -112,6 +105,7 @@ nav ul li{
     margin-top: 25px;
     margin-left: 111px;
 }
+
 img.logo{
 	height:94px;
 	width: 226px;
@@ -119,32 +113,28 @@ img.logo{
 }
 
 
-<<<<<<< Updated upstream
 /* ----- ASIDE ---- */
-=======
-<<<<<<< HEAD
-ng-view{
-   background: black; 
-}
 
-
- /*   ----- ASIDE ----  */ 
-=======
-/* ----- ASIDE ---- */
->>>>>>> origin/master
->>>>>>> Stashed changes
 aside{
 	padding:10px;
+}
+
+#wrapper{
+    height: auto;
+    margin: 0 auto;
+    width: 1200px;
 }
 
 
 /* ------ CART ----- */
 #cart{
-    display:block;
-	width: 302px;
+    display: block;
+    width: 215px;
     padding: 5px;
     background-color: #F0F0F0;
-    margin-left: 32px;
+    margin-left: 225px;
+    position: absolute;
+    margin-top: 430px;
 }
 #cart h1{
 	width: 95%;
@@ -176,15 +166,7 @@ aside{
 }
 #music-genre div a{
     color:white;
-<<<<<<< Updated upstream
     display: block;
-=======
-<<<<<<< HEAD
-    display:block;
-=======
-    display: block;
->>>>>>> origin/master
->>>>>>> Stashed changes
 }
 
 #music-genre div:active{
@@ -198,7 +180,7 @@ aside{
 
 
 /*------ HOME ------*/
-#view-route main #head-albums{
+#head-albums{
     display: table;
     margin: 0 auto;
     width: 1200px;
