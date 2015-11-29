@@ -6,7 +6,7 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
     $scope.loading = false;
     $scope.nextalbums = [];
     $scope.headclass = true;
-    $scope.showPageTop = $location.path().'/home';
+    $scope.showPageTop = $location.path()+'/home';
     
     $scope.loadMore= function(next){
         if($scope.busy)  return;
@@ -17,7 +17,7 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
         nextalbums.then( function( data ){
           console.log("nextalbums",nextalbums);
         $scope.albums.splice( $scope.albums.length,data.length,data );
-        }),function(error){
+        }), function(error){
            console.log("error",error);
            alert(error);
         }
@@ -35,4 +35,5 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
    $scope.loadAlbums();
 
    	
+})
 });

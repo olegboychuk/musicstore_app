@@ -32,12 +32,12 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
-<<<<<<< Updated upstream
-		controller:'SelectedAlbumController'
-		controller:'AlbumsController'
-=======
-		controller:'AlbumsGenreController'
->>>>>>> Stashed changes
+//<<<<<<< Updated upstream
+		controller:'SelectedAlbumController',
+//		controller:'AlbumsController'
+//=======
+//		controller:'AlbumsGenreController'
+//>>>>>>> Stashed changes
 	});
 
     $routeProvider
