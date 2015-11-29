@@ -1,6 +1,10 @@
 
 <main ng-controller = "SelectedAlbumController" ng-init="loadAlbum()">
-	<div id="bread-crump" ng-show="true"><p>hello Album you selected</p></div>
+	<bread-crumb></bread-crumb>
+	<genre-list> daniel </genre-list>
+	<my-cart> kira </my-cart>
+
+
 	<div id="view-album">	    
 	    
 	    <img ng-src="Images/{{album.image_path}}" alt="">

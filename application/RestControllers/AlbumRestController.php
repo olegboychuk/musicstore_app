@@ -1,7 +1,7 @@
 
 <?php
-require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
-require_once dirname (__FILE__). '/../core/Controller/Controller.php';
+// require_once dirname (__FILE__). '/../core/Model/AlbumsModel.php';
+// require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 require_once dirname (__FILE__). '/../Controllers/AlbumController.php';
 
 ///??? REQUIRE ONCE TO AlbumController

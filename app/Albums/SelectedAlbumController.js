@@ -5,7 +5,11 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 	$scope.inStock = false;
     $scope.quantety = "1";
     $scope.totalPrice = " "
-	
+
+    $scope.headclass = true;
+    var price = 0;
+	console.log(" $scope.totalPrice", $scope.totalPrice);
+
 	$scope.loadAlbum =function(){
 		var album = AlbumsFactory.getAlbumDetails( albumId );    
     	$scope.album = album; 
