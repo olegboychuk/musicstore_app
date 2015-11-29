@@ -1,12 +1,11 @@
 
-AlbumsModule.controller( 'AlbumsController',function( $log,$scope,AlbumsFactory){
 AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,AlbumsFactory,GenreFactory,$routeParams){
     $scope.busy = false;
 	  $scope.albums = [];
     $scope.loading = false;
     $scope.nextalbums = [];
     $scope.headclass = true;
-    $scope.showPageTop = $location.path().'/home';
+    $scope.showPageTop = $location.path()==='/home';
     
     $scope.loadMore= function(next){
         if($scope.busy)  return;
@@ -33,6 +32,5 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
     };
 
    $scope.loadAlbums();
-
-   	
+  	
 });

@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albums','Cart','Genre','Login']);
 
 // app.filter('capitalize', function() {
 //   return function(input, scope) {
@@ -32,12 +32,7 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
-<<<<<<< Updated upstream
-		controller:'SelectedAlbumController'
-		controller:'AlbumsController'
-=======
 		controller:'AlbumsGenreController'
->>>>>>> Stashed changes
 	});
 
     $routeProvider
