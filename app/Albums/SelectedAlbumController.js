@@ -4,17 +4,14 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 	$scope.album = null;
 	$scope.inStock = false;
     $scope.quantety = "1";
-    var price = 0;
-	console.log(" $scope.totalPrice", $scope.totalPrice);
-
+    $scope.totalPrice = " "
+	
 	$scope.loadAlbum =function(){
 		var album = AlbumsFactory.getAlbumDetails( albumId );    
     	$scope.album = album; 
-    	price = album.album_price;
-    	$scope.totalPrice = price;
 	}
 	
-	$scope.addToCart = function( quantety,albumId ){
+	$scope.addToCart = function( que ){
 
 	}
 
@@ -23,8 +20,9 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 			alert("to much for one order")
 		}else{
 			$scope.quantety++;
-			calculateIncPrice();
 		}
+
+		console.log("$scope.quantety",$scope.quantety)
 	}
 
     $scope.removeFromQuantety = function(){
@@ -32,22 +30,18 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 			return $scope.quantety = null;
 		}else{
 			$scope.quantety--;
-			calculateRedPrice();
 		}
+		console.log("$scope.quantety",$scope.quantety)
 	}
 
-//how to create  1 function with condition where $scope.quantety the key 
-	function calculateIncPrice(){
-		var amount = $scope.quantety;
-		console.log("amount",amount);
-		$scope.totalPrice =price*amount;
-		return $scope.totalPrice;
+	function calculatePrice(){
+		$scope.totalPrice= $scope.quantety.length
+		
 	}
 
-	function calculateRedPrice(){
-		var amount = $scope.quantety;
-		$scope.totalPrice -= price;
-		return $scope.totalPrice;
+	$scope.totalPrice = function(){
+		$scope.quantety.length
+		console.log("$scope.quantety.length",$scope.quantety.length);
 	}
 
 	var intro = AlbumsFactory.getIntro();
