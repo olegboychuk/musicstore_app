@@ -5,15 +5,12 @@ AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q ){
 	var genrealbums =[];
 
 	AlbumsGenreFactory.getAlbumsGenre = function( genreId ){
-		console.log("genreId",genreId);
 		deferred = $q.defer();
 	    
 	    $http.get('api/genre-albums'+'/:'+ genreId)
 	    .success( function( data ) {
-		    console.log("data",data);
-
+	    	
 		    genrealbums = data.result.albums;
-			console.log("data",genrealbums);
 			deferred.resolve({
 			   albums: data.result.albums 
 			});
