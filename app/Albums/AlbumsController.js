@@ -15,8 +15,8 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
        
         var nextalbums = AlbumsFactory.getNextPage( );
         nextalbums.then( function( data ){
-          console.log("nextalbums",nextalbums);
-        $scope.albums.splice( $scope.albums.length,data.length,data );
+        console.log("nextalbums",nextalbums);
+        $scope.albums.splice( $scope.albums.length, data.length, data );
         }), function(error){
            console.log("error",error);
            alert(error);

@@ -2,12 +2,13 @@
 <bread-crumb></bread-crumb>
 
 <main ng-controller="AlbumsGenreController" >	
-	<div id="genres-albums">
-		<div class="albums" ng-repeat="album in albums track by $index"></div>
-	    <a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
-		<div class="info-head">
-		    <p class="head-name">{{album.album_name}}</p>
-			<p class="album-price">{{album.album_price | currency:"$"}}</p>
-	    </div>
-	</div>
+	<!-- <div id="genres-albums"> -->
+		<div class="albums" ng-repeat="album in albums track by $index">
+		    <a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
+			<div class="info-head">
+			    <p class="head-name">{{album.album_name}}</p>
+				<p class="album-price">{{album.album_price | currency:"$"}}</p>
+		    </div>
+	   </div>
+	<!-- </div> -->
 </main>
