@@ -7,10 +7,10 @@ GenreModule.controller('GenreController', function( $log, $http, $scope, GenreFa
             genres.success(function(data){
                 $scope.genres = data.result.genres;
                     console.log("genres11",data);
-            })
-            .error(function(){
+            }),
+            function(error){
                var Genres = "error in fetching data";
-            });
-    }
+            };
+    };
     $scope.getGenres();
 });
