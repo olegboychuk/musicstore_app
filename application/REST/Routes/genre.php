@@ -1,18 +1,18 @@
 
 <?php
-
+require_once dirname (__FILE__).'/../../RestControllers/AlbumRestController.php';
+$albums = new AlbumRestController();
 require_once dirname (__FILE__).'/../../RestControllers/GenreRestController.php';
 $genre = new GenreRestController();
 // var_dump($genre);
 
-// $app->get('/albums/:id',function( $start ) use ( $album, $app ){
-// 	// global $app;
-// 	 $start = explode(':', $start);
+$app->get('/genre-albums/:id',function( $id ) use ( $albums, $app ){
+	// global $app;
+	$genreId = explode(':', $id);
 
-// 	$al=$album->getAlbums( $start[1] );
-	
-// 	echo json_encode( $al ); 
-// });
+	$albums=$albums->getAlbumsByGenre( $genreId[2] );
+	echo json_encode( $albums ); 
+});
 
 $app->get('/genres/',function() use ( $genre ){
 	$genres=$genre->getAllGenres();

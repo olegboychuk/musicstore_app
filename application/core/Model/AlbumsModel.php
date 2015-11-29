@@ -28,24 +28,26 @@ class AlbumModel extends Model{
 	}
 
 	/**
-	/*public function getAl
-	/*	FETCH ALL ALBUMS FROM DB
+	/*public function getAlbumsByGenre
+	/*	FETCH ALL ALBUMS FROM DB BY GENRE ID
 	*/
-	//public function getAl(){
-	// 	$result = $this->_db->query( "SELECT * FROM albums");
-    // SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id
-    //                               join images as i ON ia.image_id = i.image_id
+	public function getAlbumsByGenre( $genreId ){
 
+		$result = $this->_db->query( "SELECT * FROM albums as a JOIN genres_to_albums as ga ON a.album_id = ga.album_id JOIN images_to_albums as ia ON a.album_id = ia.album_id JOIN images as i ON ia.image_id = i.image_id WHERE ga.genre_id = $genreId");
 
-	// 	if( result ){
-	// 		$albums=array();
-	// 		while ( $row = $result->fetch_assoc() ) 
-	// 		    $albums[]=$row;
+        // SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id
+        //                           join images as i ON ia.image_id = i.image_id
+
+		if( $result -> num_rows > 0 ){
+			$albums=array();
+			while ( $row = $result->fetch_assoc() ) 
+			    $albums[]=$row;
 			
-	// 		return $albums;
-	// 	}
-	// }
-		/**
+			return $albums;
+		}
+	}
+
+	/**
 	/*private function getImages
 	/*	FETCH IMAGES OF ALBUMS FROM DB
 	*/

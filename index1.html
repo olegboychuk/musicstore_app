@@ -20,7 +20,6 @@
 		</nav>
 		<div id="nav-header">
 			<a href="#home"><img class="logo" src="Images/logo.png" ></a>
-			<!-- <img class="logo" src="Images/logo.png" > -->
 			<div id="find-album">
 				<input type="text" class="search" />
 			</div>
@@ -28,23 +27,18 @@
 		</div>
 	</header>
 
-	<!-- <genre-list> daniel </genre-list> -->
-	<!-- <my-cart> kira </my-cart> -->
 	<div id="view-route"><ng-view></ng-view></div>
 		
+<!-- <footer></footer> -->
+
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
 	<!--<script src="app/angular-filter.js"></script>-->	
-	<script src="app/app.js"></script>
-	<!--<script src="app/angular-route.js"></script>-->
-	<script src="app/Shared/Modules.js"></script>
-	
-	<script	src="app/Albums/AlbumsFactory.js"></script>
-    <script	src="app/Albums/AlbumsController.js"></script>
-    <script	src="app/Albums/SelectedAlbumController.js"></script>
 
+	<script src="app/app.js"></script>
+	<script src="app/Shared/Modules.js"></script>
 
     <script src="app/User/UserFactory.js"></script>
     <script src="app/User/UserController.js"></script>
@@ -53,6 +47,12 @@
 	<script src="app/Genre/GenreFactory.js"></script>
 	<script src="app/Genre/GenreDirective.js"></script>
 	<script src="app/Genre/GenreController.js"></script>
+
+	<script	src="app/Albums/AlbumsFactory.js"></script>
+    <script	src="app/Albums/AlbumsController.js"></script>
+    <script	src="app/Albums/SelectedAlbumController.js"></script>
+    <script	src="app/Albums/AlbumsGenreController.js"></script>
+    <script	src="app/Albums/AlbumsGenreFactory.js"></script>
 
 	<script src="app/Cart/CartFactory.js"></script>
 	<script src="app/Cart/CartDirective.js"></script>

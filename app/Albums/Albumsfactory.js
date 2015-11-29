@@ -97,11 +97,20 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
         return deferred.promise;
 	}
      
-	// AlbumsFactory.getAlbums = function (){
-	// 	var getAlbums = deferred.promise;
-	// 	console.log("getAlbums",getAlbums);
-	//     return getAlbums;
-	// };
+
+	AlbumsFactory.getAlbumsGenre = function( genreId ){
+		console.log("genreId",genreId);
+	    var genrealbums =[];
+	    $http.get('api/genre-albums'+'/:'+ genreId)
+	   .success( function( data ) {
+		    genrealbums = data.result.albums;
+			console.log("data",genrealbums);
+		})
+		.error(function(){
+               var albums = "error in fetching data";
+         });
+		return genrealbums;
+	}
 
 	AlbumsFactory.getAlbums = function (){
 		 console.log("getAlbums",Albums);
@@ -110,4 +119,10 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 	return AlbumsFactory;
 
+
+	// AlbumsFactory.getAlbums = function (){
+	// 	var getAlbums = deferred.promise;
+	// 	console.log("getAlbums",getAlbums);
+	//     return getAlbums;
+	// };
 });

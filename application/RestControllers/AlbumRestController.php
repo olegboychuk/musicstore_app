@@ -41,11 +41,11 @@ class AlbumRestController extends AlbumController{
 	}
 
     /**
-	/* public function getAl
-	/* GET ALBUMs FROM DB AND GET ANSWER FOR RESPONCE
+	/* public function getAlbumsByGenre
+	/* FETCH ALL ALBUMS FROM DB BY GENRE ID
 	*/
-	public function getAl(  ){
-		$albums = parent::getAl( );
+	public function getAlbumsByGenre( $genreId ){
+		$albums = parent::getAlbumsByGenre( $genreId );
 
 		if ( is_array($albums) ) {
 			return $this->createAnswer( 0,array("albums"=>$albums) );

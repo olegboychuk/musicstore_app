@@ -50,6 +50,21 @@ class AlbumController extends Controller{
 		else
 			return false;
 	}
+
+
+
+	/**
+	/*public function getAlbumsByGenre
+	/*	FETCH ALL ALBUMS FROM DB BY GENRE ID
+	*/
+	public function getAlbumsByGenre( $genreId ){
+		$albums = $this->model->getAlbumsByGenre( $genreId );
+		
+		if ($albums !== NULL) 
+			return $albums;
+		else
+			return false;	
+	}
 }
 // $db = new AlbumController();
 // var_dump($db);

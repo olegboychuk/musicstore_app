@@ -32,14 +32,18 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
+<<<<<<< Updated upstream
 		controller:'SelectedAlbumController'
 		controller:'AlbumsController'
+=======
+		controller:'AlbumsGenreController'
+>>>>>>> Stashed changes
 	});
 
     $routeProvider
 	.otherwise({ redirectTo: '/home' });
 });
 
-app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory ){
+app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
 
 });

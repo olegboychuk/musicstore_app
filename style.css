@@ -40,10 +40,10 @@ header{
 nav{
 	height: 40px;
 	background-color:white;
-/*    padding-left: 15px;*/
+    padding-left: 15px;
 }
 nav ul{
-    margin-left: 15%;
+    margin-left: 20%;
 }
 nav ul li{
 	float: left;
@@ -88,12 +88,18 @@ nav ul li{
 	width: 100%;
 	height: 80px;
 	background-color: #FD0002;
+    position: absolute;
 }
 #nav-header img{
     height: 80px;
     width: auto;
     float: left;
-    margin-left: 15%;
+    margin-left: 20%;
+}
+
+#find-album{
+  position: absolute;
+  width: 100%;  
 }
 
 .search{
@@ -103,7 +109,7 @@ nav ul li{
     background-color: white;
     float: left;
     margin-top: 25px;
-    margin-left: 111px;
+    margin-left: 40%;
 }
 
 img.logo{
@@ -122,7 +128,7 @@ aside{
 #wrapper{
     height: auto;
     margin: 0 auto;
-    width: 1200px;
+    width: 1320px;
 }
 
 
@@ -181,10 +187,10 @@ aside{
 
 /*------ HOME ------*/
 #head-albums{
-    display: table;
+    display: inherit;
     margin: 0 auto;
-    width: 1200px;
-    height: 400px;
+    width: 1280px;
+    height: 425px;
 }
 
 main .info-head{
@@ -194,10 +200,13 @@ main .info-head{
     margin-top: -17px;
     position: relative;
 }
+
 main .info-head p.head-name{
     color:white;
     font-size:16px;
+    padding: 5px;
 }
+
 main .info-head p.head-artist{
     color:red;
     font-size:14px;
@@ -215,39 +224,36 @@ main .info-head p.head-artist{
 }
 
 .head:nth-child(1n+2){
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     background: grey;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     float: left;
 }
 .head:nth-child(1){
-    width: 400px;
-    height: 400px;
+    width: 430px;
+    height: 422px;
     background: red;
     float: left;
     margin-left: 0px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 .head:nth-child(1) img{
     width: 100%;
+    height:100%
 }
 .head img{
     width: 100%;
 }
 .head:nth-child(1n+2) div{
-   /* width: 100%;
-    height: 25%;*/
     background: rgba(0, 0, 0, 0.7);
-    margin-top: -53px;
-    position: relative;
+    margin-top: -57px;
 }
 .head:nth-child(1) div{
     width: 100%;
     height: 20%;
     background: rgba(0, 0, 0, 0.7);
-    margin-top: -83px;
-    position: relative;
+    margin-top: -87px;
 }
 
 .head:nth-child(1n+2) p.head-name{
@@ -339,7 +345,7 @@ main .info-head p.head-artist{
     width: 625px;
     margin-left: 477px;
     float: left;
-    margin-top: 10px;
+    margin-top: 20px;
     height: 400px;
 }
 
@@ -366,8 +372,10 @@ main .info-head p.head-artist{
     margin-top: -260px;
 }
 .album-price{
-    font-size:22px;
-    color:red;
+    font-size: 22px;
+    color: red;
+    padding-top: 5px;
+    margin-left: 5px;
 }
 .stock{
     color: black;
@@ -397,16 +405,14 @@ span.outStock{
     width: 150px;
 }
 
-.manage-quantety input{
-    height: 27px;
-}
-
 .manage-quantety button:nth-child(2n) {
     position: absolute;
     margin-left: 4px;
     height: 17px;
     width: 19px;
-    color:white;
+    border: 1px solid darkgrey;
+    color:darkgrey;
+    background-color: white;
 }
 
 .manage-quantety button:nth-child(2n+1) {
@@ -415,11 +421,14 @@ span.outStock{
     margin-left: 4px;
     height: 17px;
     width: 19px;
-    color:white;
+    background-color: white;
+    color:darkgrey;
+    border: 1px solid darkgrey;
 }
 .manage-quantety input{
+    height: 27px;
     width: 30px;
-    border: 1px solid black;
+    border: 1px solid darkgrey;
     padding: 6px 0px 7px 15px;
 }
 .add-to-cart{
@@ -536,4 +545,12 @@ span.outStock{
 }    
 .regFile .btn{
     float: left;
+}
+
+footer{
+    width: 100%;
+    height:100p;
+    bottom:0%;
+    background-color: black;
+    position: fixed;
 }
