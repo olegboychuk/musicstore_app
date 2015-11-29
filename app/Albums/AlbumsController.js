@@ -15,10 +15,9 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
        
         var nextalbums = AlbumsFactory.getNextPage( );
         nextalbums.then( function( data ){
-        console.log("nextalbums",nextalbums);
+        // console.log("nextalbums",nextalbums);
         $scope.albums.splice( $scope.albums.length, data.length, data );
         }), function(error){
-           console.log("error",error);
            alert(error);
         }
         $scope.busy = false;
@@ -28,7 +27,6 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
       var getAlbums = AlbumsFactory.getNextPage();
       getAlbums.then( function( data ){
           $scope.albums = AlbumsFactory.getAlbums();
-          console.log( "getalbums00",$scope.albums );
       });  
     };
 

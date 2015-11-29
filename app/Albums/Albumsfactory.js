@@ -38,12 +38,13 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		for (var i = 0; i < Albums.length; i++) {
 		 
 			if (Albums[i][key] == value) {
-				console.log("i",i);
+				// console.log("i",i);
 			    return i;
 			}
 		}
 		return null;
 	}
+
 
     /**
 	/*  function createListAlbums
@@ -57,7 +58,6 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		for ( i = i;i<=stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 
 		};
-        console.log( "Albumsss",Albums );
 		return Albums;
 	}
 
@@ -96,24 +96,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
         return deferred.promise;
 	}
-     
-
-	AlbumsFactory.getAlbumsGenre = function( genreId ){
-		console.log("genreId",genreId);
-	    var genrealbums =[];
-	    $http.get('api/genre-albums'+'/:'+ genreId)
-	   .success( function( data ) {
-		    genrealbums = data.result.albums;
-			console.log("data",genrealbums);
-		})
-		.error(function(){
-               var albums = "error in fetching data";
-         });
-		return genrealbums;
-	}
 
 	AlbumsFactory.getAlbums = function (){
-		 console.log("getAlbums",Albums);
 	    return Albums;
 	};
 
