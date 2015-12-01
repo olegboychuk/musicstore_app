@@ -32,11 +32,10 @@ class AlbumModel extends Model{
 	/*	FETCH ALL ALBUMS FROM DB BY GENRE ID
 	*/
 	public function getAlbumsByGenre( $genreId ){
-
+		//var_dump($genreId);
 		$result = $this->_db->query( "SELECT * FROM albums as a JOIN genres_to_albums as ga ON a.album_id = ga.album_id JOIN images_to_albums as ia ON a.album_id = ia.album_id JOIN images as i ON ia.image_id = i.image_id WHERE ga.genre_id = $genreId");
 
-        // SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id
-        //                           join images as i ON ia.image_id = i.image_id
+        //echo "SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id join images as i ON ia.image_id = i.image_id WHERE ga.genre_id = $genreId";
 
 		if( $result -> num_rows > 0 ){
 			$albums=array();

@@ -21,6 +21,13 @@ $app->get('/album/:id',function( $id ) use ( $album ){
 	echo json_encode( $album ); 
 });
 
+$app->get('/genre-albums/:id',function( $id ) use ( $album, $app ){
+	// global $app;
+	$genreId = explode(':', $id);
+    //var_dump($genreId);
+	$albums=$album->getAlbumsByGenre( $genreId[1] );
+	echo json_encode( $albums ); 
+});
 // $app->post('',function() use ( $album ){
 
 // });
