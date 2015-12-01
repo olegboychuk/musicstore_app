@@ -4,17 +4,18 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 	$scope.album = null;
 	$scope.inStock = false;
     $scope.quantety = "1";
-    $scope.totalPrice = "";
-
     $scope.headclass = true;
     var price = 0;
+	console.log(" $scope.totalPrice", $scope.totalPrice);
 
 	$scope.loadAlbum =function(){
 		var album = AlbumsFactory.getAlbumDetails( albumId );    
     	$scope.album = album; 
+    	price = album.album_price;
+    	$scope.totalPrice = price;
 	}
 	
-	$scope.addToCart = function( que ){
+	$scope.addToCart = function( quantety,albumId ){
 
 	}
 
@@ -23,6 +24,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 			alert("to much for one order")
 		}else{
 			$scope.quantety++;
+			calculateIncPrice();
 		}
 	}
 
@@ -31,16 +33,22 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 			return $scope.quantety = null;
 		}else{
 			$scope.quantety--;
+			calculateRedPrice();
 		}
 	}
 
-	function calculatePrice(){
-		$scope.totalPrice= $scope.quantety.length
-		
+//how to create  1 function with condition where $scope.quantety the key 
+	function calculateIncPrice(){
+		var amount = $scope.quantety;
+		console.log("amount",amount);
+		$scope.totalPrice =price*amount;
+		return $scope.totalPrice;
 	}
 
-	$scope.totalPrice = function(){
-		$scope.quantety.length
+	function calculateRedPrice(){
+		var amount = $scope.quantety;
+		$scope.totalPrice -= price;
+		return $scope.totalPrice;
 	}
 
 	var intro = AlbumsFactory.getIntro();

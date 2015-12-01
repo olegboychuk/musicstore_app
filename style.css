@@ -201,7 +201,7 @@ main .info-head{
     position: relative;
 }
 
-main .info-head p.head-name{
+p.head-name{
     color:white;
     font-size:16px;
     padding: 5px;
@@ -325,22 +325,67 @@ main .info-head p.head-artist{
 }
 
 #bread-crumb{
-    width: 858px;
+    width: 846px;
     height: 20px;
     padding: 10px;
-    margin-left: 225px;
+    margin-left: 235px;
     background-color: #FFF;
     float: left;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .busy{
-    position:fixed;
+    position:relative;
     
 }
 
 
+
+/*____GENRE ALBUMS____*/
+
+.genre-amount{
+    width: 615px;
+    height: 20px;
+    padding: 10px;
+    margin-left: 16px;
+    background-color: #FFF;
+    float: left;
+    margin-top: 10px;
+}
+
+.genre-albums{
+    width: 200px;
+    float: left;
+    margin-top: 10px;
+    height: 350px;
+    background: grey;
+    border: 1px solid;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.genre-albums .info-manage-album{
+    height: 45%;
+    background: rgba(0, 0, 0, 1);
+    margin-top: -10px;
+    position: relative;
+}
+.info-manage-album p{
+    padding: 5px;
+}
+
+.genre-albums img{
+    width: 100%;
+}
+
+.album-descriptoin{
+    color:grey; 
+    font-size:10px;  
+}
+
+
 /*____ALBUM____*/
+
 #view-album{
     width: 625px;
     margin-left: 477px;
@@ -371,20 +416,26 @@ main .info-head p.head-artist{
     color:grey;
     margin-top: -260px;
 }
+
 .album-price{
     font-size: 22px;
     color: red;
+}
+/*.album-price {
     padding-top: 5px;
     margin-left: 5px;
-}
+}*/
+
 .stock{
     color: black;
     font-weight: bold;
 }
+
 span.inStock{
    color: #008500;
    font-weight: bold;
 }
+
 span.outStock{
      text-decoration: line-through;
      color:grey;
