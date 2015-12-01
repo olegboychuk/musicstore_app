@@ -473,11 +473,12 @@ span.outStock{
 .btn:hover{
     background-color: grey;
 }
+
+
 .regFile{
     width: 558px;
     float: left;
     border: solid 1px #848484;
-    height: 280px;
     padding: 15px;
     background-color: #fff;
 }
@@ -502,6 +503,44 @@ span.outStock{
     margin: 7px 0;
     display: block;
 }
+#registrCostumers .has-error .form-control{
+    border: dotted red 2px;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+
+} 
+#registrCostumers .username.ng-valid {
+          background-color: #E4F5E4;
+      }
+      .username.ng-dirty.ng-invalid-required {
+          border: dotted red 2px;
+      }
+      .username.ng-dirty.ng-invalid-minlength {
+          background-color: #F9F9B0;
+      }
+ 
+      .email.ng-valid {
+          background-color: #E4F5E4;
+      }
+      .email.ng-dirty.ng-invalid-required {
+          border: dotted red 2px;
+      }
+      .email.ng-dirty.ng-invalid-email {
+          background-color: #F9F9B0;
+      }
+
+
 #registr{
     /*display: none;*/
     width: 300px;
