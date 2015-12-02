@@ -13,8 +13,9 @@
 			    <p class="head-name">{{album.album_artist}} - {{album.album_name}}</p>
 				<p class="album-descriptoin">{{album.album_description | limitTo:120:0}}...</p>
 				<p class="album-price">{{album.album_price | currency:"$"}}</p>
-		    	<img ng-src="Images/{{album.image_path}}" alt="">
-		    	<img ng-src="" alt="">
+		    	<img ng-src="Images/info-album.png" alt="" ng-click="setImage(img)">
+		    	<img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart(img)">
+		    	<p class="addtowishlist" ng-click="addtowishlist($index)">Add to Wishlist</p>
 		    </div>
 	    </div>
 	</div>

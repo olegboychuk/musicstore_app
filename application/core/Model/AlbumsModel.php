@@ -12,20 +12,6 @@ class AlbumModel extends Model{
 		parent::__construct();
 	}
 
-	/**
-	/*public function searchAlbums
-	/*	FETCH SPECIFIC ALBUMS BY SEARCH FROM DB
-	*/
-	public function searchAlbums( $str ){
-		$result = $this->_db->query( "SELECT * FROM albums AS a WHERE a.album_name like '%$str%' " );
-		
-		$album_details = array();
-		if ( $result->num_rows>0 ){
-			while ( $row = $result->fetch_assoc() ) 
-				$album_details[]=$row;
-	    }
-	    return $album_details;
-	}
 
 	/**
 	/*public function getAlbumsByGenre

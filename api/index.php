@@ -10,5 +10,7 @@ $app->contentType( 'application/json' );
 
 require_once dirname( __FILE__ ) . '/../application/REST/Routes/genre.php';
 require_once dirname( __FILE__ ) . '/../application/REST/Routes/album.php';
+require_once dirname( __FILE__ ) . '/../application/REST/Routes/search.php';
+
 // var_dump($app);
 $app->run();

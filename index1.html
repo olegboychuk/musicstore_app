@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Home Page</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style-search.css">
 	<link rel="stylesheet" href="checkout.css">
 </head>
 <body ng-controller="mainController">
@@ -20,8 +21,12 @@
 		</nav>
 		<div id="nav-header">
 			<a href="#home"><img class="logo" src="Images/logo.png" ></a>
+			<div ng-controller="searchController">
+                <live-search id="search1" type="text" live-search-callback="mySearchCallback" ng-model="mySearch" class="form-control"></live-search>
+            </div>
 			<div id="find-album">
 				<input type="text" class="search" />
+				<img ng-src="Images/search.png" alt="">
 			</div>
 			<div id="store-status"></div>
 		</div>
@@ -35,10 +40,11 @@
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
-	<!--<script src="app/angular-filter.js"></script>-->	
 
 	<script src="app/app.js"></script>
 	<script src="app/Shared/Modules.js"></script>
+	<script src="app/Search/LiveSearch.js"></script>
+	<script src="app/Search/SearchController.js"></script>
 
     <script src="app/User/UserFactory.js"></script>
     <script src="app/User/UserController.js"></script>

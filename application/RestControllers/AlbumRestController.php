@@ -55,20 +55,7 @@ class AlbumRestController extends AlbumController{
 			return $this->createAnswer( 1,"invalid search",400 );
 	}
 
-    /**
-	/* public function searchAlbums
-	/* GET ALBUM FROM DB BY THE SEARCH AND GET ANSWER IF THIS HAPPEND
-	*/
-	public function searchAlbums( $str ){
-		$album_details = parent::searchAlbums( $str );
 
-		if( is_array( $album_details ) )
-			return $this->createAnswer( 0, array("album"=>$album_details) );
-		elseif ( $album_details == NULL ) 
-			return $this->createAnswer( 1,"empty result",402 );
-		else
-		   return $this->createAnswer( 1, "invalid search", 400 );
-	}
 
     /**
 	/* public function getDetailsAlbum

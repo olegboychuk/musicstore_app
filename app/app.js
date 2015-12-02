@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','User','Albums','Cart','Genre','Login']);
+var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
 
 // app.filter('capitalize', function() {
 //   return function(input, scope) {

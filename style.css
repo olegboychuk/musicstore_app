@@ -102,6 +102,14 @@ nav ul li{
   width: 100%;  
 }
 
+#find-album img{
+    width: 35px;
+    height: auto;
+    position: relative;
+    margin-top: 26px;
+    margin-left: -40px;
+}
+
 .search{
     width: 270px;
     height: 25px;
@@ -361,7 +369,7 @@ main .info-head p.head-artist{
     background: grey;
     border: 1px solid;
     overflow: hidden;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .genre-albums .info-manage-album{
@@ -369,9 +377,6 @@ main .info-head p.head-artist{
     background: rgba(0, 0, 0, 1);
     margin-top: -10px;
     position: relative;
-}
-.info-manage-album p{
-    padding: 5px;
 }
 
 .genre-albums img{
@@ -381,6 +386,23 @@ main .info-head p.head-artist{
 .album-descriptoin{
     color:grey; 
     font-size:10px;  
+}
+.info-manage-album p{
+    padding: 5px;
+}
+.info-manage-album img{
+    width: 35px;
+    float: right;
+    margin-top: -33px;
+}
+.info-manage-album p:last-child{
+    color:white;
+    font-size:12px;
+}
+
+.info-manage-album p:last-child:hover{
+    color:red;
+    cursor:pointer;
 }
 
 

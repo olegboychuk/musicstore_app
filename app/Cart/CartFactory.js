@@ -19,7 +19,7 @@ CartModule.factory('CartFactory', function(  ){
 		}
 	};
 	CartFactory.deleteProduct = function( productIndex ) {
-		var price = ProductsService.getPrice( productIndex );
+		var price = AlbumsFactory.getPrice( productIndex );
 		
 		if ( products.indexOf( productIndex ) != -1 ) {
 			totalPrice -= price;

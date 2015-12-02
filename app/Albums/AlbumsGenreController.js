@@ -20,6 +20,9 @@ AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,Ge
 
 	// };
 
+	$scope.addToCart = function( $index ){
+		
+	};
 
 
 })
