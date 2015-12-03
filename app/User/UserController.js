@@ -14,25 +14,75 @@ LoginModule.controller('UserController', function($scope){
 		$scope.visible = false;
 	};
 
-	$scope.submitLogin=function(login) {
+	$scope.submitLogin = function(login) {
 	    $scope.submited = true;
 
 	    if(login.$invalid) {
 	        return;
 	    }
 	};
-	$scope.submitRegister=function(register) {
+	$scope.submitRegister = function(registration) {
 	    $scope.submited = true;
 
 	    if(registration.$invalid) {
 	        return;
 	    }
 	};
-  
+    
+
+/* Password confirmation */
+	(function() {
+
+        //var RegistrationController = function() {
+            //var model = this;
+/*
+            model.message = "";
+
+            model.user = {
+                username: "",
+                password: "",
+                confirmPassword: ""
+            };*/
 
 
+        //};
 
-});
+    var compareTo = function() {
+        return {
+            require: "ngModel",
+            scope: {
+                otherModelValue: "=compareTo"
+            },
+            link: function(scope, element, attributes, ngModel) {
+
+                ngModel.$validators.compareTo = function(modelValue) {
+                    return modelValue == scope.otherModelValue;
+                };
+
+                scope.$watch("otherModelValue", function() {
+                    ngModel.$validate();
+                });
+            }
+        };
+    };
+
+    LoginModule.directive("compareTo", compareTo);
+   // app.controller("RegistrationController", RegistrationController);
+
+}());
+
+	
+	$scope.insertData = function() {
+	        $http.post("insert.php", {
+	            'email':$scope.email, 'password':$scope.password, 'firstName':$scope.firstName, 'lastName':$scope.lastName
+	        })
+	            .success(function(data, status, headers, config) {
+	                console.log("data inserted successfuly");
+
+	            });
+	    }
+
+	});
 
 
 

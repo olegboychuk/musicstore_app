@@ -623,8 +623,8 @@ span.outStock{
     left: 30%;
     top: 17%;
 }
-#registr input#lastName{
-    margin-bottom: 20px;
+#registr .mg{
+    margin-top: 20px;
 }
 #registr input{
     width: 95%;

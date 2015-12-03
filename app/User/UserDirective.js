@@ -5,3 +5,4 @@ UserModule.directive('getUser', function(){
 		controller: 'UserController'
 	};
 });
+// UserModule.directive("compareTo", compareTo);
