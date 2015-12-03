@@ -1,8 +1,8 @@
 LoginModule.controller('UserController', function($scope){
-	var self = this;
-        self.submit = function() {
-        console.log('Form is submitted with following user', self.firstName);
-    };
+	// var self = this;
+ //        self.submit = function() {
+ //        console.log('Form is submitted with following user', self.firstName, self.lastName , self.regEmail);
+ //    };
 
 	$scope.visible = false;
   	$scope.showMe = function(){
@@ -13,33 +13,25 @@ LoginModule.controller('UserController', function($scope){
 	$scope.hideMe = function(){
 		$scope.visible = false;
 	};
-	// $scope.Log = function(){
-	// 	console.log("log");
 
-	// }
-	// $scope.submitMyForm = function() {
- //        alert("Form submitted");
- //    };
+	$scope.submitLogin=function(login) {
+	    $scope.submited = true;
+
+	    if(login.$invalid) {
+	        return;
+	    }
+	};
+	$scope.submitRegister=function(register) {
+	    $scope.submited = true;
+
+	    if(registration.$invalid) {
+	        return;
+	    }
+	};
+  
 
 
 
-    $scope.passwordValidator = function(password) {
-
-        if (!password) {
-            return;
-        }
-        else if (password.length < 6) {
-            return "Password must be at least " + 6 + " characters long";
-        }
-        else if (!password.match(/[A-Z]/)) {
-            return "Password must have at least one capital letter";
-        }
-        else if (!password.match(/[0-9]/)) {
-            return "Password must have at least one number";
-        }
-
-        return true;
-    };
 });
 
 

@@ -543,9 +543,6 @@ span.outStock{
 
 
 /*__LOG_IN__*/
-.btn:hover{
-    background-color: grey;
-}
 
 
 .regFile{
@@ -593,7 +590,7 @@ span.outStock{
     border: 1px solid #ccc;
 
 } 
-#registrCostumers .username.ng-valid {
+/*#registrCostumers .username.ng-valid {
           background-color: #E4F5E4;
       }
       .username.ng-dirty.ng-invalid-required {
@@ -612,7 +609,7 @@ span.outStock{
       .email.ng-dirty.ng-invalid-email {
           background-color: #F9F9B0;
       }
-
+*/
 
 #registr{
     /*display: none;*/
@@ -658,6 +655,10 @@ span.outStock{
 .regFile .btn{
     float: left;
 }
+.btn:hover{
+    background-color: grey;
+}
+
 
 footer{
     width: 100%;

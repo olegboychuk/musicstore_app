@@ -11,7 +11,7 @@ body
 	text-align: center;
 }
 
-input
+.container input
 {
 	width: 50%;
 	top: 25%;
