@@ -1,8 +1,8 @@
  
-AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q ){
+AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q,AlbumsFactory ){
 	var AlbumsGenreFactory = {};
 	var deferred = null;
-	// var genrealbums =[];
+	albumsge = [];
 
 	AlbumsGenreFactory.getAlbumsGenre = function( genreId ){
 		deferred = $q.defer();
@@ -10,10 +10,13 @@ AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q ){
 	    $http.get('api/genre-albums'+'/:'+ genreId)
 	    .success( function( data ) {
 	    	console.log("data",data);
-		    // genrealbums = data.result.albums;
 			deferred.resolve({
 			   albums: data.result.albums 
 			});
+			albumsge.push(data.result.albums);
+	        AlbumsFactory.pushAlbums(albumsge);
+			 //albumsge.push(data.result.albums);
+			console.log("albumsge",albumsge);
 		})
 		.error(function(){
                var albums = "error in fetching data";

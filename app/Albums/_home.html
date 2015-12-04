@@ -6,11 +6,15 @@
 	<genre-list> daniel </genre-list>	
 	
 	<div id ="center-albums">
-		<div class="center albums" ng-repeat="album in albums | limitTo :12 :12 track by $index" >
+		<div class="center albums" ng-repeat="album in albums | limitTo :12 :11 track by $index" >
 			<a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
 			<div class="info-head">
 			    <p class="head-name">{{album.album_name}}</p>
 				<p class="album-price">{{album.album_price | currency:"$"}}</p>
+				<div class="album-manage-icon">
+		    		<img ng-src="Images/info-album.png" alt="" ng-click="setImage(img)">
+		    	    <img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart(img)">
+		    	</div>
 		    </div>
 		</div>
 	</div>

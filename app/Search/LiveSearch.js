@@ -102,7 +102,7 @@
                     var promise = scope.liveSearchCallback.call(null, { query: search_string });
                     promise.then(function (dataArray) {
                         if (dataArray) {
-                            results = dataArray.slice(0, (scope.liveSearchMaxResultSize || 20) - 1);
+                            results = dataArray.slice(0, (scope.liveSearchMaxResultSize || 10) - 1);
                         }
                         scope.visible = true;
                     });

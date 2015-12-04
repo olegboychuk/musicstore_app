@@ -14,6 +14,7 @@ AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,Ge
 			//$scope.albums.splice( $scope.albums.length, data.albums.length, data.albums );
 		});
 	}
+
 	$scope.loadAlbumsGenre(genreId);
 	// $scope.loadAlbumsName = function ( genreId ){
 

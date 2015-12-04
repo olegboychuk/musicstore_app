@@ -1,44 +1,48 @@
 
 <main ng-controller = "SelectedAlbumController" ng-init="loadAlbum()">
-	<bread-crumb></bread-crumb>
-	<genre-list> daniel </genre-list>
-	<my-cart> kira </my-cart>
+	<div id="wrapper">	
+		<bread-crumb></bread-crumb>
+		<genre-list> daniel </genre-list>
+		<my-cart> kira </my-cart>
 
-	<div id="view-album">	    
-	    
-	    <img ng-src="Images/{{album.image_path}}" alt="">
-	    <div class="smallExtraImg">
-	    	<img ng-src="Images/{{album.image_path}}" alt="">
-	    	<img ng-src="Images/{{album.image_path}}" alt="">
-	    	<img ng-src="Images/{{album.image_path}}" alt="">
-	    </div>				
-		<div>
-			<div class="album-details">
-				<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
-				<p class="stock">Availability:			
-					<span ng-class = "{inStock:album.album_stock>0,outStock:album.album_stock<=0}">In stock</span>
-				</p>
-				<hr>
-				<p class="count"> Only {{album.album_stock}} left</p><br>
-				<p class="album-price"> {{album.album_price | currency:"$"}}</p><br>
-				<p class="introduction">{{introduction | limitTo:320:0}}</p>
-			</div>
-			<div id="manage-cart">
-				<p class="total" >Total Price:{{ totalPrice | currency:"$" }}</p>
-				<hr>
-				<div class="manage-quantety">
-					<label>Qty: <input type="text" ng-class="display-quantety" min="1" max="10" step="1" ng-model="quantety"></label>
-					<button class="add" ng-click = "addToQuantety()"> + </button>
-					<button class="remove" ng-click = "removeFromQuantety()"> - </button>
+		<div id="view-album">	    
+		    
+		    <img ng-src="Images/{{album.image_path}}" alt="">
+		    <div class="smallExtraImg">
+		    	<img ng-src="Images/{{album.image_path}}" alt="">
+		    	<img ng-src="Images/{{album.image_path}}" alt="">
+		    	<img ng-src="Images/{{album.image_path}}" alt="">
+		    </div>	
+
+			<div>
+				<div class="album-details">
+					<h2>{{album.album_name +" "+ "("+album.album_release_year+")" }}</h2>
+					<p class="stock">Availability:			
+						<span ng-class = "{inStock:album.album_stock>0,outStock:album.album_stock<=0}">In stock</span>
+					</p>
+					<hr>
+					<p class="count"> Only {{album.album_stock}} left</p><br>
+					<p class="album-price"> {{album.album_price | currency:"$"}}</p><br>
+					<p class="introduction">{{introduction | limitTo:320:0}}</p>
 				</div>
-				<button class="add-to-cart" ng-click="addToCart(quantety)">Add to Cart</button>
 
-				<hr>
-				<button id="wishlist"><img src="" class="heart" alt="">Add to Wishlist</button>
+				<div id="manage-cart">
+					<p class="total" >Total Price:{{ totalPrice | currency:"$" }}</p>
+					<hr>
+					<div class="manage-quantety">
+						<label>Qty: <input type="text" ng-class="display-quantety" min="1" max="10" step="1" ng-model="quantety"></label>
+						<button class="add" ng-click = "addToQuantety()"> + </button>
+						<button class="remove" ng-click = "removeFromQuantety()"> - </button>
+					</div>
+					<button class="add-to-cart" ng-click="addToCart(quantety)">Add to Cart</button>
+					<hr>
+					<button id="wishlist"><img src="" class="heart" alt="">Add to Wishlist</button>
+				</div>
 			</div>
 		</div>
+	
 	</div>
-<footer ng-class="{expression}"></footer>
+   <!--  <footer ng-class="{expression}"></footer> -->
 </main>
 
 

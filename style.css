@@ -22,6 +22,7 @@ a:hover{
     cursor:pointer;
 }
 body{
+    height: 100%;
 	min-width: 1200px;
     direction: ltr;
     font-family: sans-serif;
@@ -129,26 +130,26 @@ img.logo{
 
 /* ----- ASIDE ---- */
 
-aside{
-	padding:10px;
-}
-
 #wrapper{
-    height: auto;
+    /*height: 100%;
+    height: auto !important;*/
     margin: 0 auto;
     width: 1320px;
+   /* position: relative;*/
+    padding-bottom: 190px;
 }
-
 
 /* ------ CART ----- */
 #cart{
+    float:left;
     display: block;
     width: 215px;
     padding: 5px;
     background-color: #F0F0F0;
-    margin-left: 225px;
-    position: absolute;
-    margin-top: 430px;
+    margin-left: 230px;
+    margin-top: 380px;
+    /*padding-bottom: 25px;*/
+    position: relative;
 }
 #cart h1{
 	width: 95%;
@@ -166,9 +167,9 @@ aside{
 	width: 215px;
     padding: 5px;
     background-color: #F0F0F0;
-    margin-left: 225px;
+    margin-left: 230px;
     position: absolute;
-    margin-top: 68px;
+    margin-top: 58px;
 }
 
 #music-genre div{
@@ -197,7 +198,7 @@ aside{
 #head-albums{
     display: inherit;
     margin: 0 auto;
-    width: 1280px;
+    width: 1320px;
     height: 425px;
 }
 
@@ -218,6 +219,12 @@ p.head-name{
 main .info-head p.head-artist{
     color:red;
     font-size:14px;
+}
+
+.info-head img{
+    float: right;
+    width: 35px;
+    margin-top: -25px;
 }
 
 .albums{
@@ -299,8 +306,9 @@ main .info-head p.head-artist{
 
 #center-albums,#genres-albums{
     float: left;
-    width: 652px;
-    margin-left:450px;
+    width: 800px;
+    height: auto;
+    margin-left: 450px;
 }
 .center{
     margin-left: 15px;
@@ -319,7 +327,7 @@ main .info-head p.head-artist{
 }
 #page{
     float: left;
-    width: 652px;
+    width: 800px;
     margin-left: 450px;
 }
 .page{
@@ -390,7 +398,7 @@ main .info-head p.head-artist{
 .info-manage-album p{
     padding: 5px;
 }
-.info-manage-album img{
+.album-manage-icon img{
     width: 35px;
     float: right;
     margin-top: -33px;
@@ -412,7 +420,9 @@ main .info-head p.head-artist{
     width: 625px;
     margin-left: 477px;
     float: left;
-    margin-top: 20px;
+    top: 171px;
+    position: absolute;
+    margin-top: 10px;
     height: 400px;
 }
 
@@ -661,9 +671,10 @@ span.outStock{
 
 
 footer{
-    width: 100%;
-    height:100p;
-    bottom:0%;
     background-color: black;
-    position: fixed;
+    height: 180px;
+    margin-top: -183px;
+    width: 100%;
 }
+
+

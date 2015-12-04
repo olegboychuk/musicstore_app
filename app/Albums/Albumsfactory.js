@@ -49,7 +49,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
     /**
 	/*  function createListAlbums
 	/*  
-	/*	get 
+	/*	get array of albums
 	/*  return 
 	*/
 	function createListAlbums( stockAlbums ){
@@ -58,6 +58,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 		for ( i = i;i<=stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 
 		};
+		console.log("Albumslist",Albums);
 		return Albums;
 	}
 
@@ -96,6 +97,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
         return deferred.promise;
 	}
+
 
 	AlbumsFactory.getAlbums = function (){
 	    return Albums;
