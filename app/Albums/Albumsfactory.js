@@ -49,7 +49,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
     /**
 	/*  function createListAlbums
 	/*  
-	/*	get array of albums
+	/*	get arrays of albums
 	/*  return 
 	*/
 	function createListAlbums( stockAlbums ){

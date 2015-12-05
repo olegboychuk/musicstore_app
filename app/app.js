@@ -9,6 +9,16 @@ var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','Search','Us
 //   }
 // });
 
+app.filter('addclass',function(){
+    return function(activeValue,value){
+        if(activeValue==value)
+           return "active";
+        else
+           return "";
+    }
+});
+
+
 app.config(function( $routeProvider,$locationProvider ){
 
 	$routeProvider
@@ -33,6 +43,12 @@ app.config(function( $routeProvider,$locationProvider ){
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
 		controller:'AlbumsGenreController'
+	});
+
+	$routeProvider
+	.when('/check-out',{
+		templateUrl:"app/Cart/_check-out-1.html",
+		controller:'CartController'
 	});
 
     $routeProvider

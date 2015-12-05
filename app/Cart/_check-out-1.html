@@ -1,0 +1,165 @@
+<main ng-controller="CartController">
+	<div class="chakout">
+		<div id="checkout-content">
+			<div class= "static-info"><h3>Checkout</h3></div>	
+
+	        <div class="sectionHead step cf one active" ng-click="toogleActive($event)" ng-class="{'active' : billing}"><span>1</span><p>Billing Information</p></div>
+			<div id="billingInfo" class="showBilling cf"  ng-show="billing">
+					<div class="billingInfo-row">
+						<div class="label full"><label for="Adress">Adress<span>*</span></label></div>
+						<input type="text" class="adress" ng-model="$parent.form.address" ng-pattern="[a-zA-Z0-9]" placeholder="London str 345" ng-minlength=5 ng-maxlength=20 required >
+					</div>
+					<div class="billingInfo-row">
+						<div class="row-half">
+							<p><label  class="label" for="City">City <span>*</span></label></p>
+							<input type="text" ng-model="form.city" ng-pattern="[a-zA-Z]" placeholder="Shefield" ng-minlength=3 ng-maxlength=20 required >
+						</div>
+						<div class="row-half">
+							<p><label  class="label " for="Zip Code">Zip/Posyal Code<span>*</span></label></p>
+							<input type="text"  ng-model="form.zipcode" ng-pattern="[0-9]" placeholder="90210" ng-minlength=5 ng-maxlength=7 required >
+						</div>	
+					</div>
+					<div class="billingInfo-row">
+						<label  class="label label-half" for="Phone Number">Telephone<span>*</span></label>
+						<input type="text" ng-model="form.phone" ng-pattern="[0-9]" placeholder="0523336699" ng-minlength=6 ng-maxlength=10 required >
+					</div>
+					<div class="billingInfo-row">
+						<div class="row-half">
+							<p class="required-fields"><span>* Required Fields</span></p>
+						</div>
+						<div class="row-half">	
+							<a href="#/checkout/step2"><input type="button" value="Continue" class="btn"></a>
+						</div>
+					</div>
+			</div>
+
+		    <div class="sectionHead two cf na" ng-click="showPayment($event)" ng-class="{'active' : payment}"><span>2</span><p>Payment Information</p></div>
+	        <div id="paymentInfo" class="paymentInfo cf"ng-show="payment">
+					<div id="payMethod" ng-app="ngAnimate">
+						<div class="check-element animate-hide" ng-show="checked">
+							<input type="radio" name="payMethod" id="first" value="first" class="glyphicon glyphicon-thumbs-up" ng-model="content">
+							<label for="first">Check / Money order</label><br>
+						</div>
+						<div class="first-element animate-hide" ng-hide="checked">
+							<input type="radio" name="payMethod" id="other" value="other" class="glyphicon glyphicon-thumbs-down" ng-model="content">
+							<label for="other">Credit Card (saved)</label>
+						</div>
+					</div>
+
+					<div>
+						<div id="paymentInfo" ng-show="content == 'card'">
+							<div class="billingInfo-row">
+								<p><label  class="label" for="Name on Card" class="active">Name on Card <span>*</span></label></p>
+								<input type="text" ng-model="form.nameoncard" ng-pattern="[a-zA-Z]" ng-minlength=3 ng-maxlength=20 required placeholder="Alex Turner">
+							</div>
+							<div class="billingInfo-row">
+								<p><label  class="label" for="Credit Card Type">Credit Card Type <span>*</span></label></p>
+								<input type="text" name="team" list="team_list" ng-model="form.cardtype" required>
+								<datalist id="team_list">
+									<option value="Visa">Visa</option>
+									<option value="Master Card">Master Card</option>
+								</datalist>
+							</div>
+							<div class="billingInfo-row">
+								<p><label  class="label" for="Credit Card Number">Credit Card Number <span>*</span></label></p>
+								<input type="text" x-autocompletetype="cc-number" maxlength="9" restrict-numeric card-number-validator card-number-formatter ng-model="form.cardnumber" ng-pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" required/>
+							</div>
+							
+							<div class="billingInfo-row year">
+								<p><label  class="label" for="Expiration date">Expiration Date <span>*</span></label></p>
+								<input name="mounth" list="mounth_list" ng-model="form.cardmounth" required>
+								<datalist id="mounth_list">
+									<option value="01 (JAN)">01 (JAN)</option>
+									<option value="02 (FEB)">02 (FEB)</option>
+									<option value="03 (MAR)">03 (MAR)</option>
+									<option value="04 (ARP)">04 (ARP)</option>
+									<option value="05 (MAY)">05 (MAY)</option>
+									<option value="06 (JUN)">06 (JUN)</option>
+									<option value="07 (JUL)">07 (JUL)</option>
+									<option value="08 (AUG)">08 (AUG)</option>
+									<option value="09 (SEPT)">09 (SEPT)</option>
+									<option value="10 (OCT)">10 (OCT)</option>
+									<option value="11 (NOV)">11 (NOV)</option>
+									<option value="12 (DEC)">12 (DEC)</option>
+								</datalist>
+								<input name="year" list="year_list" ng-model="form.cardyear" required>
+								<datalist id="year_list">
+									<option value="2016">2016</option>
+									<option value="2017">2017</option>
+									<option value="2018">2018</option>
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+									<option value="2024">2024</option>
+									<option value="2025">2025</option>
+								</datalist>
+							</div>
+
+								<div class="billingInfo-row">
+									<p><label  class="label" for="Verification">Card Verification Number<span>*</span></label></p>
+									<input type="text" x-autocompletetype="cc-csc" restrict-numeric card-cvc-validator card-cvc-formatter ng-maxlength="4" ng-pattern="/\d*/" required/>
+								</div>
+							<!-- </div> -->
+						<div class="billingInfo-row full">	
+							<a href="#/checkout/step3"><input type="button" value="Continue" class="btn"></a>
+						</div>
+						</div>					
+					</div>
+			</div>
+
+
+	        <div class="sectionHead three cf na"  ng-click="showForm($event)" ng-class="{'active' : forma}"><span>3</span><p>Order Review</p></div>         
+	        <div class="forms cf" ng-show="forma">
+				<ul id="order" class="order cf">
+
+					<div class="boxes">
+						<div class="line1 box1"><bold>Product name</bold></div>
+						<div class="line1 box2"><bold>Price</bold></div>
+						<div class="line1 box3"><bold>Qty</bold></div>
+						<div class="line1 box4"><bold>Subtotal</bold></div>
+					</div>
+
+					<div class="boxes2">
+						<div class="line2 box1">Madonna</div>
+						<div class="line2 box2">$50</div>
+						<div class="line2 box3">1</div>
+						<div class="line2 box4">$50</div>
+					</div>
+
+					<div class="boxes3">
+						<div class="line3 box1"><bold>Total</bold></div>
+						<div class="line3 box2"><bold>$50</bold></div>
+					</div>
+
+					
+					<div class="billingInfo-row full">	
+						<a href="#"><input type="button" value="Please Order" class="btn finalize" ></a>
+					</div>	
+					
+				</ul>
+			</div>
+		</div>	
+
+		<div class="checkout-status">
+			<div class="static-checkout-info">
+				<h3>Your Checkout Progress</h3>
+			</div>
+			<div class="checkout-status-nav">
+				<a ng-href="" ng-click="toogleActive()">Billing Information</a>
+				<a href="#Change">Change</a>
+			</div>
+			<div class="billing-status">
+				<p ng-bind="$parent.form.address"></p>
+				<p ng-bind="form.city"></p>
+				<p ng-bind="form.zipcode"></p>
+				<p ng-bind="form.phone"></p>
+			</div>
+			<div class="checkout-status-nav">
+				<a ng-href="#">Payment Method</a>
+			</div>
+		</div>
+	</div>	
+	<footer ng-class="{expression}"></footer>
+</main>

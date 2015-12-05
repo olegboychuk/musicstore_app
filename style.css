@@ -10,6 +10,10 @@ menu, nav,input{
     vertical-align: baseline;
     outline:none;
 }
+
+main{
+   min-height: 100%;
+}
 button{
     height: 30px;
     background-color: black;
@@ -137,6 +141,7 @@ img.logo{
     width: 1320px;
    /* position: relative;*/
     padding-bottom: 190px;
+    min-height: 100%;
 }
 
 /* ------ CART ----- */
@@ -669,11 +674,14 @@ span.outStock{
     background-color: grey;
 }
 
-
+.blank{
+    width: 100%;
+    min-height:100%;
+}
 footer{
     background-color: black;
     height: 180px;
-    margin-top: -183px;
+    /*margin-top: -183px;*/
     width: 100%;
 }
 
