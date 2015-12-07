@@ -1,4 +1,4 @@
-AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory,$routeParams,CartFactory ){
+AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,AlbumsFactory,CartFactory ){
 	
 	var albumId = $routeParams.id;
 	$scope.album = null;
@@ -6,17 +6,21 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
     $scope.quantety = "1";
     $scope.headclass = true;
     var price = 0;
-	console.log(" $scope.totalPrice", $scope.totalPrice);
 
 	$scope.loadAlbum =function(){
-		var album = AlbumsFactory.getAlbumDetails( albumId );    
-    	$scope.album = album; 
+		var album = AlbumsFactory.getAlbumDetails( albumId );    	
+    	// console.log("pr",album);
     	price = album.album_price;
-    	$scope.totalPrice = price;
+    	$scope.totalPrice = album.album_price;
+    	$scope.album = album; 
 	}
-	
-	$scope.addToCart = function( quantety,albumId ){
-
+	// $scope.loadAlbum();
+	$scope.addToCart = function(quantety){
+		var cart= CartFactory.addToCart(quantety,albumId);
+		
+		$scope.quantety = "1";
+		$scope.totalPrice = $scope.totalPrice/quantety;
+		console.log("quantety",cart);
 	}
 
 	$scope.addToQuantety = function(){
@@ -37,7 +41,6 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,AlbumsFactory
 		}
 	}
 
-//how to create  1 function with condition where $scope.quantety the key 
 	function calculateIncPrice(){
 		var amount = $scope.quantety;
 		console.log("amount",amount);

@@ -1,5 +1,5 @@
 <aside>
-	<div id="cart" ng-show="true">
+	<div id="cart" ng-show="true" ng-controller="CartController" >
 		<h1>My Cart</h1>
 		<p>There are {{  }} in your cart.</p>
 		<p>Cart Subtotal: {{  }} <button>Checkout</button></p>
@@ -8,6 +8,7 @@
 			<div ng-repeat="product in cart">
 				<img ng-src="{{ product.image }}" title="{{ product.name }}">
 				<div>
+					{{quantety}}
 					<strong ng-bind="product.name">Name: {{ product.name }}</strong><br>
 					<strong>Price: {{ product.price | currency }}</strong>
 				</div>

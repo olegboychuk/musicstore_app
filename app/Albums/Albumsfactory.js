@@ -5,7 +5,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	var urlBase = 'api/albums';
 	var loadedPages = 0;
 	var requestedPage = null;
-	var deferred = null;
+	var promise = null;
     var Intro = [{ intro : "We are glad to welcome you in our store.You've made a right decision by choosen our store.Our company will give you the magic of the music world because we all have the same passion.It so amazing to fell the rhythm and good vibes to enjoy the perfect perfomance and just to be devoted fan of this magic of sound."}];
 				
 	/**
@@ -55,7 +55,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	function createListAlbums( stockAlbums ){
 		
 		var i = 0;
-		for ( i = i;i<=stockAlbums.length; i++) {
+		for ( i = i;i<stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 
 		};
 		console.log("Albumslist",Albums);
@@ -72,36 +72,39 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	AlbumsFactory.getNextPage = function (){
 			
 	    if( requestedPage !== null){
-            return deferred.promise;
+            return promise;
 		}
 
-    	deferred = $q.defer();
+    	//deferred = $q.defer();
 		requestedPage = loadedPages;
 
-		$http.get( urlBase +'/:'+ requestedPage )
-		.success( function( data ) {	   	 
+		return promise = $http.get( urlBase +'/:'+ requestedPage )
+		.then( function( data ) {	   	 
+		   	console.log('AlbumsFactory.getNextPage', data.data.result.albums );
 
-	        loadedPages+=data.result.albums.length;
+	        loadedPages+=data.data.result.albums.length;
             
-            deferred.resolve({
-		        albums: data.result.albums 
-		    })
+		    createListAlbums( data.data.result.albums );
+		   	requestedPage = null;
+            return Albums;
 
-		    createListAlbums( data.result.albums );
-		   	requestedPage = null;	    
-	   	})
-	   	.error( function(msg, code) {
-			    deferred.reject(msg);
+	   	}, function(msg, code) {
 			    $log.error(msg, code);
+			    return msg;
 		});
 
-        return deferred.promise;
+        //return deferred.promise;
 	}
 
 
 	AlbumsFactory.getAlbums = function (){
 	    return Albums;
 	};
+
+    // AlbumsFactory.pushAlbums = function(albums){
+
+    // }
+
 
 	return AlbumsFactory;
 

@@ -408,6 +408,10 @@ main .info-head p.head-artist{
     float: right;
     margin-top: -33px;
 }
+.album-manage-icon img:hover{
+    cursor:pointer;
+}
+
 .info-manage-album p:last-child{
     color:white;
     font-size:12px;
