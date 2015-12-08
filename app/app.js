@@ -13,8 +13,9 @@ app.config(function( $routeProvider,$locationProvider ){
 
 	$routeProvider
 	.when('/home',{
-		templateUrl:"app/Albums/_home.html",
-		controller:'AlbumsController'
+		templateUrl: "app/Albums/_home.html",
+		controller: 'AlbumsController',
+        label: 'Home'
 	});
 
 	$routeProvider
@@ -26,13 +27,15 @@ app.config(function( $routeProvider,$locationProvider ){
 	$routeProvider
 	.when('/album:id',{
 		templateUrl:"app/Albums/_album.html",
-		controller:'SelectedAlbumController'
+		controller:'SelectedAlbumController',
+        label: 'Album'
 	});
 
 	$routeProvider
 	.when('/genre-albums:id',{
 		templateUrl:"app/Albums/_genre-albums.html",
-		controller:'AlbumsGenreController'
+		controller:'AlbumsGenreController',
+        label: 'Albums by genre'
 	});
 
     $routeProvider
