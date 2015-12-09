@@ -736,10 +736,18 @@ span.outStock{
 .btn:hover{
     background-color: grey;
 }
+<<<<<<< HEAD
 
 .blank{
     width: 100%;
     min-height:100%;
+=======
+.ab-nav.breadcrumb{
+    margin-bottom: 30px;
+}
+.margin-right-xs{
+    margin-right: 5px;
+>>>>>>> origin/master
 }
 footer{
     background-color: black;
