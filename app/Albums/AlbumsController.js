@@ -33,7 +33,8 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
 
 
   $scope.addToCart = function(albumId,product){
-    console.log("albumId",albumId);
+    console.log("albumIdALBUMCONTRL",albumId);
+    console.log("productALBUMCONTRL",product);
     var cart = CartFactory.addToCart(product,albumId);
   } 
    $scope.loadAlbums();

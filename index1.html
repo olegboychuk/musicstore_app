@@ -19,14 +19,22 @@
 			</ul>	
 		</nav>
 		<div id="nav-header">
-			<a ng-href="#home"><img class="logo" ng-src="Images/logo.png" ></a>
-		<!-- 	<div ng-controller="searchController">
-                <live-search id="search1" type="text" live-search-callback="mySearchCallback" ng-model="mySearch" class="form-control"></live-search>
-            </div> -->
-			<div id="find-album">
-				<input type="text" class="search" />
-				<img ng-src="Images/search.png" alt="">
+			<a  ng-href="#home"><img class="logo" ng-src="Images/logo.png" ></a>
+
+			<div id="find-album" ng-controller="searchController">
+				<input type="text" class="search" ng-model="searchString" placeholder="Enter your search terms "{{i.album_name}}  />
+				<img class="search-icon" ng-src="Images/search.png" alt="" ng-click="search(searchString)">
+				<div class="data-ctrl" ng-show="searchitems">
+	                <div class="search-items" ng-repeat="i in items | searchFor:searchString track by $index ">
+	                    <a class="search-route" ng-href="#/album{{i.album_id}}" ng-click="hideshearch()">
+	                    	<img ng-src="Images/{{i.image_path}}" alt="">
+	                    	<p>{{i.album_name}}</p>
+	                        <p>{{i.album_artist}}</p>
+	                    </a> 	
+	                </div>
+                </div>
 			</div>
+
 			<div id="store-status"></div>
 		</div>
 	</header>

@@ -95,7 +95,10 @@ nav ul li{
 	background-color: #FD0002;
     position: absolute;
 }
-#nav-header img{
+#nav-header a{
+    display: block;
+}
+#nav-header a .logo{
     height: 80px;
     width: auto;
     float: left;
@@ -103,16 +106,21 @@ nav ul li{
 }
 
 #find-album{
-  position: absolute;
-  width: 100%;  
+    position: absolute;
+    width: 300px;
+    height: auto;
+    /* padding-left: 40px; */
+    /* margin: 0 auto; */
+    margin-left: 350px; 
 }
 
-#find-album img{
+#find-album>img{
     width: 35px;
     height: auto;
-    position: relative;
+    float: right;
+    position: absolute;
     margin-top: 26px;
-    margin-left: -40px;
+    margin-left: -37px;
 }
 
 .search{
@@ -131,6 +139,49 @@ img.logo{
 	padding-left:10px;	
 }
 
+.data-ctrl{
+    width: 285px;
+    height: 255px;
+    background-color: white;
+    /* float: left; */
+    padding-left: 0px;
+    position: absolute;
+    margin-left: 121px;
+    margin-top: 58px;
+    z-index: 1000;
+    overflow: scroll;
+}
+.data-ctrl .search-items{
+    border-bottom: 1px solid black;
+    margin-top: 8px;
+    padding: 10px;
+    padding-top: 30px;
+}
+.search-route img{
+    width: 80px;
+    /* height: auto; */
+    margin-top: -30px;
+}
+
+.search-items p{
+    font-size: 13px;
+    margin-left: 89px;
+    margin-top: -41px;
+}
+
+.search-items a{
+    display: block;
+    height: 50px;
+    color:black;
+}
+.search-items a:hover{
+    color:red;
+}
+
+/*.searchresultspopup li{
+    width: 300px;
+    position: absolute;
+}*/
 
 /* ----- ASIDE ---- */
 
@@ -165,6 +216,11 @@ img.logo{
 	border-bottom: solid 1px #ADACAC;
     padding-bottom: 15px;
 }
+.status-cart img{
+    width: 55px;
+    border:1px solid black;
+}
+
 
 
 /* ------ GENRE ----- */
@@ -407,6 +463,9 @@ main .info-head p.head-artist{
     width: 35px;
     float: right;
     margin-top: -33px;
+}
+.album-manage-icon:hover{
+    cursor:pointer;
 }
 .album-manage-icon img:hover{
     cursor:pointer;

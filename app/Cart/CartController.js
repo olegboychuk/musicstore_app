@@ -1,23 +1,16 @@
 CartModule.controller('CartController', function( $scope,CartFactory,AlbumsFactory  ){ 
 	$scope.billing = true;
-    console.log("$scope3",CartFactory);
-	console.log("$scope4",AlbumsFactory);
 	$scope.cart=[];
-	// $scope.viewCart = function(){
-		//$scope.cart = CartFactory.getProducts();
 	
-		CartFactory.registryCartUpadateMsg( function( quantety, albumId ){
-			$scope.cart =  
-		});
-
-		// console.log("cart",cart);
-		// cart.then(function(data){
-		// 	console.log("data",data);
-		// 	$scope.cart=data;
-		// })
-		console.log("scopecart",$scope.cart);
-// 	}
-// $scope.viewCart();
+	CartFactory.registryCartUpadateMsg( function( quantety ){
+		// console.log("albumIdcart",albumId);
+		console.log("quantety",quantety);
+		$scope.cart =  quantety;
+		$scope.quantety = quantety.quantety
+	   	console.log("$scope.quantety",$scope.quantety);
+	   console.log("scopecart",$scope.cart);
+	});
+	
 
 	$scope.toogleActive = function(e){
 		if ( e.currentTarget ='active') {
@@ -41,6 +34,5 @@ CartModule.controller('CartController', function( $scope,CartFactory,AlbumsFacto
 		    console.log("e",e.delegateTarget);
         };
 	}
-
 
 });

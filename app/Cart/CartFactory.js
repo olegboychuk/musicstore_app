@@ -5,17 +5,17 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory  ){
 	var deffered = null;
 	var cartUpdateFunctions = [];
 
-    console.log("$scope",CartFactory);
-	console.log("$scope2",AlbumsFactory);
-
 
 	CartFactory.registryCartUpadateMsg = function( callback ){
+		console.log("callback",callback);
 		cartUpdateFunctions.push( callback );
 	}
 
-	function cartUpdated( quantety, albumId ){
+	function cartUpdated( quantety, album ){
+		console.log("cartUpdateFunctions.length",cartUpdateFunctions.length);
 		for( var i=0; i<cartUpdateFunctions.length; i++ ){
-			cartUpdateFunctions[i]( quantety, albumId );
+			cartUpdateFunctions[i]({quantety, album });
+			console.log("cartUpdateFunctions.cartUpdated",cartUpdateFunctions);
 		}
 	}
 
@@ -31,13 +31,14 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory  ){
 	CartFactory.addToCart = function( quantety,albumId ) {
 		console.log("quantety111",quantety);
 		console.log("albumId111",albumId);
-		cartUpdated( quantety, albumId );
+		//cartUpdated( quantety, albumId );
 
 		var album = AlbumsFactory.getAlbumDetails(albumId)
 		console.log("album",album);
 		// if ( products.indexOf( albumId ) = -1  ) {
 			// totalPrice += price;
-			addProduct( album );
+			cartUpdated( quantety, album );
+			//addProduct( album );
 		// }
 	}
 

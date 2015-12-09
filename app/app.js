@@ -1,14 +1,6 @@
 "use strict";
 var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
 
-// app.filter('capitalize', function() {
-//   return function(input, scope) {
-//     if (input!=null)
-//     input = input.toLowerCase();
-//     return input.substring(0,1).toUpperCase()+input.substring(1);
-//   }
-// });
-
 app.filter('addclass',function(){
     return function(activeValue,value){
         if(activeValue==value)
@@ -18,6 +10,25 @@ app.filter('addclass',function(){
     }
 });
 
+app.filter('searchFor', function(){
+    return function(arr, searchString){
+        if(!searchString){
+            return arr;
+        }
+        var result = [];
+        searchString = searchString.toLowerCase();
+           console.log("$scope.searchString",searchString);
+
+        angular.forEach(arr, function(item){
+        	console.log("itemalbum_name",item.album_artist);
+            if(item.album_artist.toLowerCase().indexOf(searchString) !== -1){
+            result.push(item);
+            console.log("result",result);
+        }
+        });
+        return result;
+    };
+});
 
 app.config(function( $routeProvider,$locationProvider ){
 

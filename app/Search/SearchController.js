@@ -1,22 +1,27 @@
 SearchModule.controller('searchController', function($scope, $http, $q, $window) {
     var urlBase = "api/search";
-    $scope.mySearch = "";
+    $scope.searchitems=false;
+    $scope.items = [];
+    $scope.searchString = "";
+    $scope.loading=false;
     
-    $scope.mySearchCallback = function( params ) {
-      console.log( "params",params.query );
-      
-      var defer = $q.defer();
+    console.log("$scope.searchString",$scope.searchString);
+$scope.search =function(searchString){
+  $http.get(urlBase+"/:"+ $scope.searchString).success(function(data, status, headers, config) {
+        $scope.items = data.result.album;
+        $scope.searchitems=true;
+   
+    }).error(function(data, status, headers, config) {
+        console.log("No data found..");
+  });
 
-      $http.get(urlBase + "/:"+params.query)
-      .success(function(response) {
-         console.log("response",response.result.album);
-        defer.resolve(response.result.album);
-      });
-        
-      return defer.promise;
-    };
+  $scope.hideshearch = function(){
+    $scope.searchitems=false;
+  }; 
+     
+}
+//how to close search window after select product
+
 });
 
-function callback(response, status) {
-  console.log(status);
-};
+
