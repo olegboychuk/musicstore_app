@@ -178,6 +178,15 @@ img.logo{
     color:red;
 }
 
+#bascet-status{
+    position: absolute;
+    margin-left: 1000px;
+}
+
+
+/*#bascet-status img{
+    width: 30px;
+}*/
 /*.searchresultspopup li{
     width: 300px;
     position: absolute;
@@ -196,7 +205,7 @@ img.logo{
 }
 
 /* ------ CART ----- */
-#cart{
+.cart{
     float:left;
     display: block;
     width: 215px;
@@ -386,6 +395,11 @@ main .info-head p.head-artist{
 .left{
     margin-top: 10px;
 }
+/*#left-albums .info-head{
+    background-color: red;
+    height:300px;
+}*/
+
 #page{
     float: left;
     width: 800px;

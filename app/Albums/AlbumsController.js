@@ -6,7 +6,7 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   $scope.nextalbums = [];
   $scope.headclass = true;
   $scope.showPageTop = $location.path()==='/home';
-  var product = 1;
+ // var product = '1';
   
 
   
@@ -32,10 +32,12 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   };
 
 
-  $scope.addToCart = function(albumId,product){
-    console.log("albumIdALBUMCONTRL",albumId);
+  $scope.addToCart = function( index ){
+    var album = AlbumsFactory.getAlbum ( index );
+    console.log("albumIdALBUMCONTRL",album);
     console.log("productALBUMCONTRL",product);
-    var cart = CartFactory.addToCart(product,albumId);
+
+    var cart = CartFactory.addToCart(product,album);
   } 
    $scope.loadAlbums();
 

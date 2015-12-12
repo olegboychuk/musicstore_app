@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
+var app = angular.module( 'musicStore',['LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
 
 app.filter('addclass',function(){
     return function(activeValue,value){
@@ -29,6 +29,11 @@ app.filter('searchFor', function(){
         return result;
     };
 });
+
+app.config(['localStorageServiceProvider', function(localStorageServiceProvider){
+  localStorageServiceProvider.setPrefix('ls');
+}])
+
 
 app.config(function( $routeProvider,$locationProvider ){
 
@@ -69,6 +74,6 @@ app.config(function( $routeProvider,$locationProvider ){
 	.otherwise({ redirectTo: '/home' });
 });
 
-app.controller('mainController',function( $log, $http, $q, $scope, CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
+app.controller('mainController',function( $log, $http, $q, $scope,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
 
 });

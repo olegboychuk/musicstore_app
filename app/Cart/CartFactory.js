@@ -6,72 +6,91 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory  ){
 	var cartUpdateFunctions = [];
 
 
-	CartFactory.registryCartUpadateMsg = function( callback ){
-		console.log("callback",callback);
-		cartUpdateFunctions.push( callback );
+  // console.log("cartUpdateFunctions",cartUpdateFunctions);
+	
+	// CartFactory.registryCartUpadateMsg = function( callback ){
+	// 	console.log("registryCartUpadateMsg111");
+	// 	cartUpdateFunctions.push( callback );
+	// }
+
+	CartFactory.getProducts= function( ){
+	   return products;
 	}
 
 	function cartUpdated( quantety, album ){
-		console.log("cartUpdateFunctions.length",cartUpdateFunctions.length);
-		for( var i=0; i<cartUpdateFunctions.length; i++ ){
-			cartUpdateFunctions[i]({quantety, album });
-			console.log("cartUpdateFunctions.cartUpdated",cartUpdateFunctions);
+		var item = {quantety: quantety, album: album}; 
+		products.push(item);
+		console.log("cartUpdated",products, cartUpdateFunctions.length, cartUpdateFunctions);
+
+		// for( var i=0; i<cartUpdateFunctions.length; i++ ){
+		//     cartUpdateFunctions[i](products);
+		// 		console.log("cartUpdateFunctions.cartUpdated");
+		// 	}
 		}
+
+	 function removeProduct( productId ){
+		cartUpdateFunctions.splice( cartUpdateFunctions.indexOf( productId ), 1 );
+		console.log("cartUpdateFunctionsdeleted",cartUpdateFunctions);
 	}
 
-	function addProduct( album ){
-		products.push( album );
-		console.log("products111",products);
-	}
 
-	function removeProduct( productIndex ){
-		products.splice( products.indexOf( productIndex ), 1 );
-	}
-	
 	CartFactory.addToCart = function( quantety,albumId ) {
-		console.log("quantety111",quantety);
-		console.log("albumId111",albumId);
-		//cartUpdated( quantety, albumId );
-
-		var album = AlbumsFactory.getAlbumDetails(albumId)
+		var album = AlbumsFactory.getAlbumDetails(albumId);
 		console.log("album",album);
-		// if ( products.indexOf( albumId ) = -1  ) {
+		// if ( cartUpdateFunctions.indexOf( album ) = -1  ) {
 			// totalPrice += price;
 			cartUpdated( quantety, album );
 			//addProduct( album );
-		// }
 	}
 
-	CartFactory.getProducts = function() {
-		// if( products = [] ){
-		// 	deferred = $q.defer();	
-		// 	console.log("deferred",deferred);
-		// 	console.log("productsget",products);
-		// 	deffered.resolve({products:products});
-		//     console.log("deferred.promise",deferred.promise);
-		// 	return deferred.promise;
-		// }
-		console.log("productsget111",products);
-		return products
-	
-	}
 
-	// CartFactory.insertProduct = function( productIndex ) {
-	// 	var price = AlbumsFactory.getPrice( productIndex );	
-	// 	if ( products.indexOf( productIndex ) = -1  ) {
-	// 		totalPrice += price;
-	// 		addProduct( productIndex );
+
+	// CartFactory.getProducts = function() {
+	// 	console.log("cartUpdateFunctions11",cartUpdateFunctions);
+	// 	return cart;
+	// }
+
+	// CartFactory.getProducts= function( quantety,album ){
+	// 	var item= { quantety,album };
+	// 	console.log("object",item);
+	// 	var cart = [];
+	// 	for( var i=0; i<=cartUpdateFunctions.length; i++ ){
+	// 		cart.push( item[i] );
+	// 		console.log("cartUpdateobject",cart);
 	// 	}
+	// 	return cart;
+	// 	//products.push( album );
+	// }
+
+	// function removeProduct( productId ){
+	// 	cartUpdateFunctions.splice( cartUpdateFunctions.indexOf( productId ), 1 );
+	// 	console.log("cartUpdateFunctionsdeleted",cartUpdateFunctions);
+	// }
+
+	// CartFactory.addToCart = function( quantety,albumId  ) {
+
+	// 	if ( quantety === "undefined" ){
+	// 		 quantety = "1";
+	// 		console.log("quantetyhomepage",quantety);
+	// 	}
+	// 	var album = AlbumsFactory.getAlbumDetails(albumId);
+	// 		// console.log("album",album);
+	// 	//var price = AlbumsFactory.getPrice( productIndex );	
+	// 	// if ( products.indexOf( productIndex ) = -1  ) {
+	// 	// 	//totalPrice += price;
+	// 	 	CartFactory.getProducts( quantety,album );
+	// 	// }
 	// };
 	
-	CartFactory.deleteProduct = function( productIndex ) {
-		var price = AlbumsFactory.getPrice( productIndex );
-		
-		if ( products.indexOf( productIndex ) != -1 ) {
-			totalPrice -= price;
-			removeProduct( productIndex );
-		}
-	};
+	// CartFactory.deleteProduct = function( productId ) {
+	// 	//var price = AlbumsFactory.getPrice( productIndex );
+	// 			console.log("productId111",productId);
+
+	// 	//if ( cartUpdateFunctions.indexOf( productIndex ) != -1 ) {
+	// 		//totalPrice -= price;
+	// 		removeProduct( productId );
+	// 	//}
+	// };
 
 
     CartFactory.getTotal = function() { 
@@ -79,19 +98,19 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory  ){
 		return totalPrice;
 	};
     
-    CartFactory.getAll = function() {
-		console.log("productsget",products);
-		return products;
-    };
+ //    CartFactory.getAll = function() {
+	// 	console.log("productsget",products);
+	// 	return products;
+ //    };
 	
-	CartFactory.getCartProducts = function() {
-		var cartProducts = [];
+	// CartFactory.getCartProducts = function() {
+	// 	var cartProducts = [];
 
-		for ( var i = 0; i < products.length; i++ )
-			cartProducts.push( ProductsService.getProduct( products[i] ) );
+	// 	for ( var i = 0; i < products.length; i++ )
+	// 		cartProducts.push( ProductsService.getProduct( products[i] ) );
 			
-		return cartProducts;
-	}
+	// 	return cartProducts;
+	// }
 
     return CartFactory;
 

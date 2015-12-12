@@ -1,22 +1,23 @@
 <aside>
-	<div id="cart" ng-show="true" ng-controller="CartController" >
+	<div id="cart"  class="cart" ng-show="true" ng-controller="CartController" >
 		<h1>My Cart</h1>
 		<p>There are {{  }} in your cart.</p>
 		<p>Cart Subtotal: {{  }} <button>Checkout</button></p>
 
 		<div>
 			<div  class="status-cart" ng-repeat="product in cart track by $index ">
-				<img ng-src="Images/{{product.image_path}}" alt="">
+				<img ng-src="Images/{{product.album.image_path}}" alt="">
 				<div>
-					<p class="quantety">Quantety x {{quantety}}</p>
-					<strong ng-bind="product.album_name">Name: {{ product.album_name }}</strong><br>
-					<strong>Price: {{ product.album_price  }}</strong>
+					<p class="quantety">Quantety x {{product.quantety}}</p>
+					<strong ng-bind="product.album.album_name">Name: {{ product.album.album_name }}</strong><br>
+					<strong>Price: {{ product.album.album_price  }}</strong>
 				</div>
+				<div id="remove-item"><p ng-click="deleteProduct(product.album.album_id)">X</p></div>
 			</div>
 
-			<!-- <div>
+			<div>
 				<strong>Total: {{ total | currency }}</strong>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </aside>

@@ -26,7 +26,12 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
         var index = findIndex(Albums, key, albumId);
 
 		return Albums[index];
-	};	
+	}	
+
+	AlbumsFactory.getAlbum = function(index){
+		return Albums[index];
+	}
+
 
     /**
 	/*  function findIndex

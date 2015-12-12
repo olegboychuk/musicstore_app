@@ -1,9 +1,10 @@
 <main ng-controller="AlbumsController">
 	<div ng-include="'app/Albums/_albumtop.html'"></div>
 	<div id="wrapper">
-
+    <div ncy-breadcrumb></div>
 	<bread-crumb></bread-crumb>
-	<genre-list> daniel </genre-list>	
+	<genre-list> daniel </genre-list>
+	<!-- <my-cart> kira </my-cart>	 -->
 	
 	<div id ="center-albums">
 		<div class="center albums" ng-repeat="album in albums | limitTo :12 :11 track by $index" >

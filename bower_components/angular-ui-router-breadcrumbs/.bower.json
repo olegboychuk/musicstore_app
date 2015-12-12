@@ -1,0 +1,48 @@
+{
+  "authors": [
+    "dev@intervalbraining.com"
+  ],
+  "dependencies": {
+    "angular": ">= 1.0.8",
+    "angular-ui-router": "~0.2.10"
+  },
+  "description": "angular-ui-router state derived breadcrumbs",
+  "devDependencies": {
+    "angular-mocks": ">=1.0.8"
+  },
+  "homepage": "https://github.com/interval-braining/angular-ui-router-breadcrumbs",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "config",
+    "files.js",
+    "Gruntfile.js",
+    "node_modules",
+    "package.json",
+    "src",
+    "test"
+  ],
+  "keywords": [
+    "angular",
+    "angular-ui-router",
+    "breadcrumbs",
+    "navigation",
+    "ui-router"
+  ],
+  "license": "MIT",
+  "main": [
+    "./dist/angular-ui-router-breadcrumbs.js"
+  ],
+  "name": "angular-ui-router-breadcrumbs",
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "dd47f0cfabe09e43ba5954414075e95bc9871377"
+  },
+  "_source": "git://github.com/interval-braining/angular-ui-router-breadcrumbs.git",
+  "_target": "~0.0.2",
+  "_originalSource": "angular-ui-router-breadcrumbs",
+  "_direct": true
+}
