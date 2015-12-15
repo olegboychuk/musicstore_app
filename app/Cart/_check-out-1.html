@@ -2,7 +2,7 @@
 	<div class="chakout">
 		<div id="checkout-content">
 			<div class= "static-info"><h3>Checkout</h3></div>	
-
+			
 	        <div class="sectionHead step cf one active" ng-click="toogleActive($event)" ng-class="{'active' : billing}"><span>1</span><p>Billing Information</p></div>
 			<div id="billingInfo" class="showBilling cf"  ng-show="billing">
 					<div class="billingInfo-row">
@@ -121,11 +121,11 @@
 						<div class="line1 box4"><bold>Subtotal</bold></div>
 					</div>
 
-					<div class="boxes2">
-						<div class="line2 box1">Madonna</div>
-						<div class="line2 box2">$50</div>
-						<div class="line2 box3">1</div>
-						<div class="line2 box4">$50</div>
+					<div class="boxes2" ng-repeat="i in cart track by $index">
+						<div class="line2 box1">{{i.album.album_name}}</div>
+						<div class="line2 box2">{{i.album.album_price}}</div>
+						<div class="line2 box3">{{i.quantety}}</div>
+						<div class="line2 box4">{{i.price}}</div>
 					</div>
 
 					<div class="boxes3">

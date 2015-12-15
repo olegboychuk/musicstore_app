@@ -5,7 +5,8 @@ CartModule.controller('CartController', function( $scope,localStorageService,Alb
 
         $scope.cartToPay = function(){
         	var cart = CartFactory.checkOut();
-        	console.log("cartToPay",cart);
+        	$scope.cart = localStorageService.get('mycart');
+        	console.log("cartToPay",$scope.cart);
         }
         $scope.cartToPay();
 
