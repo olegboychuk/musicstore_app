@@ -6,7 +6,7 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   $scope.nextalbums = [];
   $scope.headclass = true;
   $scope.showPageTop = $location.path()==='/home';
- // var product = '1';
+  var product = '1';
   
 
   
@@ -16,8 +16,7 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
       $scope.busy = true;
      
       AlbumsFactory.getNextPage( ).then( function( data ){
-      // console.log("nextalbums",nextalbums);
-      //$scope.albums.splice( $scope.albums.length, data.length, data );
+
       }), function(error){
          alert(error);
       }
@@ -26,19 +25,16 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
 
   $scope.loadAlbums = function(){
     AlbumsFactory.getNextPage().then( function( data ){
-        console.log('AlbomsController:loadAlbums', data);
-        $scope.albums = data;//AlbumsFactory.getAlbums();
+        //console.log('AlbomsController:loadAlbums', data);
+        $scope.albums = data;
     });  
   };
 
 
-  $scope.addToCart = function( index ){
-    var album = AlbumsFactory.getAlbum ( index );
-    console.log("albumIdALBUMCONTRL",album);
-    console.log("productALBUMCONTRL",product);
-
-    var cart = CartFactory.addToCart(product,album);
+  $scope.addToCart = function( albumId ){
+    CartFactory.addToCart(product,albumId);
   } 
+
    $scope.loadAlbums();
 
 });

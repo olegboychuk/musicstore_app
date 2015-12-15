@@ -1,7 +1,6 @@
-AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,GenreFactory,AlbumsGenreFactory) {
+AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,GenreFactory,AlbumsGenreFactory,CartFactory) {
 	var genreId = $routeParams.id;
-
-	console.log("genreId",$routeParams.id);
+	var product = '1';
 	$scope.albums = [];
 	$scope.genreName = " ";
 
@@ -15,15 +14,13 @@ AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,Ge
 		});
 	}
 
+	 $scope.addToCart = function( albumId ){
+	    // var album = AlbumsFactory.getAlbum ( albumId );
+	    console.log("albumIdALBUMCONTRL",albumId);
+	    console.log("productALBUMCONTRL",product);
+	    CartFactory.addToCart(product,albumId);
+    } 
+
 	$scope.loadAlbumsGenre(genreId);
-	// $scope.loadAlbumsName = function ( genreId ){
-
-
-	// };
-
-	$scope.addToCart = function( $index ){
-		
-	};
-
 
 })

@@ -15,12 +15,12 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
     	$scope.album = album; 
 	}
 	// $scope.loadAlbum();
-	$scope.addToCart = function(quantety){
+	$scope.addToCart = function( quantety ){
 		var cart= CartFactory.addToCart(quantety,albumId);
 		
 		$scope.quantety = "1";
 		$scope.totalPrice = $scope.totalPrice/quantety;
-		console.log("quantety",cart);
+		//console.log("quantety",$scope.quantety);
 	}
 
 	$scope.addToQuantety = function(){
@@ -43,7 +43,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 
 	function calculateIncPrice(){
 		var amount = $scope.quantety;
-		console.log("amount",amount);
+		//console.log("amount",amount);
 		$scope.totalPrice =price*amount;
 		return $scope.totalPrice;
 	}

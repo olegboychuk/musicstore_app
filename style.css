@@ -216,21 +216,48 @@ img.logo{
     /*padding-bottom: 25px;*/
     position: relative;
 }
+.cart div{
+    font-size:13px;
+}
 #cart h1{
 	width: 95%;
     background-color: #fff;
     padding-left: 4%;
 }
 #cart p{
-	border-bottom: solid 1px #ADACAC;
-    padding-bottom: 15px;
+	/*border-bottom: solid 1px #ADACAC;*/
+    /*padding-bottom: 15px;*/
+}
+.status-cart {
+    width: 100%;
 }
 .status-cart img{
-    width: 55px;
-    border:1px solid black;
+    width: 85px;
+    margin: 5px;
+    border: 1px solid black;
 }
-
-
+.status-cart div p{
+    float: right;
+    font-size: 14px;
+    top: 38px;
+    width: 108px;
+    position: relative; 
+}
+#remove-item p{
+    margin-top: -95px;
+    left: 90px;
+    position: relative;
+}
+#remove-item p:hover{
+    cursor:pointer;
+    color:red;
+}
+.status-items{
+    
+}
+.cart .total{
+    width: 100%;
+}
 
 /* ------ GENRE ----- */
 #music-genre{
@@ -761,6 +788,7 @@ span.outStock{
 }
 .margin-right-xs{
     margin-right: 5px;
+    
 >>>>>>> origin/master
 }
 footer{

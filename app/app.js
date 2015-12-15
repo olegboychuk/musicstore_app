@@ -1,14 +1,16 @@
 "use strict";
 var app = angular.module( 'musicStore',['LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
 
-app.filter('addclass',function(){
-    return function(activeValue,value){
-        if(activeValue==value)
-           return "active";
-        else
-           return "";
-    }
-});
+// app.constant('_', window._);
+
+// app.filter('addclass',function(){
+//     return function(activeValue,value){
+//         if(activeValue==value)
+//            return "active";
+//         else
+//            return "";
+//     }
+// });
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -31,7 +33,10 @@ app.filter('searchFor', function(){
 });
 
 app.config(['localStorageServiceProvider', function(localStorageServiceProvider){
-  localStorageServiceProvider.setPrefix('ls');
+  localStorageServiceProvider.setPrefix('musicStore')
+      .setStorageCookie(45, '<path>')
+      .setStorageCookieDomain('')
+      .setNotify(true, true)
 }])
 
 
@@ -76,4 +81,5 @@ app.config(function( $routeProvider,$locationProvider ){
 
 app.controller('mainController',function( $log, $http, $q, $scope,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
 
+  var storageType = localStorageService.getStorageType();
 });

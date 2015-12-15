@@ -1,22 +1,23 @@
 <aside>
-	<div id="cart"  class="cart" ng-show="true" ng-controller="CartController" >
+	<div id="cart"  class="cart" ng-show="true"  >
 		<h1>My Cart</h1>
-		<p>There are {{  }} in your cart.</p>
-		<p>Cart Subtotal: {{  }} <button>Checkout</button></p>
-
+		<p>{{ countItems()}}</p>
+		<p>There are {{ count }} items in your cart.</p>
 		<div>
-			<div  class="status-cart" ng-repeat="product in cart track by $index ">
-				<img ng-src="Images/{{product.album.image_path}}" alt="">
-				<div>
-					<p class="quantety">Quantety x {{product.quantety}}</p>
-					<strong ng-bind="product.album.album_name">Name: {{ product.album.album_name }}</strong><br>
-					<strong>Price: {{ product.album.album_price  }}</strong>
+			<p ng-bind="totalPr()"></p>
+			<strong class="total"> Cart Subtotal: {{ total | currency }}</strong>&nbsp  <a ng-href="#check-out"><button ng-click="checkOut()">Checkout</button></a>
+		</div>
+		<hr>
+		<div>
+			<div class="status-cart" ng-repeat="product in cart track by $index ">
+				<div class="status-items">
+					<p ng-bind="product.album.album_name | limitTo:14">Name: </p><br>
+					<p >Price: {{ product.album.album_price * product.quantety | currency }}</p>
+					<p class="quantety">{{product.quantety}} x {{ product.album.album_price | currency }}</p>
 				</div>
 				<div id="remove-item"><p ng-click="deleteProduct(product.album.album_id)">X</p></div>
-			</div>
-
-			<div>
-				<strong>Total: {{ total | currency }}</strong>
+				<img ng-src="Images/{{product.album.image_path}}" alt="">
+			<hr>
 			</div>
 		</div>
 	</div>

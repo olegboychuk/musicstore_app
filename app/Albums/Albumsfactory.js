@@ -33,6 +33,10 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	}
 
 
+    AlbumsFactory.getPriceAlbum = function(albumId){
+    	
+    }
+
     /**
 	/*  function findIndex
 	/*	get array of albums ,key of the object, and sting as value
@@ -85,7 +89,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 		return promise = $http.get( urlBase +'/:'+ requestedPage )
 		.then( function( data ) {	   	 
-		   	console.log('AlbumsFactory.getNextPage', data.data.result.albums );
+		   	//console.log('AlbumsFactory.getNextPage', data.data.result.albums );
 
 	        loadedPages+=data.data.result.albums.length;
             
@@ -112,11 +116,4 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 
 	return AlbumsFactory;
-
-
-	// AlbumsFactory.getAlbums = function (){
-	// 	var getAlbums = deferred.promise;
-	// 	console.log("getAlbums",getAlbums);
-	//     return getAlbums;
-	// };
 });

@@ -17,7 +17,7 @@
 					<p class="album-price">{{album.album_price | currency:"$"}}</p>
 			    	<div class="album-manage-icon">
 			    		<img ng-src="Images/info-album.png" alt="" ng-click="setImage(img)">
-			    	    <img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart(img)">
+			    	    <img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart(album.album_id)">
 			    	</div>
 		
 			    	<p class="addtowishlist" ng-click="addtowishlist($index)">Add to Wishlist</p>
