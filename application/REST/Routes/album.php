@@ -7,7 +7,6 @@ $album = new AlbumRestController();
 
 $app->get('/albums/:start',function( $start ) use ( $album, $app ){
 	// global $app;
-	// ???explode
 	$start = explode(':', $start);
 
 	$al=$album->getAlbums( $start[1] );
@@ -24,7 +23,6 @@ $app->get('/album/:id',function( $id ) use ( $album ){
 $app->get('/genre-albums/:id',function( $id ) use ( $album, $app ){
 	// global $app;
 	$genreId = explode(':', $id);
-    //var_dump($genreId);
 	$albums=$album->getAlbumsByGenre( $genreId[1] );
 	echo json_encode( $albums ); 
 });

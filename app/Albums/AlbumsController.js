@@ -7,9 +7,9 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   $scope.headclass = true;
   $scope.showPageTop = $location.path()==='/home';
   var product = '1';
-  
+  $scope.buy = !$scope.buy;
 
-  
+
   $scope.loadMore= function(next){
       if($scope.busy)  return;
       $scope.loading = true;
@@ -32,7 +32,15 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
 
 
   $scope.addToCart = function( albumId ){
-    CartFactory.addToCart(product,albumId);
+    
+    if (!$scope.buy) {
+      $scope.buy = !$scope.buy;
+      CartFactory.addToCart(product,albumId);
+    }else{
+      $scope.buy = !$scope.buy;
+      CartFactory.deleteProduct(albumId);
+    }
+   
   } 
 
    $scope.loadAlbums();

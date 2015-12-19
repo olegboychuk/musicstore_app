@@ -34,10 +34,13 @@
 	                </div>
                 </div>
 			</div>
-
-			<div id="bascet-status">
-				<a  ng-href="#check-out"><img  ng-src="Images/bascet.png" ></a>
-			</div>
+			<update-basket></update-basket>
+			<!-- <div id="bascet-status"  >
+				<a ng-href="#check-out"><img ng-src="Images/bascet.png"></a>
+				<p ng-bind="count">{{count}}0</p>
+				{{count}}
+			<updateBasket><p>{{count}}</p></updateBasket>
+			</div> -->
 		</div>
 	</header>
 
@@ -55,16 +58,14 @@
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/angular-ui-router-breadcrumbs/dist/angular-ui-router-breadcrumbs.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-	
-	
-
-
-	<!--<script src="app/angular-filter.js"></script>-->	
 
 
 	<script src="app/app.js"></script>
 	<script src="app/Shared/Modules.js"></script>
 	
+	<script src="app/BasketUpdateDirective.js"></script>
+
+
 	<script src="app/Search/SearchFactory.js"></script>
 	<script src="app/Search/SearchController.js"></script>
 
@@ -81,6 +82,7 @@
     <script	src="app/Albums/SelectedAlbumController.js"></script>
     <script	src="app/Albums/AlbumsGenreController.js"></script>
     <script	src="app/Albums/AlbumsGenreFactory.js"></script>
+
 
 	<script src="app/Cart/CartFactory.js"></script>
 	<script src="app/Cart/CartDirective.js"></script>

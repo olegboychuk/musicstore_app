@@ -5,7 +5,7 @@ SearchModule.controller('searchController', function($scope, $http, $q, $window,
     $scope.searchString = "";
     $scope.loading=false;
     
-    console.log("$scope.searchString",$scope.searchString);
+  
   $scope.search =function(searchString){
     $http.get(urlBase+"/:"+ $scope.searchString).success(function(data, status, headers, config) {
           $scope.items = data.result.album;

@@ -22,16 +22,20 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
     };
 
 	CartFactory.getProducts= function( ){
-	   console.log("products",products);
-	   //calcAddTotal();
 	   return products;
 	}
 
+	/*
+	//
+	 */
     CartFactory.getTotal = function( ) { 
 		calcAddTotal();
 		return totalPrice;
 	};
 
+	CartFactory.saveOrder = function(orderObject){
+		return $http.post('api/order'+':'+ orderObject);
+	}
 
 	function cartUpdated( quantety, album, price){
 		
@@ -99,17 +103,20 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 			var key = products[i].album.album_id;
 			
 			if (key===albumId) {
-				// var itemprice = products[i].price;
-	   //          console.log("delete itemprice",itemprice);
-				// console.log("totalPricebeforedelete",totalPrice);
-				// totalPrice = totalPrice-itemprice;
-				console.log("totalPriceafterdelete",totalPrice);
+
 				products.splice(i,1);
-				 //return products;
+
 			}else{
 				//console.log("delete i",i);
 			}
 		};
+	}
+
+	CartFactory.clearCart = function(){
+		
+		if (products) {
+			products.splice(products,products.length);
+		};	
 	}
 
 	CartFactory.addToCart = function( quantety,albumId ) {
@@ -119,7 +126,7 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 		cartUpdated( quantety, album, price );
 	}
 
-    // function toLocalStorage( products ){
+    // function toLocalStorage( ){
     // 	 return localStorageService.set('mycart',products);
     // 	//console.log("localStorageService",localStorageService);
     // }

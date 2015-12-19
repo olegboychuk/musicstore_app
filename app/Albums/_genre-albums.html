@@ -3,8 +3,10 @@
 <main ng-controller="AlbumsGenreController" >	
 	<div id="wrapper">
 		<genre-list> daniel </genre-list>
+		<my-cart></my-cart>
 		<div ncy-breadcrumb></div>
 	   <!--  <bread-crumb></bread-crumb> -->
+	   {{loadCount()}}
 		<div id="center-albums">
 			<div class="genre-amount">
 				<p>{{genreName }} ({{genreLength + " items"}})</p>

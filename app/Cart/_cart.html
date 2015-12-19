@@ -12,13 +12,14 @@
 			<div class="status-cart" ng-repeat="product in cart track by $index ">
 				<div class="status-items">
 					<p ng-bind="product.album.album_name | limitTo:14">Name: </p><br>
-					<p >Price: {{ product.album.album_price * product.quantety | currency }}</p>
+					<p>Price: {{ product.album.album_price * product.quantety | currency }}</p>
 					<p class="quantety">{{product.quantety}} x {{ product.album.album_price | currency }}</p>
 				</div>
 				<div id="remove-item"><p ng-click="deleteProduct(product.album.album_id)">X</p></div>
 				<img ng-src="Images/{{product.album.image_path}}" alt="">
-			<hr>
+			    <hr>
 			</div>
+			<button ng-click="clearCart()">Clear Cart</button>
 		</div>
 	</div>
 </aside>

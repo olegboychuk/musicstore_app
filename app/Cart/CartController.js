@@ -1,7 +1,8 @@
 CartModule.controller('CartController', function( $scope,localStorageService,AlbumsFactory,CartFactory ){ 
 	    $scope.billing = true;
 
-
+	    $scope.total =  CartFactory.getTotal();
+	    console.log("cartToPay",$scope.cart);
 
         $scope.cartToPay = function(){
         	var cart = CartFactory.checkOut();
@@ -9,6 +10,11 @@ CartModule.controller('CartController', function( $scope,localStorageService,Alb
         	console.log("cartToPay",$scope.cart);
         }
         $scope.cartToPay();
+
+       $scope.saveOrder = function(xxx){
+       		 CartFactory.saveOrder(xxx);
+       }
+	   
 
 		$scope.toogleActive = function(e){
 			if ( e.currentTarget ='active') {

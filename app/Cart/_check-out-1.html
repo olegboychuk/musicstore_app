@@ -7,21 +7,21 @@
 			<div id="billingInfo" class="showBilling cf"  ng-show="billing">
 					<div class="billingInfo-row">
 						<div class="label full"><label for="Adress">Adress<span>*</span></label></div>
-						<input type="text" class="adress" ng-model="$parent.form.address" ng-pattern="[a-zA-Z0-9]" placeholder="London str 345" ng-minlength=5 ng-maxlength=20 required >
+						<input type="text" name="adress"  class="adress" ng-model="$parent.form.address" ng-pattern="[a-zA-Z0-9]" placeholder="London str 345" ng-minlength=5 ng-maxlength=20 ng-required="true" >
 					</div>
 					<div class="billingInfo-row">
 						<div class="row-half">
 							<p><label  class="label" for="City">City <span>*</span></label></p>
-							<input type="text" ng-model="form.city" ng-pattern="[a-zA-Z]" placeholder="Shefield" ng-minlength=3 ng-maxlength=20 required >
+							<input type="text"  name="city"  ng-model="form.city" ng-pattern="[a-zA-Z]" placeholder="Shefield" ng-minlength=3 ng-maxlength=20 ng-required="true" >
 						</div>
 						<div class="row-half">
 							<p><label  class="label " for="Zip Code">Zip/Posyal Code<span>*</span></label></p>
-							<input type="text"  ng-model="form.zipcode" ng-pattern="[0-9]" placeholder="90210" ng-minlength=5 ng-maxlength=7 required >
+							<input type="text" name="zip-code"  ng-model="form.zipcode" ng-pattern="/^[0-9]{1,7}$/" placeholder="90210" ng-minlength=5 ng-maxlength=7 ng-required="true" >
 						</div>	
 					</div>
 					<div class="billingInfo-row">
 						<label  class="label label-half" for="Phone Number">Telephone<span>*</span></label>
-						<input type="text" ng-model="form.phone" ng-pattern="[0-9]" placeholder="0523336699" ng-minlength=6 ng-maxlength=10 required >
+						<input type="text"  name="phone"  ng-model="form.phone" ng-pattern="/^[0-9]{1,7}$/" placeholder="0523336699" ng-minlength=6 ng-maxlength=10 ng-required="true" >
 					</div>
 					<div class="billingInfo-row">
 						<div class="row-half">
@@ -130,7 +130,7 @@
 
 					<div class="boxes3">
 						<div class="line3 box1"><bold>Total</bold></div>
-						<div class="line3 box2"><bold>$50</bold></div>
+						<div class="line3 box2"><bold>{{total}}</bold></div>
 					</div>
 
 					
@@ -161,5 +161,17 @@
 			</div>
 		</div>
 	</div>	
+
+
+
+	<!-- <div ng-app ng-controller="formCtrl">
+  <form name="myForm" ng-submit="onSubmit()">
+    <input type="number" ng-model="price" name="price_field" 
+           ng-pattern="/^[0-9]{1,7}$/" required>
+    <span ng-show="myForm.price_field.$error.pattern">Not a valid number!</span>
+    <span ng-show="myForm.price_field.$error.required">This field is required!</span>
+    <input type="submit" value="submit"/>
+  </form>
+</div> -->
 	<footer ng-class="{expression}"></footer>
 </main>

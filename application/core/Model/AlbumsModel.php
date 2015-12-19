@@ -18,7 +18,7 @@ class AlbumModel extends Model{
 	/*	FETCH ALL ALBUMS FROM DB BY GENRE ID
 	*/
 	public function getAlbumsByGenre( $genreId ){
-		//var_dump($genreId);
+		
 		$result = $this->_db->query( "SELECT * FROM albums as a JOIN genres_to_albums as ga ON a.album_id = ga.album_id JOIN images_to_albums as ia ON a.album_id = ia.album_id JOIN images as i ON ia.image_id = i.image_id WHERE ga.genre_id = $genreId");
 
         //echo "SELECT * FROM albums as a join images_to_albums as ia ON a.album_id = ia.album_id join images as i ON ia.image_id = i.image_id WHERE ga.genre_id = $genreId";
@@ -31,29 +31,6 @@ class AlbumModel extends Model{
 			return $albums;
 		}
 	}
-
-	/**
-	/*private function getImages
-	/*	FETCH IMAGES OF ALBUMS FROM DB
-	*/
-	// private function getImages( $albums,$start ){
-	// 	$fullalbums=array();
-
-	// 	foreach ( $albums as $value ) {
-	// 		$id = $value[album_id];
-				
-	// 	    $succes = $this->_db->query(" SELECT * FROM albums as a JOIN images_to_albums as ia ON a.album_id = ia.image_id
- //                                  JOIN images as i ON ia.image_id = i.image_id ");
-			
-	// 		if ( $succes ) {			
-	// 			while ( $row = $succes->fetch_assoc() ) {
-	// 				$fullalbums[]=$row;
-	// 			}
-	// 			return $fullalbums;
-	// 		}
-
-	// 	}
-	// }
 
 
      /**
@@ -72,7 +49,6 @@ class AlbumModel extends Model{
 			    $albums[]=$row;	   
 			}
 			return $albums;
-			//return $this->getImages( $albums,$start );
 		}	
 
 	/**
