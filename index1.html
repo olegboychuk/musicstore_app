@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="style-search.css">
 	<link rel="stylesheet" href="checkout.css">
+	<link rel="stylesheet" href="bower_components/ng-trans-css/ng-trans.css">
 </head>
 <body ng-controller="mainController">
 	<header>
@@ -35,12 +36,6 @@
                 </div>
 			</div>
 			<update-basket></update-basket>
-			<!-- <div id="bascet-status"  >
-				<a ng-href="#check-out"><img ng-src="Images/bascet.png"></a>
-				<p ng-bind="count">{{count}}0</p>
-				{{count}}
-			<updateBasket><p>{{count}}</p></updateBasket>
-			</div> -->
 		</div>
 	</header>
 
@@ -51,6 +46,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/lodash/lodash.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
 	<script src="bower_components/angular/angular.validator.js"></script>
@@ -58,7 +54,6 @@
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/angular-ui-router-breadcrumbs/dist/angular-ui-router-breadcrumbs.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-
 
 	<script src="app/app.js"></script>
 	<script src="app/Shared/Modules.js"></script>

@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
+var app = angular.module( 'musicStore',['ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -71,7 +71,7 @@ app.config(function( $routeProvider,$locationProvider ){
 	.otherwise({ redirectTo: '/home' });
 });
 
-app.controller('mainController',function( $log, $http, $q, $scope,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
+app.controller('mainController',function( $timeout,$log, $http, $q, $scope,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
 
   var storageType = localStorageService.getStorageType();
       

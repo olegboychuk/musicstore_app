@@ -449,8 +449,8 @@ main .info-head p.head-artist{
 }
 .page{
     display: inline-table;
-    width: 200px;
-    height: 250px;
+    width: 199px;
+    height: 248px;
     background: grey;
     border: 1px solid;
     margin-top: 10px;

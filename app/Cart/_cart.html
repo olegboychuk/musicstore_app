@@ -9,7 +9,7 @@
 		</div>
 		<hr>
 		<div>
-			<div class="status-cart" ng-repeat="product in cart track by $index ">
+			<div class="status-cart" class="ng-trans ng-trans-flip-y " ng-repeat="product in cart track by $index ">
 				<div class="status-items">
 					<p ng-bind="product.album.album_name | limitTo:14">Name: </p><br>
 					<p>Price: {{ product.album.album_price * product.quantety | currency }}</p>

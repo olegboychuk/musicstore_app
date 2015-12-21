@@ -1,5 +1,5 @@
 <main ng-controller="AlbumsController">
-	<div ng-include="'app/Albums/_albumtop.html'"></div>
+	<div ng-include="'app/Albums/_albumtop.html'" ></div>
 	<div id="wrapper">
     <div ncy-breadcrumb></div>
 	<bread-crumb></bread-crumb>
@@ -7,8 +7,8 @@
 	
     {{loadCount()}}
 	<div id ="center-albums">
-		<div class="center albums" ng-repeat="album in albums | limitTo :12 :11 track by $index" >
-			<a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
+		<div class="center albums" class="ng-trans ng-trans-flip-y" ng-repeat="album in albums | limitTo :12 :11 track by $index" >
+			<a ng-href="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
 			<div class="info-head">
 			    <p class="head-name">{{album.album_name}}</p>
 				<p class="album-price">{{album.album_price | currency:"$"}}</p>
@@ -28,13 +28,13 @@
 		    	<p class="album-price">{{album.album_price | currency:"$"}}</p>
 				<div class="album-manage-icon" >
 		    		<img ng-src="Images/info-album.png" alt="info" ng-click="setImage(img)">
-		    	    <img ng-src="Images/bascet-album.png" alt="basket" ng-class="{buy:buy}" ng-click="addToCart(album.album_id) ">
+		    	    <img ng-src="Images/bascet-album.png" alt="basket" ng-class="{ buy:buy }" ng-click="addToCart( album.album_id ) ">
 		    	</div>
 		    </div>
 		</div>
-		 <my-cart></my-cart>
+		 
 	</div>
-
+<!-- <my-cart></my-cart> -->
 	<div infinite-scroll="loadMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='3'>
 		<div ng-show='busy'>Loading data...</div>
 		<div id="page">

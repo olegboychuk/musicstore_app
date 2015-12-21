@@ -9,18 +9,16 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 
 	$scope.loadAlbum =function(){
 		var album = AlbumsFactory.getAlbumDetails( albumId );    	
-    	// console.log("pr",album);
     	price = album.album_price;
     	$scope.totalPrice = album.album_price;
     	$scope.album = album; 
 	}
-	// $scope.loadAlbum();
+
 	$scope.addToCart = function( quantety ){
 		var cart= CartFactory.addToCart(quantety,albumId);
 		
 		$scope.quantety = "1";
 		$scope.totalPrice = $scope.totalPrice/quantety;
-		//console.log("quantety",$scope.quantety);
 	}
 
 	$scope.addToQuantety = function(){
@@ -43,7 +41,6 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 
 	function calculateIncPrice(){
 		var amount = $scope.quantety;
-		//console.log("amount",amount);
 		$scope.totalPrice =price*amount;
 		return $scope.totalPrice;
 	}
@@ -57,5 +54,4 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 	var intro = AlbumsFactory.getIntro();
     $scope.introduction =intro[0].intro;
 	
-//to fix if render the page we lost album!!!
 });
