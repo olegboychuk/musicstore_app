@@ -8,81 +8,89 @@
 			<p>By creating an account in our store, you will able to move throught the checkout process faster, store multiple shipping adresses, view and truck your ordersin your account and more.</p>
 			<input type="button" id="createAccount" ng-click="showMe();" class="btn reg" value="Create an Account">
 		</div>
-		<form name="login" novalidate>
+
+		<form name="login" novalidate >
 			<div id="registrCostumers" class="regFile">
 				<header>REGISTERED COSTUMERS</header>
 				<p>If you have an account with us, please log in.</p>
 
 				<div class="form-group" ng-class="{ 'has-error' : login.email.$invalid && !login.email.$pristine }">
 					<label for="email">Email Address<span>*</span></label>
-					<input type="email" name="email" id="email" ng-model="user.email" class="form-control">
-						<span ng-show="login.email.required && submited">This is a required field</span>
-		                <span ng-show="login.email.$error.email && submited">This field is invalid </span>
+					<input type="email" name="email" id="email" ng-value="user_email" ng-model="user.email" class="form-control">
+						<span ng-show="login.email.required && submitted">This is a required field</span>
+		                <span ng-show="login.email.$error.email && submitted">This field is invalid </span>
 				</div>
 				
 				<div class="form-group" ng-class="{ 'has-error' : login.password.$invalid && !login.password.$pristine }">
 					<label for="pass">Password<span>*</span></label>
-					<input type="password" name="password" class="form-control" ng-model="user.password" required ng-minlength="5" ng-maxlength="15"><br>
-		                <span ng-show="login.password.$error.required && submited">This is a required field</span>
-		                <span ng-show="login.password.$error.minlength && submited">Too short!</span>
-		                <span ng-show="login.password.$error.maxlength && submited">Too long!</span>        
+					<input type="password" name="password" class="form-control" ng-model="user.pass" required ng-minlength="5" ng-maxlength="15"><br>
+		                <span ng-show="login.password.$error.required && submitted">This is a required field</span>
+		                <span ng-show="login.password.$error.minlength && submitted">Too short!</span>
+		                <span ng-show="login.password.$error.maxlength && submitted">Too long!</span>        
 				</div>
 					<span class="rf"><b>*</b> Required Field</span><br><br>
-	               
-	                <input type="submit" value="Login" name="login" ng-click="submitLogin(login)" class="btn log">
-
+	                <input type="submit" value="Login" name="login" ng-click="submitLogin(login)"  class="btn log">
+			        <div  class="responce-log"ng-bind="logResponce"></div>
 			</div>
 		</form>
-	
-		<form name="registration" novalidate>
-			<div id="registr" 	ng-show="visible">
+		
+		<form name="registration" novalidate  >
+			<div class="cover" ng-show="visible">{{visibleTime()}}</div>
+			<div id="registr" ng-show="visible">
 
 				<h2>Registration <p ng-click="hideMe();">X</p></h2>
 
 				<label>Profile Informations</label>
 				<div class="form-group" ng-class="{ 'has-error' : !registration.firstName.$dirty && submitted }">
-					<input type="text" class="username" name="firstName" id="firstName" placeholder="First Name" ng-model="ctrl.firstName" ng-minlength="2" ng-maxlength="10" required>
-						<span ng-show="registration.firstName.$error.required && submited">This is a required field.</span>
-	                	<span ng-show="registration.firstName.$error.minlength && submited">Minimum length required is 2.</span>
-	                	<span ng-show="registration.firstName.$error.maxlength && submited">Maximum length required is 10.</span>
+					<input type="text" class="username" name="firstName" id="firstName" placeholder="First Name" ng-model="reguser.firstName" ng-minlength="2" ng-maxlength="10" required>
+						<span ng-show="registration.firstName.$error.required && submitted">This is a required field.</span>
+	                	<span ng-show="registration.firstName.$error.minlength && submitted">Minimum length required is 2.</span>
+	                	<span ng-show="registration.firstName.$error.maxlength && submitted">Maximum length required is 10.</span>
 				</div>
 
 				<div class="form-group"  ng-class="{ 'has-error' : !registration.lastName.$dirty && submitted }">
-					<input type="text" class="username" name="lastName" id="lastName" placeholder="Last Name" ng-model="ctrl.lastName" ng-minlength="2" ng-maxlength="10" required>
-						<span ng-show="registration.lastName.$error.required && submited">This is a required field.</span>
-		                <span ng-show="registration.lastName.$error.minlength && submited">Minimum length required is 2.</span>
-		                <span ng-show="registration.lastName.$error.maxlength && submited">Maximum length required is 10.</span>
+					<input type="text" class="username" name="lastName" id="lastName" placeholder="Last Name" ng-model="reguser.lastName" ng-minlength="2" ng-maxlength="10" required>
+						<span ng-show="registration.lastName.$error.required && submitted">This is a required field.</span>
+		                <span ng-show="registration.lastName.$error.minlength && submitted">Minimum length required is 2.</span>
+		                <span ng-show="registration.lastName.$error.maxlength && submitted">Maximum length required is 10.</span>
 				</div>
 				<label class="mg">Login Datas</label>
 
-				<div class="form-group" ng-class="{ 'has-error' : registration.regEmail.$dirty && submitted }">
-					<input type="email" name="regEmail" id="regEmail" placeholder="E-mail adress" ng-model="ctrl.regEmail" required>
-					<span ng-show="registration.regEmail.$error.required && submited">This is a required field</span>
-	                <span ng-show="registration.regEmail.$error.email && submited">Enter email</span>
+				<div class="form-group" ng-class="{ 'has-error' : !registration.email.$dirty && submitted }">
+					<input type="email" name="email" id="email" placeholder="E-mail adress" ng-model="reguser.email" required>
+					<span ng-show="registration.email.$error.required && submitted">This is a required field</span>
+	                <span ng-show="registration.email.$error.email && submitted">Enter email</span>
 				</div>
 
 				
 				<div class="form-group" ng-class="{ 'has-error' : registration.password.$dirty && submitted }">
-	                <input class="regInputs" type="password" name="password" required placeholder="Password" ng-model="registration.user.password"
+	                <input class="regInputs" type="password" name="password" required placeholder="Password" ng-model="reguser.pass.password"
 	                       required ng-pattern="/(?=.*[^a-zA-Z])(?=.*[^0-9])/" ng-minlength="6" ng-maxlength="20">
-	                <span ng-show="registration.password.$error.required && submited">Password is required!</span>
-	                <span ng-show="registration.password.$error.minlength && submited">Too short!</span>
-	                <span ng-show="registration.password.$error.maxlength && submited">Too long!</span>
-	                <span ng-show="registration.password.$error.pattern && submited">Your password too simple!</span>
+	                <span ng-show="registration.password.$error.required && submitted">Password is required!</span>
+	                <span ng-show="registration.password.$error.minlength && submitted">Too short!</span>
+	                <span ng-show="registration.password.$error.maxlength && submitted">Too long!</span>
+	                <span ng-show="registration.password.$error.pattern && submitted">Your password too simple!</span>
 	            </div>
 				<div class="form-group">
-	                <input class="regInputs" type="password" name="confirmPassword" placeholder="Password confirmation" ng-model="registration.user.confirmPassword" required compare-to="registration.user.password">
-	                <span class="error" ng-show="registration.confirmPassword.$error.required && submited">Password is required!</span>
-	                <div class="msg-block" ng-show="registration.confirmPassword.$error && submited">
-	                    <span class="error" ng-show="registration.confirmPassword.$error.compareTo && submited">Passwords don't match.</span>
+	                <input class="regInputs" type="password" name="confirmPassword" placeholder="Password confirmation" ng-model="reguser.pass.confirmPassword" required compare-to = "reguser.pass.password">
+	                <span class="error" ng-show="registration.confirmPassword.$error.required && submitted">Password is required!</span>
+	                <div class="msg-block" ng-show="registration.confirmPassword.$error && submitted">
+	                    <span class="error" ng-class="{error:!match}"ng-show="registration.confirmPassword.$error.submitted">Password doesn't match.</span>
+	                    <span  ng-show="registration.confirmPassword.$error.compareTo && submitted">Password doesn't match.</span>
 	                </div>
 				</div>
-
+					<pre>{{registration.confirmPassword.$valid}}</pre>
 				<!-- <input type="submit" ng-disabled="registration.$invalid" ng-click="submit()" value="Register" id="regBtn"  class="btn reg"> -->
-				<input type="submit" value="Register" name="Register" ng-click="submitRegister(registration)"class="btn log" id="regBtn" >
-				<!-- <input type="button" value="Login" name="login" ng-click="submitLogin(login)" class="btn log"> -->
+				<input type="submit" value="Register" name="Register"  ng-class = "{'submit':!registration.$valid}" ng-click="submitRegister(registration.$valid)"   class="btn log" id="regBtn" >
+				<span>
+					<button ng-click="resetForm()" class="btn log" >Reset</button>
+
+				</span>
+			    <div class="responce-reg" ng-bind="regResponce"></div>
 			</div>
+			
 		</form>
+			
 	</div>		
 </main>
 

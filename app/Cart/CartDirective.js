@@ -4,13 +4,12 @@ CartModule.directive('myCart', ['CartFactory', function(CartFactory){
 		templateUrl: 'app/Cart/_cart.html',
 		//controller: 'CartController'
 		link: function link(scope, element, attrs) {
-			//alert("working");
-			console.log("scope",scope);
+			
 			scope.count=0;
 	        scope.cart=[];
+			
 			element.on('$destroy', function() {
 	      	   console.log("registryCartUpadateMsgcancel");
-	    	// console.log("registryCartUpadateMsg", element,attrs,scope);
 	    	});
 
 			scope.cart = CartFactory.getProducts();

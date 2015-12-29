@@ -3,7 +3,6 @@
 // require_once dirname (__FILE__). '/../core/Controller/Controller.php';
 require_once dirname (__FILE__). '/../Controllers/OrderController.php';
 
-///??? REQUIRE ONCE TO AlbumController
 
 class OrderRestController extends OrderController{
 	public $model;

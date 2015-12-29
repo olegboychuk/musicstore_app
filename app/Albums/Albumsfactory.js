@@ -9,8 +9,8 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
     var Intro = [{ intro : "We are glad to welcome you in our store.You've made a right decision by choosen our store.Our company will give you the magic of the music world because we all have the same passion.It so amazing to fell the rhythm and good vibes to enjoy the perfect perfomance and just to be devoted fan of this magic of sound."}];
 				
 	/**
-	/*  public function getIntro
-	/*	return object 
+	*  public function getIntro
+	*	return object 
 	*/
 	AlbumsFactory.getIntro = function(){
 		return Intro;
@@ -89,8 +89,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 
 		return promise = $http.get( urlBase +'/:'+ requestedPage )
 		.then( function( data ) {	   	 
-		   	//console.log('AlbumsFactory.getNextPage', data.data.result.albums );
-
+		 
 	        loadedPages+=data.data.result.albums.length;
             
 		    createListAlbums( data.data.result.albums );

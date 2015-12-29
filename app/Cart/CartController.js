@@ -19,7 +19,6 @@ CartModule.controller('CartController', function( $scope,localStorageService,Alb
 		$scope.toogleActive = function(e){
 			if ( e.currentTarget ='active') {
 			   $scope.billing = !$scope.billing;
-			    // console.log("e",e.delegateTarget);
 	        };
 		}
 		

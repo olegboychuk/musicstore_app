@@ -1,22 +1,34 @@
  <?php
-// require_once dirname( __FILE__ ) . '/../application/REST/Slim/Slim.php';
 
-// \Slim\Slim::registerAutoloader();
-// $app = new \Slim\Slim();
+require_once dirname (__FILE__).'/../../RestControllers/UserRestController.php';
 
-// $app->contentType('application/json');
-
-// require_once dirname (__FILE__).'/../application/RestControllers/AlbumRestController.php';
-
-// $user = new UserRestController();
+$user = new UserRestController();
 
 // $app->get('',function() use ( $user ){
 
 // });
 
-// $app->post('',function() use ( $user ){
+$app->post('/registruser/',function() use ( $user,$app ){
+	
+	$data = json_decode($app->request->getBody(),true);
+	
+	$success = $user->regNewUser($data);
+	 
+	echo json_encode( $success );
+});
 
-// });
+$app->post('/login/',function() use ( $user,$app ){
+	
+	$data = json_decode($app->request->getBody(),true);
+	 
+	$success = $user->matchUser($data);
+		if ( $success ) { 	
+	 	  authentication();
+	 	  //var_dump($_SESSION[user_id]);
+	 	  //echo json_encode($_SESSION[user_id]);
+	 	  echo json_encode( $success );
+		}
+});
 
 // $app->put('',function() use ( $user ){
 
@@ -26,4 +38,9 @@
 
 // });
 
-// $app->run();
+//  $user = new UserRestController();
+//  $json = ("firstName");
+//  // $data = json_decode($json);
+// $user->regNewUser( $json);
+//  var_dump($user);
+ ?>

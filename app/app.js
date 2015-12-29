@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre','Login']);
+var app = angular.module( 'musicStore',['ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre']);
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -71,8 +71,81 @@ app.config(function( $routeProvider,$locationProvider ){
 	.otherwise({ redirectTo: '/home' });
 });
 
-app.controller('mainController',function( $timeout,$log, $http, $q, $scope,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory ){
+
+/*-------AUTHENTICATION----START----------*/
+
+// app.config(function ($stateProvider, USER_ROLES) {
+//   $stateProvider.state('dashboard', {
+//     url: '/dashboard',
+//     templateUrl: 'dashboard/index.html',
+//     data: {
+//       authorizedRoles: [USER_ROLES.admin, USER_ROLES.editor]
+//     }
+//   });
+// })
+
+app.run(function ($rootScope, AUTH_EVENTS, AuthService) {
+  $rootScope.$on('$routeChangeStart ', function (event, next) {
+    var authorizedRoles = next.data.authorizedRoles;
+    if (!AuthService.isAuthorized(authorizedRoles)) {
+      event.preventDefault();
+      if (AuthService.isAuthenticated()) {
+        // user is not allowed
+        $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+      } else {
+        // user is not logged in
+        $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+      }
+    }
+  });
+})
+
+app.service('Session', function () {
+  this.create = function (sessionId) {
+    this.id = sessionId;
+    // this.userId = userId;
+    // this.userRole = userRole;
+  };
+  this.destroy = function () {
+    this.id = null;
+    this.userId = null;
+    this.userRole = null;
+  };
+})
+
+
+app.constant('USER_ROLES', {
+  // all: '*',
+  admin: 'admin',
+  editor: 'admin',
+  // guest: 'guest'
+})
+
+
+app.constant('AUTH_EVENTS', {
+  loginSuccess: 'auth-login-success',
+  loginFailed: 'auth-login-failed',
+  logoutSuccess: 'auth-logout-success',
+  sessionTimeout: 'auth-session-timeout',
+  notAuthenticated: 'auth-not-authenticated',
+  notAuthorized: 'auth-not-authorized'
+})
+
+/*-------AUTHENTICATION----END----------*/
+
+
+
+
+app.controller('mainController',function( $timeout,$log, $http, $q, $scope,USER_ROLES,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory,AuthService ){
 
   var storageType = localStorageService.getStorageType();
+
+  $scope.currentUser = null;
+  $scope.userRoles = USER_ROLES;
+ // $scope.isAuthorized = AuthService.isAuthorized;
+ //console.log("$scope.isAuthorized",$scope.isAuthorized);
+  $scope.setCurrentUser = function (user) {
+    $scope.currentUser = user;
+  };
       
 });

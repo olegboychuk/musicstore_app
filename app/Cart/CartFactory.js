@@ -13,10 +13,10 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
     	
     	if (localStorageService!=[]) {
     		resetLocalStorage();
-    	   if (products!=[]) {
+    	   if ( products!=[] ) {
     	   
-	    	   return localStorageService.set('mycart',products);
-	    	   console.log(localStorageService);
+	    	   return localStorageService.set( 'mycart',products );
+	    	   console.log( localStorageService );
     	   };
     	};
     };
@@ -33,8 +33,8 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 		return totalPrice;
 	};
 
-	CartFactory.saveOrder = function(orderObject){
-		return $http.post('api/order'+':'+ orderObject);
+	CartFactory.saveOrder = function( orderObject ){
+		return $http.post('api/order', orderObject);
 	}
 
 	function cartUpdated( quantety, album, price){
@@ -72,12 +72,11 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 
 	 function checkIdentity( ){
 		
-		for (var i = 0; i <= products.length-1; i++) {
+		for ( var i = 0; i <= products.length-1; i++ ) {
 
-			if (key===result[i]) {
+			if ( key===result[i] ) {
 				item.quantety = (+item.quantety) + (+products[i].quantety);
 				item.price=item.quantety*item.price;
-				// console.log("itemprice",item.price);
 				products.splice(i,1);
 				return item;
 			}else{
@@ -89,10 +88,10 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 
 
 	function calcAddTotal(){
-	  	var tpr = _.map(products,'price');
-	  	totalPrice =_.reduce(tpr, function(accumulator, value) {
-                return (+accumulator) + (+value);
-                alert(totalPrice);
+	  	var tpr = _.map( products,'price' );
+	  	totalPrice =_.reduce(tpr, function( accumulator, value ) {
+                return (+accumulator) + ( +value );
+                alert( totalPrice );
         });
 		//return totalPrice;
 	}
@@ -102,9 +101,9 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 		for (var i = 0; i <= products.length-1; i++) {
 			var key = products[i].album.album_id;
 			
-			if (key===albumId) {
+			if ( key===albumId ) {
 
-				products.splice(i,1);
+				products.splice( i,1 );
 
 			}else{
 				//console.log("delete i",i);
@@ -114,14 +113,14 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 
 	CartFactory.clearCart = function(){
 		
-		if (products) {
-			products.splice(products,products.length);
+		if ( products ) {
+			products.splice( products,products.length );
 		};	
 	}
 
 	CartFactory.addToCart = function( quantety,albumId ) {
 	
-		var album = AlbumsFactory.getAlbumDetails(albumId);
+		var album = AlbumsFactory.getAlbumDetails( albumId );
 		var price = album.album_price;		
 		cartUpdated( quantety, album, price );
 	}

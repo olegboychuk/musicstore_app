@@ -13,7 +13,7 @@ $app->get('',function() use ( $order ){
 
 });
 
- $app->post('api/order/',function() use ( $order,$app ){
+ $app->post('api/order/','authentication',function() use ( $order,$app ){
 
     $data = json_decode($app->request->getBody(),true);
     echo $order->writeOrder($data);

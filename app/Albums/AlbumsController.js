@@ -25,7 +25,6 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
 
   $scope.loadAlbums = function(){
     AlbumsFactory.getNextPage().then( function( data ){
-        //console.log('AlbomsController:loadAlbums', data);
         $scope.albums = data;
     });  
   };

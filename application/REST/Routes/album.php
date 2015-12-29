@@ -3,7 +3,7 @@
 
 require_once dirname (__FILE__).'/../../RestControllers/AlbumRestController.php';
 $album = new AlbumRestController();
-
+ // var_dump($album );
 
 $app->get('/albums/:start',function( $start ) use ( $album, $app ){
 	// global $app;

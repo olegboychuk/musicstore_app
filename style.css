@@ -203,7 +203,7 @@ img.logo{
 
 /* ----- ASIDE ---- */
 
-#wrapper{
+.wrapper{
     /*height: 100%;
     height: auto !important;*/
     margin: 0 auto;
@@ -212,6 +212,9 @@ img.logo{
     padding-bottom: 190px;
     min-height: 100%;
 }
+
+
+
 
 /* ------ CART ----- */
 .cart{
@@ -698,8 +701,8 @@ span.outStock{
     color: red;
 }
 #newCostumers{
-    margin-right: 20px;
-
+    margin-right: 5px;
+    margin-left: 35px;
 }
 #registrCostumers label, #registr label{
     display: block;
@@ -716,6 +719,7 @@ span.outStock{
 #registrCostumers .has-error .form-control{
     border: dotted red 2px;
 }
+
 .form-control{
     display: block;
     width: 100%;
@@ -728,8 +732,40 @@ span.outStock{
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-
 } 
+
+.reg-error{
+    color:red;
+}
+
+
+.responce-registr {
+    margin-top: 50px;
+    padding: 5px;
+    font-size: 18px;
+    color:red;
+}
+
+.responce-login{
+    margin-top: 20px;
+    font-size: 20PX;
+    color: green;
+}
+
+.submit{
+    opacity:0.5;
+}
+
+.error{
+   color:red; 
+}
+/*.ng-valid {
+    background-color: green;
+}  
+.ng-invalid {
+    background-color: red;
+}*/
+
 /*#registrCostumers .username.ng-valid {
           background-color: #E4F5E4;
       }
@@ -753,7 +789,7 @@ span.outStock{
 
 #registr{
     /*display: none;*/
-    width: 300px;
+    width: 500px;
     padding: 20px;
     margin: 0 auto;
     background: #fff;
@@ -761,7 +797,7 @@ span.outStock{
     z-index: 10000;
     position: absolute;
     left: 30%;
-    top: 17%;
+    top: 27%;
 }
 #registr .mg{
     margin-top: 20px;
@@ -797,6 +833,14 @@ span.outStock{
 }
 .btn:hover{
     background-color: grey;
+}
+
+
+.cover{
+    width: 96%;
+    height: 604px;
+    opacity: 0.8;
+    background-color: white
 }
 <<<<<<< HEAD
 
