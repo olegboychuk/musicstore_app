@@ -1,4 +1,4 @@
-UserModule.factory( 'UserFactory',function( $http,$location,$log,$rootScope,AuthService,Session ) {
+UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http,$location,$log,$rootScope,UserAuthService,Session ) {
 	
 	var UserFactory={};
 	var urlBaseLogin = 'api/login';
@@ -6,27 +6,44 @@ UserModule.factory( 'UserFactory',function( $http,$location,$log,$rootScope,Auth
    // var promise = null;
 	var user=[];
 	
+	function locationPath(){
+		$location.path('/check-out');
+	} 
+
+	function setIdentity( data ) {
+        $cookieStore.put( 'SessionData', data);
+        // return $cookieStore;
+    }
+
+    function getIdentity( SessionData ) {
+         console.log("SessionData",SessionData);
+        return $cookieStore.get('SessionData');
+       
+    }
 
 	UserFactory.addUser = function(){
 		
 	};
 
 	UserFactory.matchUser = function( jsonParams ){
-		//console.log("params",jsonParams);
-	   var promise = $http.post( urlBaseLogin,jsonParams );
+
+	    var promise = $http.post( urlBaseLogin,jsonParams );
 		promise.then(function (res) {
 			console.log("paramsres",res);
-			var uid = res.data.result.user;
-			console.log("AuthService",AuthService);
+			var uid = res.data.result.user.user_id;
+			 console.log("sessionuid",uid);
+			if ( uid!==null ) {
+				var session = Session.create( uid );
+				 console.log("session",Session);
+				var coo = setIdentity( session );
+				//getIdentity("session");
+	            console.log("sessioncookieStore",coo);
 
-			console.log("uid",uid);
-			if ( uid ) {
-				Session.create( uid );
-	            console.log("session",Session);
-	         // return res.data.user;
-	         return AuthService.isAuthorized();
-				AuthService.set( 'user',uid );
-				$location.path('/home');
+	   //       return UserAuthService.isAuthorized();
+				// UserAuthService.set( 'user',uid );
+				
+				return $timeout(locationPath,1500)
+		
 			};
 			
 	        
@@ -35,7 +52,7 @@ UserModule.factory( 'UserFactory',function( $http,$location,$log,$rootScope,Auth
 	};
 
 	UserFactory.registerUser = function( jsonParams ){
-		//console.log("params",jsonParams);
+
 		return $http.post(urlBaseRegistr,jsonParams);
 	};
 

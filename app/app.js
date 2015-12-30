@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre']);
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -84,12 +84,12 @@ app.config(function( $routeProvider,$locationProvider ){
 //   });
 // })
 
-app.run(function ($rootScope, AUTH_EVENTS, AuthService) {
+app.run(function ($rootScope, AUTH_EVENTS, UserAuthService) {
   $rootScope.$on('$routeChangeStart ', function (event, next) {
     var authorizedRoles = next.data.authorizedRoles;
-    if (!AuthService.isAuthorized(authorizedRoles)) {
+    if (!UserAuthService.isAuthorized(authorizedRoles)) {
       event.preventDefault();
-      if (AuthService.isAuthenticated()) {
+      if (UserAuthService.isAuthenticated()) {
         // user is not allowed
         $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
       } else {
@@ -98,19 +98,6 @@ app.run(function ($rootScope, AUTH_EVENTS, AuthService) {
       }
     }
   });
-})
-
-app.service('Session', function () {
-  this.create = function (sessionId) {
-    this.id = sessionId;
-    // this.userId = userId;
-    // this.userRole = userRole;
-  };
-  this.destroy = function () {
-    this.id = null;
-    this.userId = null;
-    this.userRole = null;
-  };
 })
 
 
@@ -136,13 +123,13 @@ app.constant('AUTH_EVENTS', {
 
 
 
-app.controller('mainController',function( $timeout,$log, $http, $q, $scope,USER_ROLES,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory,AuthService ){
+app.controller('mainController',function( $timeout,$log, $http, $q, $scope,USER_ROLES,localStorageService,CartFactory, GenreFactory, UserFactory, AlbumsFactory,AlbumsGenreFactory,UserAuthService ){
 
   var storageType = localStorageService.getStorageType();
 
   $scope.currentUser = null;
   $scope.userRoles = USER_ROLES;
- // $scope.isAuthorized = AuthService.isAuthorized;
+ // $scope.isAuthorized = UserAuthService.isAuthorized;
  //console.log("$scope.isAuthorized",$scope.isAuthorized);
   $scope.setCurrentUser = function (user) {
     $scope.currentUser = user;

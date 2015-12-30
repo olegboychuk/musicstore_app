@@ -1,30 +1,30 @@
 'use strict';
 
-UserModule.factory('AuthService',['$http', function ($http,$cookieStore,Session) {
-  return {
-    set:function( key,value ){
-      console.log("sessionStorage",sessionStorage);
-      return sessionStorage.set( key,value );
-    },
-    get:function( key ){
-      return sessionStorage.getItem(key);
-    },
-    destroy:function( key ){
-      return sessionStorage.destroyItem(key);
-    },
-  }
-  AuthService = {};
+UserModule.factory('UserAuthService',['$http', function ($http,$cookies,Session) {
+  // return {
+  //   set:function( key,value ){
+  //     console.log("sessionStorage",sessionStorage);
+  //     return sessionStorage.set( key,value );
+  //   },
+  //   get:function( key ){
+  //     return sessionStorage.getItem(key);
+  //   },
+  //   destroy:function( key ){
+  //     return sessionStorage.destroyItem(key);
+  //   },
+  // }
+  var UserAuthService = {};
   var _isloggedIn = undefined;
 
-  AuthService.isAuthorized = function(){
-      _isloggedIn = Session.id
-      console.log("sesion_id",_isloggedIn);
+  UserAuthService.isAuthorized = function(){
+      _isloggedIn = Session
+      console.log("sesion_id",Session);
       if (_isloggedIn) 
         return true;
       return false;   
   }
 
-  AuthService.setSession = function(key,value){
+  UserAuthService.setSession = function(key,value){
      $cookieStore.put( 'SessionData', data);
      // var ses = 
   }
@@ -54,6 +54,6 @@ UserModule.factory('AuthService',['$http', function ($http,$cookieStore,Session)
   //     authorizedRoles.indexOf(Session.userRole) !== -1);
   // };
  
-   return AuthService;
+   return UserAuthService;
   
 }]);

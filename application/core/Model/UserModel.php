@@ -46,8 +46,8 @@ class UserModel extends Model{
  	 */	
  	public function matchUser( $user_details ){
  		
- 		$email = $user_details[email];
- 		$password = md5($user_details[pass]);
+ 		$email = $user_details['email'];
+ 		$password = md5($user_details['pass']);
  		 
  		$result = $this->_db->query( "SELECT user_id, user_email,user_password FROM users WHERE user_email = '$email' AND user_password = '$password' " );
   		if ( $result -> num_rows > 0 ){
