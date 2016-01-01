@@ -3,62 +3,41 @@ UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http
 	var UserFactory={};
 	var urlBaseLogin = 'api/login';
 	var urlBaseRegistr = 'api/registruser';
-   // var promise = null;
+    var promise = null;
 	var user=[];
 	
 	function locationPath(){
 		$location.path('/check-out');
 	} 
 
-	function setIdentity( data ) {
-        $cookieStore.put( 'SessionData', data);
-        // return $cookieStore;
-    }
-
-    function getIdentity( SessionData ) {
-         console.log("SessionData",SessionData);
-        return $cookieStore.get('SessionData');
-       
-    }
-
-	UserFactory.addUser = function(){
-		
-	};
-
 	UserFactory.matchUser = function( jsonParams ){
 
 	    var promise = $http.post( urlBaseLogin,jsonParams );
 		promise.then(function (res) {
-			console.log("paramsres",res);
+			// console.log("paramsres",res);
 			var uid = res.data.result.user.user_id;
-			 console.log("sessionuid",uid);
-			if ( uid!==null ) {
-				var session = Session.create( uid );
-				 console.log("session",Session);
-				var coo = setIdentity( session );
-				//getIdentity("session");
-	            console.log("sessioncookieStore",coo);
 
-	   //       return UserAuthService.isAuthorized();
-				// UserAuthService.set( 'user',uid );
-				
-				return $timeout(locationPath,1500)
-		
-			};
-			
-	        
+			if ( uid!==null ) {
+				//var session = Session.create( uid );
+				UserAuthService.set( res.data.result.user );
+				return $timeout(locationPath,1500)	
+			};	        
         });
         return promise;
 	};
 
 	UserFactory.registerUser = function( jsonParams ){
-
 		return $http.post(urlBaseRegistr,jsonParams);
 	};
 
-	UserFactory.getUserDetails = function(){
-		
-	};
+		// function setIdentity( session ) {
+ //        $cookies.put( 'SessionData', session);
+ //        return $cookies;
+ //    }
+
+ //    function getIdentity( SessionData ) {
+ //        return $cookies.get('SessionData');     
+ //    }
 
 
 	return UserFactory;

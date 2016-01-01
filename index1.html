@@ -3,31 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home Page</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="style-search.css">
-	<link rel="stylesheet" href="checkout.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style-search.css">
+	<link rel="stylesheet" href="css/checkout.css">
 	<link rel="stylesheet" href="bower_components/ng-trans-css/ng-trans.css">
 </head>
 <body ng-controller="mainController">
 	<header>
 		<nav>
 			<ul>
-				<a ng-href="#home"><li>Home</li></a>
-				<a ng-href="#myAcoount" ng-show=""><li>My Account</li></a>
-				<a ng-href="#myWishlist"><li>My Wishlist</li></a>
-				<a ng-href="#check-out"><li>Checkout</li></a>
-				<a ng-href="#login" ng-hide=""><li>Log In</li></a>
+				<a ui-sref="home"><li>Home</li></a>
+				<a ui-sref="myAcoount" ng-show="isLogeed()"><li>My Account</li></a>
+				<a ui-sref="myWishlist"><li>My Wishlist</li></a>
+				<a ui-sref="check-out"><li>Checkout</li></a>
+				<a ui-sref="login" ng-hide=""><li>Log In</li></a>
 			</ul>	
 		</nav>
 		<div id="nav-header">
-			<a  ng-href="#home"><img class="logo" ng-src="Images/logo.png" ></a>
+			<a  ui-sref="home"><img class="logo" ng-src="Images/logo.png" ></a>
 
 			<div id="find-album" ng-controller="searchController">
 				<input type="text" class="search" ng-model="searchString" placeholder="Enter your search terms "{{i.album_name}}  />
 				<img class="search-icon" ng-src="Images/search.png" alt="" ng-click="search(searchString)">
 				<div class="data-ctrl" ng-show="searchitems">
 	                <div class="search-items" ng-repeat="i in items | searchFor:searchString track by $index ">
-	                    <a class="search-route" ng-href="#/album{{i.album_id}}" ng-click="hideshearch()">
+	                    <a class="search-route" ui-sref="/album{{i.album_id}}" ng-click="hideshearch()">
 	                    	<img ng-src="Images/{{i.image_path}}" alt="">
 	                    	<p>{{i.album_name}}</p>
 	                        <p>{{i.album_artist}}</p>
@@ -38,7 +38,7 @@
 			<update-basket></update-basket>
 		</div>
 	</header>
-
+	<div ui-view></div>
 	<div id="view-route"><ng-view></ng-view></div>
 		
 <!-- <footer></footer> -->

@@ -135,7 +135,7 @@
 
 					
 					<div class="billingInfo-row full">	
-						<a href="#"><input type="button" value="Please Order" class="btn finalize" ></a>
+						<a href="#"><input type="button" value="Please Order" ng-click="makeOrder()" class="btn finalize" ></a>
 					</div>	
 					
 				</ul>
@@ -147,8 +147,8 @@
 				<h3>Your Checkout Progress</h3>
 			</div>
 			<div class="checkout-status-nav">
-				<a ng-href="" ng-click="toogleActive()">Billing Information</a>
-				<a href="#Change">Change</a>
+				<a ng-href="#check-out" ng-click="toogleActive()">Billing Information</a>
+				<a href="#check-out"  ng-click="toogleActive()">Change</a>
 			</div>
 			<div class="billing-status">
 				<p ng-bind="$parent.form.address"></p>

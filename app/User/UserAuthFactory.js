@@ -1,33 +1,39 @@
-'use strict';
+// 'use strict';
 
-UserModule.factory('UserAuthService',['$http', function ($http,$cookies,Session) {
-  // return {
-  //   set:function( key,value ){
-  //     console.log("sessionStorage",sessionStorage);
-  //     return sessionStorage.set( key,value );
-  //   },
-  //   get:function( key ){
-  //     return sessionStorage.getItem(key);
-  //   },
-  //   destroy:function( key ){
-  //     return sessionStorage.destroyItem(key);
-  //   },
+UserModule.factory('UserAuthService',['$http','$cookies','$cookieStore', 
+  function( $http,$cookies,$cookieStore ){
+    return {
+      set:function( value ){
+        console.log("valuesession",value);
+        return $cookies.put( 'SessionData',value );
+      },
+      get:function( SessionData ){
+        return $cookies.get( SessionData );
+      },
+      destroy:function( key ){
+        return sessionStorage.destroyItem(key);
+      },
+      isLogged:function(){
+         if( $cookies.get( 'SessionData' ) )return true;
+      }
+    }
+  }
+]);
+  // var UserAuthService = {};
+  // var _isloggedIn = undefined;
+
+  // UserAuthService.isAuthorized = function(){
+  //     _isloggedIn = Session
+  //     console.log("sesion_id",Session);
+  //     if (_isloggedIn) 
+  //       return true;
+  //     return false;   
   // }
-  var UserAuthService = {};
-  var _isloggedIn = undefined;
 
-  UserAuthService.isAuthorized = function(){
-      _isloggedIn = Session
-      console.log("sesion_id",Session);
-      if (_isloggedIn) 
-        return true;
-      return false;   
-  }
-
-  UserAuthService.setSession = function(key,value){
-     $cookieStore.put( 'SessionData', data);
-     // var ses = 
-  }
+  // UserAuthService.setSession = function(key,value){
+  //    $cookieStore.put( 'SessionData', data);
+  //    // var ses = 
+  // }
 
 
   // var authService = {};
@@ -54,6 +60,5 @@ UserModule.factory('UserAuthService',['$http', function ($http,$cookies,Session)
   //     authorizedRoles.indexOf(Session.userRole) !== -1);
   // };
  
-   return UserAuthService;
+  // return UserAuthService;
   
-}]);

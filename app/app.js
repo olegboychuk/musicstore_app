@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ngRoute','Search','User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ui.router','Search','User','Albums','Cart','Genre']);
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -29,47 +29,103 @@ app.config(['localStorageServiceProvider', function(localStorageServiceProvider)
 }])
 
 
-app.config(function( $routeProvider,$locationProvider ){
 
-	$routeProvider
-	.when('/home',{
+app.config(function( $stateProvider,$urlRouterProvider ){
+ $urlRouterProvider.when("", '/home');
+    $urlRouterProvider.otherwise('/home');
+
+    $stateProvider
+
+	
+	.state('home',{
+		url:'/home',
 		templateUrl: "app/Albums/_home.html",
 		controller: 'AlbumsController',
         label: 'Home'
-	});
+	})
 
-	$routeProvider
-	.when('/login',{
+	
+	.state('login',{
+		url:'/login',
 		templateUrl:"app/User/_login.html",
 		controller:'UserController'
-	});
+	})
 
-	$routeProvider
-	.when('/album:id',{
+	
+	.state('home.album',{
+		url:'/album:id',
 		templateUrl:"app/Albums/_album.html",
 		controller:'SelectedAlbumController',
         label: 'Album'
-	});
+	})
 
-	$routeProvider
-	.when('/genre-albums:id',{
+	
+	.state('genre-albums:id',{
+		url:'/genre-albums:id',
 		templateUrl:"app/Albums/_genre-albums.html",
 		controller:'AlbumsGenreController',
 		link:function link(){
 			alert("hello");
 		},
         label: 'Albums by genre'
-	});
+	})
 
-	$routeProvider
-	.when('/check-out',{
+	
+	.state('check-out',{
+		url:'/check-out',
 		templateUrl:"app/Cart/_check-out-1.html",
 		controller:'CartController'
-	});
+	})
 
-    $routeProvider
-	.otherwise({ redirectTo: '/home' });
+    
+	//.otherwise({ redirectTo: '/home' })
 });
+
+
+
+
+
+// app.config( function( $routeProvider,$locationProvider ){
+
+// 	$routeProvider
+// 	.when('/home',{
+// 		templateUrl: "app/Albums/_home.html",
+// 		controller: 'AlbumsController',
+//         label: 'Home'
+// 	});
+
+// 	$routeProvider
+// 	.when('/login',{
+// 		templateUrl:"app/User/_login.html",
+// 		controller:'UserController'
+// 	});
+
+// 	$routeProvider
+// 	.when('/album:id',{
+// 		templateUrl:"app/Albums/_album.html",
+// 		controller:'SelectedAlbumController',
+//         label: 'Album'
+// 	});
+
+// 	$routeProvider
+// 	.when('/genre-albums:id',{
+// 		templateUrl:"app/Albums/_genre-albums.html",
+// 		controller:'AlbumsGenreController',
+// 		link:function link(){
+// 			alert("hello");
+// 		},
+//         label: 'Albums by genre'
+// 	});
+
+// 	$routeProvider
+// 	.when('/check-out',{
+// 		templateUrl:"app/Cart/_check-out-1.html",
+// 		controller:'CartController'
+// 	});
+
+//     $routeProvider
+// 	.otherwise({ redirectTo: '/home' });
+// });
 
 
 /*-------AUTHENTICATION----START----------*/
@@ -84,7 +140,7 @@ app.config(function( $routeProvider,$locationProvider ){
 //   });
 // })
 
-app.run(function ($rootScope, AUTH_EVENTS, UserAuthService) {
+app.run( function($rootScope,AUTH_EVENTS, UserAuthService) {
   $rootScope.$on('$routeChangeStart ', function (event, next) {
     var authorizedRoles = next.data.authorizedRoles;
     if (!UserAuthService.isAuthorized(authorizedRoles)) {
@@ -100,6 +156,19 @@ app.run(function ($rootScope, AUTH_EVENTS, UserAuthService) {
   });
 })
 
+
+app.run( function( $rootScope,$location,UserFactory,UserAuthService ){
+	var routespermission = ['/check-out'];
+	console.log( "routespermission.indexOf",routespermission );
+	console.log( "UserAuthService.isLogged()",!UserAuthService.isLogged() );
+	console.log( "$location.path()",$location.path() !=-1 );
+
+	$rootScope.$on( '$routeChangeStart', function(){
+		if (  !UserAuthService.isLogged() ) {
+			$location.path('/login');
+		};
+	});
+})
 
 app.constant('USER_ROLES', {
   // all: '*',
