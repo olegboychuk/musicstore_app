@@ -8,7 +8,7 @@
 	    {{loadCount()}}
 		<div id ="center-albums">
 			<div class="center albums" class="ng-trans ng-trans-flip-y" ng-repeat="album in albums | limitTo :12 :11 track by $index" >
-				<a ui-sref="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
+				<a ui-sref="home.album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
 				<div class="info-head">
 				    <p class="head-name">{{album.album_name}}</p>
 					<p class="album-price">{{album.album_price | currency:"$"}}</p>

@@ -1,6 +1,6 @@
-AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,AlbumsFactory,CartFactory ){
-	
-	var albumId = $routeParams.id;
+AlbumsModule.controller( 'SelectedAlbumController',function( $scope,$stateParams,AlbumsFactory,CartFactory ){
+	console.log($stateParams.id);
+	var albumId = $stateParams.id;
 	$scope.album = null;
 	$scope.inStock = false;
     $scope.quantety = "1";
@@ -8,6 +8,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
     var price = 0;
 
 	$scope.loadAlbum =function(){
+		alert(albumId);
 		var album = AlbumsFactory.getAlbumDetails( albumId );    	
     	price = album.album_price;
     	$scope.totalPrice = album.album_price;
@@ -15,7 +16,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 	}
 
 	$scope.addToCart = function( quantety ){
-		var cart= CartFactory.addToCart(quantety,albumId);
+		var cart= CartFactory.addToCart( quantety,albumId );
 		
 		$scope.quantety = "1";
 		$scope.totalPrice = $scope.totalPrice/quantety;
@@ -41,7 +42,7 @@ AlbumsModule.controller('SelectedAlbumController',function( $scope,$routeParams,
 
 	function calculateIncPrice(){
 		var amount = $scope.quantety;
-		$scope.totalPrice =price*amount;
+		$scope.totalPrice = price*amount;
 		return $scope.totalPrice;
 	}
 

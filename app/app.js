@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module( 'musicStore',['ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ui.router','Search','User','Albums','Cart','Genre']);
+var app = angular.module( 'musicStore',['ncy-angular-breadcrumb','ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ui.router','Search','User','Albums','Cart','Genre']);
 
 app.filter('searchFor', function(){
     return function(arr, searchString){
@@ -53,7 +53,7 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 
 	
 	.state('home.album',{
-		url:'/album:id',
+		url:'/album/:id',
 		templateUrl:"app/Albums/_album.html",
 		controller:'SelectedAlbumController',
         label: 'Album'
