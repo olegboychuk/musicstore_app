@@ -1,4 +1,5 @@
 UserModule.controller('UserController',function($scope,$timeout,UserFactory){
+  
   $scope.user = {};
   $scope.reguser = {};
   
@@ -68,6 +69,5 @@ UserModule.controller('UserController',function($scope,$timeout,UserFactory){
       $scope.regResponce = "try again";
     }   
 	};
-
-
+  
 });

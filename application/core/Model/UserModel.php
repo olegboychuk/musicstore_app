@@ -73,11 +73,19 @@ class UserModel extends Model{
  	 /* @return ( // ) ( $_SESSION )
  	 */
  	private function createSession( $user_id ){			
- 		if ( $user_id ) 
- 			$_SESSION['user_id'] = $user_id;
- 			$_SESSION['login'] = true;
-   		    //print_r($_SESSION);
- 		return true;
+ 		
+ 		$success = $this->_db->query( "SELECT * FROM users AS u WHERE u.user_id = $user_id" );
+ 		
+ 		if ( $success -> num_rows > 0 ){
+ 			$result=$success->fetch_assoc();
+ 			foreach ( $result as $key => $value ){
+ 			    $_SESSION[ $key ] = $value;
+ 			    $_SESSION['login'] = true;
+ 			    // print_r($_SESSION);
+ 			}
+ 			return true;
+ 		}    
+ 		return false;
     }
 
 

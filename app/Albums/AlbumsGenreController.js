@@ -1,5 +1,7 @@
-AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,GenreFactory,AlbumsGenreFactory,CartFactory) {
-	var genreId = $routeParams.id;
+AlbumsModule.controller( 'AlbumsGenreController',function( $scope,$stateParams,GenreFactory,AlbumsGenreFactory,CartFactory ) {
+		
+	var genreId = $stateParams.genreId;
+
 	var product = '1';
 	$scope.albums = [];
 	$scope.genreName = " ";
@@ -14,8 +16,7 @@ AlbumsModule.controller( 'AlbumsGenreController',function($scope,$routeParams,Ge
 		});
 	}
 
-	 $scope.addToCart = function( albumId ){
-	    
+	 $scope.addToCart = function( albumId ){	    
 	    CartFactory.addToCart(product,albumId);
     } 
 

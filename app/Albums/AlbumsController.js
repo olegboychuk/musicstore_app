@@ -9,7 +9,6 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   var product = '1';
   $scope.buy = !$scope.buy;
 
-
   $scope.loadMore= function(next){
       if($scope.busy)  return;
       $scope.loading = true;

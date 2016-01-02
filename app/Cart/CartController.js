@@ -1,5 +1,12 @@
-CartModule.controller('CartController', function( $scope,localStorageService,AlbumsFactory,CartFactory ){ 
+CartModule.controller('CartController', function( $rootScope,$scope,localStorageService,AlbumsFactory,CartFactory,UserAuthService ){ 
 	    $scope.billing = true;
+
+	    console.log("$rootScope",$rootScope);
+	    $rootScope.$on('logged',function( event,argument ) {
+	    	alert(argument);
+	    	console.log("argument",argument);
+	    	$scope.$on
+	    })
 
 	    $scope.total =  CartFactory.getTotal();
 	    console.log("cartToPay",$scope.cart);
@@ -7,13 +14,13 @@ CartModule.controller('CartController', function( $scope,localStorageService,Alb
         $scope.cartToPay = function(){
         	var cart = CartFactory.checkOut();
         	$scope.cart = localStorageService.get('mycart');
-        	console.log("cartToPay",$scope.cart);
         }
+
         $scope.cartToPay();
 
-       $scope.saveOrder = function(xxx){
+        $scope.saveOrder = function(xxx){
        		 CartFactory.saveOrder(xxx);
-       }
+        }
 	   
 
 		$scope.toogleActive = function(e){

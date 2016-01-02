@@ -98,8 +98,4 @@ class AlbumModel extends Model{
 	}
 }
 
-// $db = new AlbumModel();
-
-// $albums= $db->getAlbums(150);
-// var_dump($albums);
 ?>

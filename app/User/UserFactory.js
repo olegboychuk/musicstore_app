@@ -5,21 +5,22 @@ UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http
 	var urlBaseRegistr = 'api/registruser';
     var promise = null;
 	var user=[];
-	
+	var session = null;
+
 	function locationPath(){
-		$location.path('/check-out');
+		$location.path('/home');
 	} 
 
 	UserFactory.matchUser = function( jsonParams ){
-
 	    var promise = $http.post( urlBaseLogin,jsonParams );
 		promise.then(function (res) {
 			// console.log("paramsres",res);
+			
 			var uid = res.data.result.user.user_id;
-
 			if ( uid!==null ) {
-				//var session = Session.create( uid );
+				//var session = Session.create( res.data.result.user );
 				UserAuthService.set( res.data.result.user );
+			    $rootScope.$emit('isAuth',res.data.result.user ); 
 				return $timeout(locationPath,1500)	
 			};	        
         });
@@ -30,15 +31,9 @@ UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http
 		return $http.post(urlBaseRegistr,jsonParams);
 	};
 
-		// function setIdentity( session ) {
- //        $cookies.put( 'SessionData', session);
- //        return $cookies;
- //    }
-
- //    function getIdentity( SessionData ) {
- //        return $cookies.get('SessionData');     
- //    }
-
+	UserFactory.logOut = function( jsonParams ){
+		return $http.post(urlBaseRegistr,jsonParams);
+	};
 
 	return UserFactory;
 });

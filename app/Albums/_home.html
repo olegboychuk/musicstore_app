@@ -2,13 +2,12 @@
 	<div ng-include="'app/Albums/_albumtop.html'" ></div>
 	<div class="wrapper">
 	    <div ncy-breadcrumb></div>
-		<bread-crumb></bread-crumb>
 		<genre-list></genre-list>
 		
 	    {{loadCount()}}
 		<div id ="center-albums">
 			<div class="center albums" class="ng-trans ng-trans-flip-y" ng-repeat="album in albums | limitTo :12 :11 track by $index" >
-				<a ui-sref="home.album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
+				<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
 				<div class="info-head">
 				    <p class="head-name">{{album.album_name}}</p>
 					<p class="album-price">{{album.album_price | currency:"$"}}</p>
@@ -20,9 +19,16 @@
 			</div>
 		</div>
 		
+	<!-- <div id="music-genre" ng-show="true" ng-controller="GenreController">
+		<div class="ng-trans ng-trans-flip-y" ng-repeat="genre in genres track by $index">
+			<a ui-sref="genreAlbums({id:genre.genre_id})">{{ genre.genre_name }}</a>
+	    </div>
+	</div> -->
+	
+
 		<div id ="left-albums">
 			<div class= "left albums" ng-repeat="album in albums | limitTo :2 :10 track by $index "  >
-				<a ui-sref="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
+				<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
 				<div class="info-head">
 				    <p class="head-name">{{album.album_name}}</p>
 			    	<p class="album-price">{{album.album_price | currency:"$"}}</p>
@@ -39,7 +45,7 @@
 			<div ng-show='busy'>Loading data...</div>
 			<div id="page">
 			    <div class="page" ng-repeat="album in albums  track by $index" >
-					<a ui-sref="#/album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
+					<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
 			        <div class="info-head">
 					    <p class="head-name">{{album.album_name}}</p>
 			            <p class="album-price">{{album.album_price | currency:"$"}}</p>

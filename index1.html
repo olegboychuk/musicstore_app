@@ -13,10 +13,11 @@
 		<nav>
 			<ul>
 				<a ui-sref="home"><li>Home</li></a>
-				<a ui-sref="myAcoount" ng-show="isLogeed()"><li>My Account</li></a>
+				<a ui-sref="myAcoount" ng-show="logout"><li>My Account</li></a>
 				<a ui-sref="myWishlist"><li>My Wishlist</li></a>
 				<a ui-sref="check-out"><li>Checkout</li></a>
-				<a ui-sref="login" ng-hide=""><li>Log In</li></a>
+				<a ui-sref="login"  ng-if="login"><li>Log In</li></a>
+				<a ng-href="#/logout"  ng-if="logout" ng-click="signOut()"><li>Log Out</li><p>{{dataUser}}</p></a>
 			</ul>	
 		</nav>
 		<div id="nav-header">
@@ -27,7 +28,7 @@
 				<img class="search-icon" ng-src="Images/search.png" alt="" ng-click="search(searchString)">
 				<div class="data-ctrl" ng-show="searchitems">
 	                <div class="search-items" ng-repeat="i in items | searchFor:searchString track by $index ">
-	                    <a class="search-route" ui-sref="/album{{i.album_id}}" ng-click="hideshearch()">
+	                    <a class="search-route" ui-sref="album({id:i.album_id})" ng-click="hideshearch()">
 	                    	<img ng-src="Images/{{i.image_path}}" alt="">
 	                    	<p>{{i.album_name}}</p>
 	                        <p>{{i.album_artist}}</p>
@@ -38,8 +39,9 @@
 			<update-basket></update-basket>
 		</div>
 	</header>
-	<div ui-view></div>
-	<div id="view-route"><ng-view></ng-view></div>
+
+	<div ui-view id="view-route"></div>
+	<!-- <div id="view-route"><ng-view></ng-view></div> -->
 		
 <!-- <footer></footer> -->
 
@@ -87,9 +89,6 @@
 	<script src="app/Cart/CartFactory.js"></script>
 	<script src="app/Cart/CartDirective.js"></script>
 	<script src="app/Cart/CartController.js"></script>
-
-    <script src="app/Breadcrumb/BreadCrumbDirective.js"></script>
-    <script src="app/Breadcrumb/BreadCrumbController.js"></script>
 
 </body>
 </html>

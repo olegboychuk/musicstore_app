@@ -1,7 +1,7 @@
 
 <div id="head-albums" ng-controller="AlbumsController">
 	<div class="head" ng-repeat="album in albums | limitTo : 9: 0 track by $index ">
-		<a ng-href="#/home.album{{album.album_id}}"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
+		<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
 		<div class="info-head">
 		    <p class="head-name">{{album.album_name | limitTo:25 }}</p>
 			<p class="head-artist">{{album.album_artist }}</p>

@@ -6,7 +6,7 @@ AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q,AlbumsFactory
 
 	AlbumsGenreFactory.getAlbumsGenre = function( genreId ){
 		deferred = $q.defer();
-	    
+	
 	    $http.get('api/genre-albums'+'/:'+ genreId)
 	    .success( function( data ) {
 	    

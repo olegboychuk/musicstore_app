@@ -1,5 +1,5 @@
  
-AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
+AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q,$rootScope ){
 	var AlbumsFactory = {};
 	var Albums = [];
 	var urlBase = 'api/albums';
@@ -22,7 +22,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q ){
 	/*  return album from array of albums 
 	*/
 	AlbumsFactory.getAlbumDetails = function( albumId ){		
-         console.log("albumId",albumId);
+        console.log("albumId",albumId);
         var key = "album_id";
         var index = findIndex(Albums, key, albumId);
 

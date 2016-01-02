@@ -1,20 +1,21 @@
 // 'use strict';
 
-UserModule.factory('UserAuthService',['$http','$cookies','$cookieStore', 
-  function( $http,$cookies,$cookieStore ){
+UserModule.factory('UserAuthService',['$http','$cookies','$cookieStore','$rootScope','$location', 
+  function( $http,$cookies,$cookieStore,$rootScope,$location ){
     return {
       set:function( value ){
-        console.log("valuesession",value);
-        return $cookies.put( 'SessionData',value );
+        $cookies.put( 'SessionData',value );
       },
-      get:function( SessionData ){
-        return $cookies.get( SessionData );
+      get:function(  ){
+        return $cookies.get( 'SessionData' );
       },
-      destroy:function( key ){
-        return sessionStorage.destroyItem(key);
+      destroy:function( ){
+        $cookieStore.remove('SessionData');
+        $location.path('/login');
       },
       isLogged:function(){
-         if( $cookies.get( 'SessionData' ) )return true;
+         if( $cookies.get( 'SessionData' ) )
+           return true;
       }
     }
   }
