@@ -9,40 +9,27 @@ CartModule.controller('CartController', function( $rootScope,$scope,localStorage
 
 		$scope.form={};
 
+        
+        $scope.cartToPay = function(){
+        	$scope.cart = CartFactory.checkOut();
+        }
+        $scope.cartToPay();
+
 	    $scope.total =  CartFactory.getTotal();
-	    console.log("cartToPay",$scope.cart);
 
 	    $scope.makeOrder = function( checkOut ){
-	    	console.log("checkOut",checkOut);
 	    	if(checkOut) {
                return;
             } 
-            //$scope.submitted = true;
             param = angular.toJson($scope.form);
             var form = $scope.form;
-            console.log("param",param);	
+            console.log("paramaa",param);	
 
             CartFactory.makeOrder( form )
         	.then( function( responce ){
         		console.log("responceorder",responce);
         	});
 	    }
-
-	    $scope.cart = localStorageService.get('mycart');
-	    console.log("$scope.cart",$scope.cart);
-        // $scope.cartToPay = function(){
-        // 	var cart = CartFactory.checkOut();
-        // 	$scope.cart = localStorageService.get('mycart');
-        // 	console.log("$scope.cart",$scope.cart);
-        // }
-
-        //$scope.cartToPay();
-
-
-        $scope.saveOrder = function(xxx){
-       		 CartFactory.saveOrder(xxx);
-        }
-	   
 
 		$scope.toogleActive = function(e){
 			 console.log("e",e);
@@ -66,4 +53,11 @@ CartModule.controller('CartController', function( $rootScope,$scope,localStorage
 			    // console.log("e",e.delegateTarget);
 	        };
 		}
+
+
+
+        // $scope.saveOrder = function(xxx){
+       	// 	 CartFactory.saveOrder(xxx);
+        // }
+	   
 });

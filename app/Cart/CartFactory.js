@@ -1,5 +1,5 @@
 
-CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,localStorageService,UserAuthService){
+CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,localStorageService,UserAuthService,AUTH_EVENTS){
 	var CartFactory = {};
 	var urlBaseOrder = 'api/order';
 	var products = [];
@@ -13,17 +13,29 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     var keyOfUserCart ='';
 
     $rootScope.$on('statusLogin',function(event,data){
-    	alert("status",data);
-    	var userObject = UserAuthService.get();
-    	keyOfUserCart = userObject.user_id;
-	    console.log("userObjectcart",keyOfUserCart);
+    	alert(data);
+ 
+    	if ( AUTH_EVENTS.loginSuccess === "auth-login-success" ){
+	    	var userObject = UserAuthService.get();
+	    	keyOfUserCart = userObject.user_id;
+	    	addToProductsFromLocalStorage( keyOfUserCart );
+	    }
     });
+
+
+    // $rootScope.$on('statusLogin',function(event,data){
+    // 	alert(data);
+    // 	if ( AUTH_EVENTS.notAuthenticated === 'auth-not-authenticated' ){
+	   //  	// keyOfUserCart = 'guest';
+	   //  }
+	   //  // keyOfUserCart='';
+    // })
     
     CartFactory.makeOrder = function( param ){
+    	console.log("paramamakeOrder",param );
     	var orderDetails = meetCartUserOrderInfo( param );
-
-        var order = angular.toJson( orderDetails );
-       
+        console.log("orderDetailsparam000",orderDetails);
+        var order = angular.toJson( orderDetails );      
         console.log("orderDetailsparam",order);
         // while( orderDetails <= orderDetails.length){
         	
@@ -38,63 +50,92 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 
 
     function meetCartUserOrderInfo( param ){
-    	cart = getLocalStorageObject();
+
+
+        console.log("keyOfUserCart",keyOfUserCart);
+    	cart = getLocalStorageObject( keyOfUserCart );
     	console.log("ordercart ",cart);
-    	var user = $rootScope.idUser;
-    	console.log("usercart ",user);
+    	
+    	var user = keyOfUserCart;
+    	console.log("usercart ",user); 	
     	var userObj ={'user_id':user};    	
+    	
     	var order ={};
     	var orderList= [];
 
     	for (var i = 0; i < cart.length; i++) {
-    		// console.log("i",i);	
+    		console.log("i",i);	
+    	
+    		console.log("paramassign",param );
     		var album = cart[i].album;
-
-	        order[i] = _.assign( param,album,userObj );
-            console.log("orderList0 ",order[i]);
-	        orderList.splice(i,1,order[i] );
-	        console.log("orderList0 ",orderList);
-    		//return orderList[i];
+    		console.log("album specific i ",album);
+	        var order_total 
+	        order[i] = _.assign( album,param,userObj );
+            console.log("orderList0asign ",order[i]);
+	       
+	         orderList.push( order[i] );
+	        console.log("orderListsplice ",orderList);
+    	   // return orderList;
     	}
-        console.log("orderList1 ",orderList);
+        //console.log("orderList1 ",orderList);
     	return orderList;
     }
+
+
+//------set function of localstorage------
 
     function getLocalStorageObject( keyOfUserCart ){
         return localStorageService.get( keyOfUserCart );
     }
 
-    function setLocalStorageObject( keyOfUserCart ){
-    	return localStorageService.set( keyOfUserCart );
+    function setLocalStorageObject( keyOfUserCart,products ){
+    	if (keyOfUserCart === 'underfined') {
+    		alert(keyOfUserCart);
+    		removeItemLocalStorage(keyOfUserCart);
+    		//--- localstorage for unregisted users  
+    	}else{
+    		return localStorageService.set( keyOfUserCart,products );
+    	}
     }
 
-    // CartFactory.checkOut = function(){
-    	
-    // 	// if ( localStorageService!=[] ) {
-    // 		//resetLocalStorage();
-    // 	   // if ( products!=[] ) {
- 	  //   	   console.log( "productsproductsproducts",products );   	   
-	   //  	   return localStorageService.set( 'mycart',products );
+    function removeItemLocalStorage( keyOfUserCart ){
+    	console.log("keyOfUserCart.underfined");
+    	return localStorageService.remove( keyOfUserCart );
+    }
 
-    // 	   // };
-    // 	// };
-    // };
+     function resetLocalStorage(){
+    	alert("kuku");
+    	return localStorageService.clearAll();
+    }
+
+    function addToProductsFromLocalStorage( keyOfUserCart ){
+    	var data = getLocalStorageObject( keyOfUserCart );
+    		if ( data ) {
+    			products = data;
+    	        console.log(data);
+    		}else{
+    			return false;
+    		}	
+    }
+
+    CartFactory.checkOut = function(){
+       return localStorageService.get( keyOfUserCart,products );
+    };
+
+//------set function of localstorage-------
+
+
 
 	CartFactory.getProducts= function( ){
 	   return products;
 	}
 
-	/*
-	//
-	 */
+
     CartFactory.getTotal = function( ) { 
 		calcAddTotal();
 		return totalPrice;
 	};
 
-	// CartFactory.saveOrder = function( orderObject ){
-	// 	return $http.post('api/order', orderObject);
-	// }
 
 	function cartUpdated( quantety, album, price){
 		
@@ -122,12 +163,13 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 
     	// insert specific album object to cart array
     	products.push(item); 	    	    
-    	
+    	console.log("productsonclick",products);
     	//calcAddTotal();
 	    
 	    // save array to local storage
 	    console.log("keyOfUserCart111",keyOfUserCart);
-	    localStorageService.set( keyOfUserCart,products );
+	   
+	    setLocalStorageObject( keyOfUserCart,products );
 	}
 
 	 function checkIdentity( ){
@@ -151,7 +193,6 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 	  	var tpr = _.map( products,'price' );
 	  	totalPrice =_.reduce(tpr, function( accumulator, value ) {
                 return (+accumulator) + ( +value );
-                alert( totalPrice );
         });
 		//return totalPrice;
 	}
@@ -159,12 +200,9 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 	CartFactory.deleteProduct = function ( albumId ){
 		
 		for (var i = 0; i <= products.length-1; i++) {
-			var key = products[i].album.album_id;
-			
+			var key = products[i].album.album_id;		
 			if ( key===albumId ) {
-
 				products.splice( i,1 );
-
 			}else{
 				//console.log("delete i",i);
 			}
@@ -175,6 +213,7 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 		
 		if ( products ) {
 			products.splice( products,products.length );
+			removeItemLocalStorage( keyOfUserCart );
 		};	
 	}
 
@@ -183,17 +222,7 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 		var album = AlbumsFactory.getAlbumDetails( albumId );
 		var price = album.album_price;		
 		cartUpdated( quantety, album, price );
-		//return localStorageService.set( 'mycart',products );
 	}
-
-    function toLocalStorage( ){
-    	 return localStorageService.set('mycart',products);
-    	//console.log("localStorageService",localStorageService);
-    }
-
-    function resetLocalStorage(){
-    	return localStorageService.clearAll();
-    }
 
     return CartFactory;
 

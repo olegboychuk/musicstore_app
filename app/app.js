@@ -176,7 +176,8 @@ app.controller('mainController',function( $rootScope,$timeout,$log, $http, $q, $
     $scope.isLogged ();
 
     $scope.signOut = function (){
-		var permisionout = UserAuthService.destroy();
+		UserAuthService.destroy();
+		$rootScope.$broadcast('statusLogin',AUTH_EVENTS.logoutSuccess);
 		$scope.login = true;
   		$scope.logout = false;
 	}

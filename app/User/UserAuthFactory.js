@@ -11,8 +11,8 @@ UserModule.factory('UserAuthService',['$http','$cookies','$cookieStore','$rootSc
       get:function( ){
         var value = $cookies.get('SessionData' );
         console.log("value",value);
-        // var data = angular.fromJson( value );
-         return value;
+        var data = angular.fromJson( value );
+        return data;
       },
       destroy:function( ){
         $cookies.remove('SessionData');

@@ -79,7 +79,7 @@ class UserModel extends Model{
  			foreach ( $result as $key => $value ){
  			    $_SESSION[ $key ] = $value;
  			    $_SESSION['login'] = true;
- 			    // print_r($_SESSION);
+ 			    //var_dump($_SESSION);
  			}
  			return true;
  		}    
