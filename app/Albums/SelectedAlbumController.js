@@ -1,11 +1,13 @@
 AlbumsModule.controller( 'SelectedAlbumController',function( $scope,$stateParams,AlbumsFactory,CartFactory ){
 	var albumId = $stateParams.id;
+	//var genreName $stateParams.genreName;
 	$scope.album = null;
 	$scope.inStock = false;
     $scope.quantety = "1";
     $scope.headclass = true;
     var price = 0;
 
+    //$scope.genreName = genreName; 
 	$scope.loadAlbum =function(){
 
 		var album = AlbumsFactory.getAlbumDetails( albumId );    	

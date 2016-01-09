@@ -14,14 +14,21 @@ UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http
 	UserFactory.matchUser = function( jsonParams ){
 	    var promise = $http.post( urlBaseLogin,jsonParams );
 		promise.then(function (res) {
-			// console.log("paramsres",res);
-			
+
 			var uid = res.data.result.user.user_id;
 			if ( uid!==null ) {
-				//var session = Session.create( res.data.result.user );
-				UserAuthService.set( res.data.result.user );
-			    $rootScope.$emit('isAuth',res.data.result.user ); 
-				return $timeout(locationPath,1500)	
+				
+				//put responce object to json for cookies
+				var cookieJSON = angular.toJson( res.data.result.user );
+
+				//create cookies with session parametries
+				UserAuthService.set( cookieJSON );
+			    
+			    
+			    $rootScope.$emit('_isSessionData',res.data.result.user ); 
+				
+				//relocate if found user
+				return $timeout(locationPath,500)	
 			};	        
         });
         return promise;
@@ -38,19 +45,3 @@ UserModule.factory( 'UserFactory',function( $timeout,$cookies,$cookieStore,$http
 	return UserFactory;
 });
 
-// 	UserModule.factory('customMessage', function () {
-//     // invalid message service with message function
-//     return {
-//         // scopeElementModel is the object in scope version, element is the object in DOM version
-//         message: function (scopeElementModel, element) {
-//             var errors = scopeElementModel.$error;
-//             if (errors.maxlength) {
-//                 // be careful with the quote
-//                 return "'Should be no longer than " + element.attributes['ng-maxlength'].value + " characters!'";
-//             } else {
-//                 // default message
-//                 return "'This field is invalid!'";
-//             }
-//         }
-//     };
-// });

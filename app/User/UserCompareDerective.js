@@ -7,7 +7,7 @@ UserModule.directive("compareTo",function(){
     },
     link: function( scope, element, attributes, ngModel ) {    
       ngModel.$validators.compareTo = function(modelValue) { 
-      console.log("scope.otherModelValue",scope.otherModelValue);   
+      //console.log("scope.otherModelValue",scope.otherModelValue);   
         return modelValue == scope.otherModelValue;
       };
 

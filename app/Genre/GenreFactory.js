@@ -1,7 +1,6 @@
 GenreModule.factory( 'GenreFactory',  function(  $http ){
     var urlBase = 'api/genres';
     var GenreFactory = {};
-    //var genres = ['Alternative', 'Blues', 'Box sets', 'Classical', 'Country', 'Dance', 'Heavy metal', 'Jazz', 'Rock-pop'];
     var Genres = [];
 
     function addGenre( genreIndex ){

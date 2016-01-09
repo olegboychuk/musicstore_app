@@ -1,5 +1,5 @@
 
-AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,AlbumsFactory,GenreFactory,CartFactory){
+AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,$rootScope,AlbumsFactory,GenreFactory,CartFactory){
   $scope.busy = false;
   $scope.albums = [];
   $scope.loading = false;
@@ -8,6 +8,8 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,Albu
   $scope.showPageTop = $location.path()==='/home';
   var product = '1';
   $scope.buy = !$scope.buy;
+  // var user = $rootScope.user
+  // console.log("user",user);
 
   $scope.loadMore= function(next){
       if($scope.busy)  return;

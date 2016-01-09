@@ -30,7 +30,8 @@ UserModule.controller('UserController',function($scope,$timeout,UserFactory){
 	$scope.hideMe = function(){
 		$scope.visible = false;
 	};
-
+  
+//------------------login-------
   $scope.submitLogin = function( login ) { 
     if(login.$invalid) {
         return;
@@ -44,7 +45,9 @@ UserModule.controller('UserController',function($scope,$timeout,UserFactory){
     }); 
   };
 
-	$scope.submitRegister = function( registration ) {
+
+//------------------registration-------
+  $scope.submitRegister = function( registration ) {
     $scope.submitted = true;
     if( registration ) {
 

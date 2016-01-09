@@ -30,17 +30,25 @@ class UserController extends Controller{
 
 	/**
 	/* public function matchUser
-	/*	FOR MATC EXIST USER
+	/*	FOR MATCH EXIST USER
 	*/
 	public function matchUser( $data ){
 		$success = $this->model->matchUser( $data );
-
 
 		if ( $success ) 
            return true;
 		
 		return false;
 	}
+
+	/**
+	/* public function logout
+	/*	FOR MATC EXIST USER
+	*/
+	public function logOut(){
+		$success = $this->model->logOut();
+	}
+
 
 }
 

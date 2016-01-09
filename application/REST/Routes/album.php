@@ -22,10 +22,13 @@ $app->get('/album/:id',function( $id ) use ( $album ){
 
 $app->get('/genre-albums/:id',function( $id ) use ( $album, $app ){
 	// global $app;
+    // var_dump($_SESSION);
 	$genreId = explode(':', $id);
 	$albums=$album->getAlbumsByGenre( $genreId[1] );
 	echo json_encode( $albums ); 
 });
+
+
 // $app->post('',function() use ( $album ){
 
 // });

@@ -235,14 +235,11 @@ img.logo{
     top: 15px;
     font-size: 20px;
 }
-
-/*#bascet-status img{
-    width: 30px;
-}*/
-/*.searchresultspopup li{
-    width: 300px;
+#nav-header .username{
+    margin-top: 30px;
+    margin-left: 1094px;
     position: absolute;
-}*/
+}
 
 /* ----- ASIDE ---- */
 

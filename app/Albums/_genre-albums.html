@@ -8,10 +8,10 @@
 	   {{loadCount()}}
 		<div id="center-albums">
 			<div class="genre-amount">
-				<p>{{genreName }} ({{genreLength + " items"}})</p>
+				<p>{{ genreName }} ({{genreLength + " items"}})</p>
 			</div>
 			<div class="genre-albums" ng-repeat="album in albums track by $index">
-			    <a ui-sref="genre.album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
+			    <a ui-sref="album.genre({genreName:genreName,id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 			
 				<div class="info-manage-album">
 				    <p class="head-name">{{album.album_artist}} - {{album.album_name}}</p>
 					<p class="album-descriptoin">{{album.album_description | limitTo:100:0}}...</p>

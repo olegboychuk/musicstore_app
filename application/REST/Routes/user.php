@@ -20,7 +20,7 @@ $app->post('/login/',function() use ( $user,$app ){
 	$data = json_decode($app->request->getBody(),true);
 	 
 	$success = $user->matchUser($data);
-
+		//var_dump($_SESSION);
 		if ( $success ) { 	
 	 	  authentication();
 	 	  echo json_encode( $success );

@@ -18,8 +18,9 @@ class OrderController extends Controller{
 		// 	return false;
 		
 		$order_details = $this->model->writeOrder( $data );
-		if ( $order_details !== false ) 
-			return $order_details;
+		if ( $order_details  ) 
+		   // print_r($order_details);
+		   return $order_details;
 		
 		return false;
 	}

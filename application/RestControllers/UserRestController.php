@@ -54,4 +54,20 @@ class UserRestController extends UserController{
 		}
 	}
 
+
+  /**
+	/* public function logOut
+	/* GET ARRAY 
+	*/
+	public function logOut(){
+		$success = parent::logOut();
+
+		if ( !$_SESSION['login'] ) {
+			return $this->createAnswer( 0,"log out cuccess");
+		}else{
+			return $this->createAnswer( 1,"something went wrong ",403);
+		}
+		
+	}
+
 }

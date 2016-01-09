@@ -1,10 +1,10 @@
 AlbumsModule.controller( 'AlbumsGenreController',function( $scope,$stateParams,GenreFactory,AlbumsGenreFactory,CartFactory ) {
 		
 	var genreId = $stateParams.genreId;
-
+    var genreName = $stateParams.genreName;
 	var product = '1';
 	$scope.albums = [];
-	$scope.genreName = " ";
+	$scope.genreName = genreName;
 
 	$scope.loadAlbumsGenre = function( genreId ){
 		var albums = AlbumsGenreFactory.getAlbumsGenre( genreId ); 

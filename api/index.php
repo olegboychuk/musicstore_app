@@ -30,5 +30,7 @@ require_once dirname( __FILE__ ) . '/../application/REST/Routes/genre.php';
 require_once dirname( __FILE__ ) . '/../application/REST/Routes/album.php';
 require_once dirname( __FILE__ ) . '/../application/REST/Routes/search.php';
 require_once dirname( __FILE__ ) . '/../application/REST/Routes/user.php';
+require_once dirname( __FILE__ ) . '/../application/REST/Routes/order.php';
+
 // var_dump($app);
 $app->run();

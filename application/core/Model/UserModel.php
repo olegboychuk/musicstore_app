@@ -33,8 +33,7 @@ class UserModel extends Model{
 			}
 		}else{
 			return $details;
-		}
-					
+		}				
 	}
 
 	//----------------LOGIN---------------
@@ -52,12 +51,11 @@ class UserModel extends Model{
  		$result = $this->_db->query( "SELECT user_id, user_email,user_password FROM users WHERE user_email = '$email' AND user_password = '$password' " );
   		if ( $result -> num_rows > 0 ){
   			$row = $result->fetch_assoc();
-  			$user_id = $row[user_id];
+  			$user_id = $row['user_id'];
 
   			$this->logOut();
   			$session = $this->createSession( $user_id );
-  				if ( session ) {
-  					//var_dump(session);
+  				if ( $session ) {
   				    return true;
   				}
   			return false;
@@ -97,8 +95,8 @@ class UserModel extends Model{
  	 /* @param (  ) (  ) about this param  
  	 /* @return (  ) ( $_SESSION )
  	 */
- 	private function logOut(){
-	    $_SESSION['user_id'] = "";
+ 	public function logOut(){
+	    // $_SESSION['user_id'] = "";
 	    $_SESSION['login'] = false;
  		return session_destroy();
  	}

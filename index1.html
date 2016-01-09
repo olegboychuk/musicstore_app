@@ -17,12 +17,12 @@
 				<a ui-sref="myWishlist"><li>My Wishlist</li></a>
 				<a ui-sref="check-out"><li>Checkout</li></a>
 				<a ui-sref="login"  ng-if="login"><li>Log In</li></a>
-				<a ng-href="#/logout"  ng-if="logout" ng-click="signOut()"><li>Log Out</li><p>{{dataUser}}</p></a>
+				<a ng-href="#/logout"  ng-if="logout" ng-click="signOut()"><li>Log Out</li></a>
 			</ul>	
 		</nav>
 		<div id="nav-header">
 			<a  ui-sref="home"><img class="logo" ng-src="Images/logo.png" ></a>
-
+			<p class="username" ng-if="logout"> Hello, {{dataUser}}</p>
 			<div id="find-album" ng-controller="searchController">
 				<input type="text" class="search" ng-model="searchString" placeholder="Enter your search terms "{{i.album_name}}  />
 				<img class="search-icon" ng-src="Images/search.png" alt="" ng-click="search(searchString)">
@@ -51,7 +51,7 @@
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
-	<!-- <script src="bower_components/angular/angular.validator.js"></script>-->
+	<script src="bower_components/angular-validator/dist/angular-validator.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -70,7 +70,6 @@
     <script src="app/User/UserAuthFactory.js"></script>
     <script src="app/User/UserSessionService.js"></script>
     <script src="app/User/UserController.js"></script>
-    <script src="app/User/UserDirective.js"></script>
     <script src="app/User/UserCompareDerective.js"></script>
 
 

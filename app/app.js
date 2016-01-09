@@ -1,6 +1,7 @@
 "use strict";
 var app = angular.module( 'musicStore',['ncy-angular-breadcrumb','ngCookies','ngAnimate','LocalStorageModule','infinite-scroll','ui.router','Search','User','Albums','Cart','Genre']);
 
+
 app.filter('searchFor', function(){
     return function( arr, searchString ){
         if( !searchString ){
@@ -37,7 +38,7 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 		templateUrl: "app/Albums/_home.html",
 		//controller: 'AlbumsController',
         ncyBreadcrumb: {
-           label: 'Home >'
+           label: 'Home /'
         }
 	}),
 
@@ -54,28 +55,29 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 		templateUrl:"app/Albums/_album.html",
 		// controller:'SelectedAlbumController',
         ncyBreadcrumb: {
-           label: 'Album >',
+           label: 'Album /',
            parent:'home'
         }
 	}),
 
 	$stateProvider
 	.state('genre',{
-		url:'/genre/:genreId',
+		url:'/genre/:genreId/:genreName',
 		templateUrl:"app/Albums/_genre-albums.html",
-		// controller:'AlbumsGenreController',    
+		controller:'AlbumsGenreController',    
         ncyBreadcrumb: {
-           label: 'Albums by genre'
+           label: 'Genre {{genreName}} /',
+           parent: 'home'
         }
 	}),
 
 	$stateProvider
-	.state('genre.album',{
-		url:'/album/:id',
+	.state('album.genre',{
+		url:'/:genreName/album/:id',
 		templateUrl:"app/Albums/_album.html",
-		//controller:'SelectedAlbumController',
+		controller:'SelectedAlbumController',
         ncyBreadcrumb: {
-           label: 'Album page',
+           label: 'Album ',
            parent:'genre'
         }
 	}),
@@ -99,13 +101,23 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 	}),
 
 	$stateProvider
-	.state('wishlist',{
+	.state('myWishlist',{
 		url:'/wishlist',
-		templateUrl:"app/Cart/_check-out-1.html",
+		templateUrl:"app/Cart/_check-out-11.html",
+		data: {
+          requireLogin: true
+        }
+	}),
+
+	$stateProvider
+	.state('paymethod',{
+		url:'/_payment_card',
+		templateUrl:"app/Cart/_check-out-11.html",
 		data: {
           requireLogin: true
         }
 	})
+
 });
 
 
@@ -117,52 +129,6 @@ app.constant('AUTH_EVENTS', {
   notAuthenticated: 'auth-not-authenticated',
   notAuthorized: 'auth-not-authorized'
 })
-
-
-// app.run( function( $rootScope,AUTH_EVENTS,UserAuthService ){
-//     $rootScope.$on('isAuth',function( event,data ){ 
-
-// 	 	if ( data ) {
-// 		    if ( UserAuthService.isLogged() ) {
-// 		        // user is not allowed
-// 		        $rootScope.$broadcast('loginSuccess',AUTH_EVENTS.loginSuccess);
-		        
-// 		      } else {
-// 		        // user is not logged in
-// 		        $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-// 		    }
-// 	    }	   
-//     });
-// })
-
-
-/*-------AUTHENTICATION----START----------*/
-
-// app.config(function ($stateProvider, USER_ROLES) {
-//   $stateProvider.state('dashboard', {
-//     url: '/dashboard',
-//     templateUrl: 'dashboard/index.html',
-//     data: {
-//       authorizedRoles: [USER_ROLES.admin, USER_ROLES.editor]
-//     }
-//   });
-// })
-
-// app.run( function($rootScope,AUTH_EVENTS, UserAuthService) {
-//   $rootScope.$on('$routeChangeStart ', function (event, next) {
-//     var authorizedRoles = next.data.authorizedRoles;
-//     if (!UserAuthService.isAuthorized(authorizedRoles)) {
-//       event.preventDefault();
-//       if (UserAuthService.isAuthenticated()) {
-//         // user is not allowed
-//         $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-//       } else {
-//         // user is not logged in
-//         $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-//       }
-//     }
-//   });
-// })
 
 
 // app.run( function( $rootScope,$location,UserFactory,UserAuthService ){
@@ -178,21 +144,6 @@ app.constant('AUTH_EVENTS', {
 // 	});
 // })
 
-// app.run('ses', ['$rootScope', function( $rootScope,AUTH_EVENTS ){
-// 	$rootScope.$on('listenerSes',function(name,data) {
-// 		console.log("sesdata",data);
-// 		//AUTH_EVENTS.loginSuccess
-// 	});
-// }])
-
-// app.constant('USER_ROLES', {
-//   // all: '*',
-//   admin: 'admin',
-//   editor: 'admin',
-//   // guest: 'guest'
-// })
-
-
 
 
 /*-------AUTHENTICATION----END----------*/
@@ -205,12 +156,15 @@ app.controller('mainController',function( $rootScope,$timeout,$log, $http, $q, $
     var storageType = localStorageService.getStorageType();
     
     $scope.dataUser=[];
-    $scope.currentUser = null;
-    console.log("AUTH_EVENTS",AUTH_EVENTS); 
-   
+
     $scope.isLogged = function (){
-	    var permision = UserAuthService.isLogged();
+    	$scope.dataUser=$rootScope.user; 
+	    var permision = UserAuthService.get();
+	  
 	  	if ( permision ) {
+	  		$rootScope.$broadcast('statusLogin',AUTH_EVENTS.loginSuccess,permision);
+	  		$scope.dataUser = permision.user_firstname;
+	  		$rootScope.idUser = permision.user_id;
 	  		$scope.login = false;
 	  		$scope.logout = true;
 	  	}else{
@@ -221,32 +175,29 @@ app.controller('mainController',function( $rootScope,$timeout,$log, $http, $q, $
     
     $scope.isLogged ();
 
-    $rootScope.$on('isAuth',function( event,data ){        	
-	 	if ( data ) {
-		    if ( UserAuthService.isLogged() ) {
-		        $scope.dataUser = data.user_email; 
-		        console.log("$scope.dataUser",data);
-		        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-		        $scope.login = false;
-	  		    $scope.logout = true;
-		        
-		      } else {
-		        // user is not logged in
-		        $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-		    }
-	    }	   
-    });
-
-	$scope.signOut = function (){
+    $scope.signOut = function (){
 		var permisionout = UserAuthService.destroy();
-		console.log("permisionout",permisionout);
 		$scope.login = true;
   		$scope.logout = false;
 	}
 
 
-  $scope.setCurrentUser = function (user) {
-    $scope.currentUser = user;
-  };
-      
+    $rootScope.$on('_isSessionData',function( event,data ){        	
+	 	if ( data ) {
+	 		$rootScope.user = data;
+	 		console.log("data",data);
+		    if ( UserAuthService.isLogged() ) {
+		    	$scope.isLogged ();
+		        $scope.login = false;
+	  		    $scope.logout = true;
+		        
+		      } else {
+		        // user is not logged in
+		        $rootScope.$broadcast('statusLogin',AUTH_EVENTS.notAuthenticated);
+		    }
+	    }	   
+    });
+
+
+
 });

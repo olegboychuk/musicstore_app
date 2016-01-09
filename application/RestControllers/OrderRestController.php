@@ -30,13 +30,15 @@ class OrderRestController extends OrderController{
 	*/
 	public function writeOrder( $data ){
 		$order_details = parent::writeOrder( $data );
+		print_r($order_details);
+		return $order_details;
+		// if ( $order_details ) {
+		// 	// 
+		// 	$this->createAnswer(0,"Order created");
+		// }else{
+		// 	$this->createAnswer(1,"some mistake",401);
+		// }
 
-		// if( is_array( $order_details ) )
-		// 	return $this->createAnswer( 0, array("order"=>$order_details) );
-		// elseif ( $order_details == NULL ) 
-		// 	return $this->createAnswer( 1,"empty result",402 );
-		// else
-		//    return $this->createAnswer( 1, "invalid search", 400 );
 	}
 }
 ?>

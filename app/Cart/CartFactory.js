@@ -1,6 +1,7 @@
 
-CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService){
+CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,localStorageService,UserAuthService){
 	var CartFactory = {};
+	var urlBaseOrder = 'api/order';
 	var products = [];
 	var price = 0;
 	var totalPrice = 0;
@@ -8,18 +9,76 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
     var key = " ";
     var result =[];
     var item = {};
+    var cart = {};
+    var keyOfUserCart ='';
 
-    CartFactory.checkOut = function(){
+    $rootScope.$on('statusLogin',function(event,data){
+    	alert("status",data);
+    	var userObject = UserAuthService.get();
+    	keyOfUserCart = userObject.user_id;
+	    console.log("userObjectcart",keyOfUserCart);
+    });
+    
+    CartFactory.makeOrder = function( param ){
+    	var orderDetails = meetCartUserOrderInfo( param );
+
+        var order = angular.toJson( orderDetails );
+       
+        console.log("orderDetailsparam",order);
+        // while( orderDetails <= orderDetails.length){
+        	
+        return $http.post( urlBaseOrder,order )
+
+	    	.then( function( result ){
+	    		console.log("result",result.data);
+	    	})
+    		
+        // }	
+    }
+
+
+    function meetCartUserOrderInfo( param ){
+    	cart = getLocalStorageObject();
+    	console.log("ordercart ",cart);
+    	var user = $rootScope.idUser;
+    	console.log("usercart ",user);
+    	var userObj ={'user_id':user};    	
+    	var order ={};
+    	var orderList= [];
+
+    	for (var i = 0; i < cart.length; i++) {
+    		// console.log("i",i);	
+    		var album = cart[i].album;
+
+	        order[i] = _.assign( param,album,userObj );
+            console.log("orderList0 ",order[i]);
+	        orderList.splice(i,1,order[i] );
+	        console.log("orderList0 ",orderList);
+    		//return orderList[i];
+    	}
+        console.log("orderList1 ",orderList);
+    	return orderList;
+    }
+
+    function getLocalStorageObject( keyOfUserCart ){
+        return localStorageService.get( keyOfUserCart );
+    }
+
+    function setLocalStorageObject( keyOfUserCart ){
+    	return localStorageService.set( keyOfUserCart );
+    }
+
+    // CartFactory.checkOut = function(){
     	
-    	if (localStorageService!=[]) {
-    		resetLocalStorage();
-    	   if ( products!=[] ) {
-    	   
-	    	   return localStorageService.set( 'mycart',products );
-	    	   console.log( localStorageService );
-    	   };
-    	};
-    };
+    // 	// if ( localStorageService!=[] ) {
+    // 		//resetLocalStorage();
+    // 	   // if ( products!=[] ) {
+ 	  //   	   console.log( "productsproductsproducts",products );   	   
+	   //  	   return localStorageService.set( 'mycart',products );
+
+    // 	   // };
+    // 	// };
+    // };
 
 	CartFactory.getProducts= function( ){
 	   return products;
@@ -33,9 +92,9 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 		return totalPrice;
 	};
 
-	CartFactory.saveOrder = function( orderObject ){
-		return $http.post('api/order', orderObject);
-	}
+	// CartFactory.saveOrder = function( orderObject ){
+	// 	return $http.post('api/order', orderObject);
+	// }
 
 	function cartUpdated( quantety, album, price){
 		
@@ -67,7 +126,8 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
     	//calcAddTotal();
 	    
 	    // save array to local storage
-	    // toLocalStorage(products);
+	    console.log("keyOfUserCart111",keyOfUserCart);
+	    localStorageService.set( keyOfUserCart,products );
 	}
 
 	 function checkIdentity( ){
@@ -123,18 +183,18 @@ CartModule.factory('CartFactory', function( $q,AlbumsFactory,localStorageService
 		var album = AlbumsFactory.getAlbumDetails( albumId );
 		var price = album.album_price;		
 		cartUpdated( quantety, album, price );
+		//return localStorageService.set( 'mycart',products );
 	}
 
-    // function toLocalStorage( ){
-    // 	 return localStorageService.set('mycart',products);
-    // 	//console.log("localStorageService",localStorageService);
-    // }
+    function toLocalStorage( ){
+    	 return localStorageService.set('mycart',products);
+    	//console.log("localStorageService",localStorageService);
+    }
 
     function resetLocalStorage(){
     	return localStorageService.clearAll();
     }
 
     return CartFactory;
-
 
 });

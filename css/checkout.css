@@ -255,7 +255,7 @@ a{
 }
 
 /* RADIO Show/hide */
-@import url(../../components/bootstrap-3.1.1/css/bootstrap.css);
+@import url(../../bower_components/angular-bootstrap/css/bootstrap.css);
 
 .animate-hide {
   transition: all linear 0.5s;
@@ -317,8 +317,12 @@ a{
 #paymentInfo{
   border: solid 1px #999;
   padding: 15px;
-  width: 98%;
+  width: 97%;
   margin-bottom: 15px;
+}
+
+#rbillingInfo .has-error .form{
+    border: dotted red 2px;
 }
 
 #billingInfo .adress{
