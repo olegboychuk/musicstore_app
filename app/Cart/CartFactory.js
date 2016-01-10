@@ -10,10 +10,10 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     var result =[];
     var item = {};
     var cart = {};
-    var keyOfUserCart ='';
+    var keyOfUserCart ='underfined';
 
     $rootScope.$on('statusLogin',function(event,data){
-    	alert(data);
+    	// alert(data);
  
     	if ( AUTH_EVENTS.loginSuccess === "auth-login-success" ){
 	    	var userObject = UserAuthService.get();
@@ -32,11 +32,11 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     // })
     
     CartFactory.makeOrder = function( param ){
-    	console.log("paramamakeOrder",param );
+    	//console.log("paramamakeOrder",param );
     	var orderDetails = meetCartUserOrderInfo( param );
-        console.log("orderDetailsparam000",orderDetails);
+        //console.log("orderDetailsparam000",orderDetails);
         var order = angular.toJson( orderDetails );      
-        console.log("orderDetailsparam",order);
+        //console.log("orderDetailsparam",order);
         // while( orderDetails <= orderDetails.length){
         	
         return $http.post( urlBaseOrder,order )
@@ -52,29 +52,32 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     function meetCartUserOrderInfo( param ){
 
 
-        console.log("keyOfUserCart",keyOfUserCart);
+        // console.log("keyOfUserCart",keyOfUserCart);
     	cart = getLocalStorageObject( keyOfUserCart );
-    	console.log("ordercart ",cart);
+    	// console.log("ordercart ",cart);
     	
     	var user = keyOfUserCart;
-    	console.log("usercart ",user); 	
+    	// console.log("usercart ",user); 	
     	var userObj ={'user_id':user};    	
     	
     	var order ={};
     	var orderList= [];
+    	var order_total ={};
 
     	for (var i = 0; i < cart.length; i++) {
-    		console.log("i",i);	
+    		// console.log("i",i);	
     	
-    		console.log("paramassign",param );
+    		// console.log("paramassign",param );
     		var album = cart[i].album;
-    		console.log("album specific i ",album);
-	        var order_total 
-	        order[i] = _.assign( album,param,userObj );
-            console.log("orderList0asign ",order[i]);
+    		// console.log("album specific i ",album);
+    		var total = { "order_total":cart[i].price};
+	        // var total = { "order_total":cart[i].price*cart[i].quantety };
+	        // console.log("total specific i ",total);
+	        order[i] = _.assign( album,param,userObj,total );
+            // console.log("orderList0asign ",order[i]);
 	       
-	         orderList.push( order[i] );
-	        console.log("orderListsplice ",orderList);
+	        orderList.push( order[i] );
+	        // console.log("orderListsplice ",orderList);
     	   // return orderList;
     	}
         //console.log("orderList1 ",orderList);
@@ -192,6 +195,7 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 	function calcAddTotal(){
 	  	var tpr = _.map( products,'price' );
 	  	totalPrice =_.reduce(tpr, function( accumulator, value ) {
+                console.log("totalPrice",tpr,accumulator,value)
                 return (+accumulator) + ( +value );
         });
 		//return totalPrice;

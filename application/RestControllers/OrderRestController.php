@@ -30,7 +30,7 @@ class OrderRestController extends OrderController{
 	*/
 	public function writeOrder( $data ){
 		$order_details = parent::writeOrder( $data );
-		print_r($order_details);
+		//print_r($order_details);
 		return $order_details;
 		// if ( $order_details ) {
 		// 	// 

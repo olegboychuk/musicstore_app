@@ -56,17 +56,17 @@
 						
 						<div id="payMethod" ng-app="ngAnimate">
 							<div class="check-element animate-hide" ng-hide="checked">
-								<input type="radio" name="order_payment_method" id="first" value="Money" ng-model="form.type">
+								<input type="radio" name="order_payment_method" id="first" value="Money" ng-model="form.order_payment_method">
 								<label for="first">Check / Money order</label><br>
 							</div>
 							<div class="first-element animate-hide" ng-hide="checked">
-								<input type="radio" name="order_payment_method" id="other" value="Credit Card"  ng-model="form.type">
+								<input type="radio" name="order_payment_method" id="other" value="Credit Card"  ng-model="form.order_payment_method">
 								<label for="other">Credit Card (saved)</label>
 							</div>
 						</div>
 
 						<div>
-							<div id="paymentInfo" ng-show = "form.type" >
+							<div id="paymentInfo" ng-show = "form.order_payment_method" >
 
 								<div class="billingInfo-row">
 									<p><label  class="label" for="Name on Card" class="active">Name on Card <span>*</span></label></p>
@@ -183,10 +183,10 @@
 				<a href="#check-out"  ng-click="toogleActive()">Change</a>
 			</div>
 			<div class="billing-status">
-				<p ng-bind="form.address"></p>
-				<p ng-bind="form.city"></p>
-				<p ng-bind="form.zipcode"></p>
-				<p ng-bind="form.phone"></p>
+				<p ng-bind="form.order_shipping_address"></p>
+				<p ng-bind="form.order_shipping_city"></p>
+				<p ng-bind="form.order_shipping_zipcode"></p>
+				<p ng-bind="form.order_shipping_phone"></p>
 			</div>
 			<div class="checkout-status-nav">
 				<a ng-href="" ng-click="showPayment($event)" >Payment Method</a>

@@ -27,7 +27,7 @@ CartModule.directive('myCart', ['CartFactory', function(CartFactory){
 		   }
 
 		   scope.checkOut = function(){
-		   	 CartFactory.checkOut();
+		   	   CartFactory.checkOut();
 		   }
 
 		   scope.clearCart = function(){
