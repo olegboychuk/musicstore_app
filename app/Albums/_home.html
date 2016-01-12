@@ -22,12 +22,6 @@
 			</div>
 		</div>
 		
-	<!-- <div id="music-genre" ng-show="true" ng-controller="GenreController">
-		<div class="ng-trans ng-trans-flip-y" ng-repeat="genre in genres track by $index">
-			<a ui-sref="genreAlbums({id:genre.genre_id})">{{ genre.genre_name }}</a>
-	    </div>
-	</div> -->
-	
 
 		<div id ="left-albums">
 			<div class= "left albums" ng-repeat="album in albums | limitTo :2 :10 track by $index "  >

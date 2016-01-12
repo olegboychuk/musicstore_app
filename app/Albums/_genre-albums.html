@@ -17,11 +17,12 @@
 					<p class="album-descriptoin">{{album.album_description | limitTo:100:0}}...</p>
 					<p class="album-price">{{album.album_price | currency:"$"}}</p>
 			    	<div class="album-manage-icon">
-			    		<p> 
+			    		<!-- <p> 
                             <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" ng-class="{info:album.info}">
                             <span class="info-content" ng-show="album.info" ng-bind="description" ></span>
-			    	    </p>
-			    	    <img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart(album.album_id)">
+			    	    </p -->
+			    	    <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" ng-class="{info:album.info}">
+			    	    <img ng-src="Images/bascet-album.png" alt=""  ng-click="addToCart( album.album_id )">
 			    	</div>
 			    	<p class="addtowishlist" ng-click="addtowishlist($index)">Add to Wishlist</p>
 			    </div>

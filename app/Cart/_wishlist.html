@@ -1,0 +1,22 @@
+
+<main ng-controller="WishListController">
+	<div id="wishList">
+		{{wishList}}
+		<div id ="center-albums">
+			<div class="center albums" class="ng-trans ng-trans-flip-y" ng-repeat="album in albums track by $index" >
+				<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			
+				<div class="info-head">
+				    <p class="head-name">{{album.album_name}}</p>
+					<p class="album-price">{{album.album_price | currency:"$"}}</p>
+					<div class="album-manage-icon">
+                        <p> 
+                            <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" >
+                            <span class="info-content" ng-show="album.info"  ng-class="{info:info}" ng-bind="description"></span>
+			    	    </p>
+			    	    <img ng-src="Images/bascet-album.png" alt="" ng-class="{ buy:album.buy }"  ng-click="addToCart( album )">
+			    	</div>
+			    </div>
+			</div>
+		</div>
+    </div>
+</main>

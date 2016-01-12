@@ -13,7 +13,6 @@ AlbumsModule.controller( 'AlbumsGenreController',function( $scope,$stateParams,G
 			$scope.albums = data.albums;
 			$scope.genreLength = data.albums.length;
 			
-			//$scope.albums.splice( $scope.albums.length, data.albums.length, data.albums );
 		});
 	}
 

@@ -104,9 +104,10 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 	.state('myWishlist',{
 		url:'/wishlist',
 		templateUrl:"app/Cart/_wishlist.html",
-		data: {
-          requireLogin: true
-        }
+		controller: "WishListController"
+		// data: {
+  //         requireLogin: true
+  //       }
 	}),
 
 	$stateProvider

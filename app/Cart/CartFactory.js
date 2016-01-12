@@ -4,7 +4,7 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
 	var CartFactory = {};
 	var urlBaseOrder = 'api/order';
 	var products = [];
-	var price = 0;
+	// var price = 0;
 	var totalPrice = 0;
     var itemsPrice = 0;
     var key = " ";
@@ -200,8 +200,9 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
 
 	CartFactory.addToCart = function( quantety,albumId ) {	
 		var album = AlbumsFactory.getAlbumDetails( albumId );
-		var price = album.album_price;		
-		cartUpdated( quantety, album, price );
+		console.log("albumprice",album);
+		//var price = album.album_price;		
+		cartUpdated( quantety, album, album.album_price );
 	}
 
     return CartFactory;
