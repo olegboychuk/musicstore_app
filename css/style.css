@@ -149,12 +149,14 @@ nav ul li{
 }
 
 #find-album{
-    position: absolute;
+    /* position: absolute; */
     width: 300px;
+    /* padding-top: 3px; */
     height: auto;
-    /* padding-left: 40px; */
+    /* top: -6px; */
+    float: left;
     /* margin: 0 auto; */
-    margin-left: 350px; 
+    /* margin-left: 347px; */
 }
 
 #find-album>img{
@@ -222,8 +224,10 @@ img.logo{
 }
 
 #bascet-status{
-    position: absolute;
-    margin-left: 1000px;
+    /* position: absolute; */
+    margin-left: 175px;
+    float: left;
+    /* margin-top: -80px; */
 }
 #bascet-status p{
     color: white;
