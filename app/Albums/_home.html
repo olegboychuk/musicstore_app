@@ -1,6 +1,6 @@
 <main ng-controller="AlbumsController">
 	<div ng-include="'app/Albums/_albumtop.html'" ></div>
-	<div class="wrapper">
+	<div id="wrapper">
 	    <div ncy-breadcrumb></div>
 		<genre-list></genre-list>
 		
@@ -12,30 +12,35 @@
 				    <p class="head-name">{{album.album_name}}</p>
 					<p class="album-price">{{album.album_price | currency:"$"}}</p>
 					<div class="album-manage-icon">
-			    		<img ng-src="Images/info-album.png" alt="" ng-click="setInfo( album )" ng-class="{info:album.info}">
+                        <p> 
+                            <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" >
+                            <span class="info-content" ng-show="album.info"  ng-class="{info:info}" ng-bind="description"></span>
+			    	    </p>
 			    	    <img ng-src="Images/bascet-album.png" alt="" ng-class="{ buy:album.buy }"  ng-click="addToCart( album )">
 			    	</div>
 			    </div>
 			</div>
 		</div>
 		
-	<div id="music-genre" ng-show="true" ng-controller="GenreController">
+	<!-- <div id="music-genre" ng-show="true" ng-controller="GenreController">
 		<div class="ng-trans ng-trans-flip-y" ng-repeat="genre in genres track by $index">
 			<a ui-sref="genreAlbums({id:genre.genre_id})">{{ genre.genre_name }}</a>
 	    </div>
-	</div>	
+	</div> -->
+	
 
 		<div id ="left-albums">
 			<div class= "left albums" ng-repeat="album in albums | limitTo :2 :10 track by $index "  >
 				<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}" alt=""></a> 
 				<div class="info-head">
-				    <div class="info-content" ng-show="info"><p ng-bind="description"></p></div>
 				    <p class="head-name">{{album.album_name}}</p>
 			    	<p class="album-price">{{album.album_price | currency:"$"}}</p>
 					<div class="album-manage-icon" >
-			    		<img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" ng-class="{info:album.info}">
-			    	    <img ng-src="Images/bascet-album.png" alt="basket" ng-class="{ buy:album.buy }" 
-			    	         ng-click="addToCart( album ) ">
+			    		<p> 
+                            <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" ng-class="{info:album.info}">
+                            <span class="info-content" ng-show="album.info" ng-bind="description"></span>
+			    	    </p>
+			    	    <img ng-src="Images/bascet-album.png" alt="basket" ng-class="{ buy:album.buy }" ng-click="addToCart( album ) ">
 			    	</div>
 			    </div>
 			</div>
@@ -51,15 +56,18 @@
 					    <p class="head-name">{{album.album_name}}</p>
 			            <p class="album-price">{{album.album_price | currency:"$"}}</p>
 						<div class="album-manage-icon">
-				    		<img ng-src="Images/info-album.png" alt="" ng-click="setImage(img)">
-				    	    <img ng-src="Images/bascet-album.png" alt="" ng-class="{ buy:album.buy }"  ng-click="addToCart(album)">
+                            <p> 
+	                            <img ng-src="Images/info-album.png" alt="info" ng-click="setInfo( album )" ng-class="{info:album.info}">
+	                            <span class="info-content" ng-show="album.info" ng-bind="description"></span>
+			    	        </p>	
+			    	       	<img ng-src="Images/bascet-album.png" alt="" ng-class="{ buy:album.buy }"  ng-click="addToCart(album)">
 				    	</div>
 			        </div>
 			    </div>
 	        </div>
 	    </div>
 
-	    <div infinite-scroll="loadMore()"  class="infinity" infinite-scroll-disabled='busy' infinite-scroll-distance='3'></div>
+	    <div infinite-scroll="loadMore()"  class="infinity" infinite-scroll-disabled='busy' infinite-scroll-distance='1'></div>
 
     </div>
 </main>

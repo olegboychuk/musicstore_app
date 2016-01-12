@@ -43,18 +43,17 @@ AlbumsModule.controller( 'AlbumsController',function( $location,$log,$scope,$roo
   } 
 
   $scope.setInfo = function( album ){
-    
-    album.info = !!!album.info;   
-      if ( album.info ) {
-        $scope.info = true;
+   $scope.info = false;
+    album.info = !!!album.info; 
+    console.log( " album.info ",album );
+    // if (album.info.indexOf($scope.description) !=-1) {};  
+      
+      if ( album.info ) { 
         $scope.description = album.album_description;
-        var album = AlbumsFactory.getAlbumDetails( album.album_id );
-        // .then( function( responce ){
           console.log("info responce",album);
-            $scope.description = album.album_description;
-         // })
       }else{
         $scope.info = false;
+         $scope.description = !album.album_description;
       }
   }
 

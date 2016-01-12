@@ -4,7 +4,7 @@ CartModule.controller('CartController', function( $rootScope,$scope,localStorage
 
 	    $rootScope.$on('statusLogin',function(event,data){
 			console.log("logdata",data);
-			alert("kuku");
+			// alert("kuku");
 	    });
 
         $scope.cartToPay = function(){

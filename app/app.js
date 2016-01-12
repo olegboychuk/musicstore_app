@@ -198,5 +198,4 @@ app.controller('mainController',function( $rootScope,$timeout,$log, $http, $q, $
     });
 
 
-
 });
