@@ -10,18 +10,13 @@ AlbumsModule.factory( 'AlbumsGenreFactory',function( $log,$http,$q,AlbumsFactory
 	    $http.get('api/genre-albums'+'/:'+ genreId)
 	    .success( function( data ) {
 	    
-			deferred.resolve({
-			   albums: data.result.albums 
-			});
-			albumsge.push(data.result.albums);
-	        // AlbumsFactory.pushAlbums(albumsge);
-			 
+			deferred.resolve( { albums: data.result.albums } );
+			albumsge.push( data.result.albums );
 		})
-		.error(function(){
+		.error( function(){
                var albums = "error in fetching data";
-         });
+        });
 		return deferred.promise;
 	}
-
 	return AlbumsGenreFactory
 });

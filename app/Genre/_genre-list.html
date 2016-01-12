@@ -1,6 +1,6 @@
 
 <aside>
-	<div id="music-genre" ng-show="true" ng-controller="GenreController">
+	<div id="music-genre"  ng-show="true" ng-controller="GenreController">
 		<div class="ng-trans ng-trans-flip-y" ng-repeat="genre in genres track by $index">
 			<a ui-sref="genre({genreId:genre.genre_id,genreName:genre.genre_name})">{{ genre.genre_name }}</a>
 	    </div>

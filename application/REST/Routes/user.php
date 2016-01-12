@@ -22,7 +22,7 @@ $app->post('/login/',function() use ( $user,$app ){
 	$success = $user->matchUser($data);
 		//var_dump($_SESSION);
 		if ( $success ) { 	
-	 	  authentication();
+	 	  //authentication();
 	 	  echo json_encode( $success );
 		}
 });

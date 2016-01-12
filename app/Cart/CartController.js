@@ -1,21 +1,18 @@
 CartModule.controller('CartController', function( $rootScope,$scope,localStorageService,AlbumsFactory,CartFactory,UserAuthService ){ 
 	    $scope.billing = true;
-
-	    // console.log("$rootScope",$rootScope);
-	    // $rootScope.$on('logged',function( event,argument ) {
-	    // 	alert(argument);
-	    // 	console.log("argument",argument);
-	    // })
-
 		$scope.form={};
 
-        
+	    $rootScope.$on('statusLogin',function(event,data){
+			console.log("logdata",data);
+			alert("kuku");
+	    });
+
         $scope.cartToPay = function(){
         	$scope.cart = CartFactory.checkOut();
         }
         $scope.cartToPay();
 
-	    $scope.total =  CartFactory.getTotal();
+	    $scope.total = CartFactory.getTotal();
 
 	    $scope.makeOrder = function( checkOut ){
 	    	if(checkOut) {
@@ -23,13 +20,16 @@ CartModule.controller('CartController', function( $rootScope,$scope,localStorage
             } 
             param = angular.toJson($scope.form);
             var form = $scope.form;
-            console.log("paramaa",param);	
 
             CartFactory.makeOrder( form )
         	.then( function( responce ){
-        		console.log("responceorder",responce);
+        		console.log("responceorder",responce.msg);
+        		 if ( responce) {
+        		 	$scope.responceOrder = responce.msg;
+        		 };    		
         	});
 	    }
+
 
 		$scope.toogleActive = function(e){
 			 console.log("e",e);
@@ -54,10 +54,4 @@ CartModule.controller('CartController', function( $rootScope,$scope,localStorage
 	        };
 		}
 
-
-
-        // $scope.saveOrder = function(xxx){
-       	// 	 CartFactory.saveOrder(xxx);
-        // }
-	   
 });

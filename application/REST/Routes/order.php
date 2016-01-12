@@ -9,7 +9,7 @@ $order = new OrderRestController();
  $app->post('/order/',function() use ( $order,$app ){
 
     $data = json_decode($app->request->getBody(),true);
-    //var_dump($data);
+  
     $success = $order->writeOrder( $data );
     if ($success){
 		echo 1;

@@ -35,7 +35,7 @@ ul.searchresultspopup {
 	z-index: 99999!important;
 	position: fixed;
 	background-color: white;
-	/*max-height:200px;*/
+	max-height:200px;
 	border-collapse: separate;
 	overflow-y: hidden;
 }

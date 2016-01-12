@@ -5,6 +5,7 @@ AlbumsModule.controller( 'AlbumsGenreController',function( $scope,$stateParams,G
 	var product = '1';
 	$scope.albums = [];
 	$scope.genreName = genreName;
+	$scope.genreId = genreId;
 
 	$scope.loadAlbumsGenre = function( genreId ){
 		var albums = AlbumsGenreFactory.getAlbumsGenre( genreId ); 

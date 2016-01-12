@@ -1,5 +1,6 @@
 
-CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,localStorageService,UserAuthService,AUTH_EVENTS){
+CartModule.factory('CartFactory', function( $http,$q,$rootScope,
+	AlbumsFactory,localStorageService,UserAuthService,AUTH_EVENTS){
 	var CartFactory = {};
 	var urlBaseOrder = 'api/order';
 	var products = [];
@@ -13,8 +14,6 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     var keyOfUserCart ='underfined';
 
     $rootScope.$on('statusLogin',function(event,data){
-    	// alert(data);
- 
     	if ( AUTH_EVENTS.loginSuccess === "auth-login-success" ){
 	    	var userObject = UserAuthService.get();
 	    	keyOfUserCart = userObject.user_id;
@@ -22,65 +21,44 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 	    }
     });
 
-
-    // $rootScope.$on('statusLogin',function(event,data){
-    // 	alert(data);
-    // 	if ( AUTH_EVENTS.notAuthenticated === 'auth-not-authenticated' ){
-	   //  	// keyOfUserCart = 'guest';
-	   //  }
-	   //  // keyOfUserCart='';
-    // })
     
     CartFactory.makeOrder = function( param ){
-    	//console.log("paramamakeOrder",param );
     	var orderDetails = meetCartUserOrderInfo( param );
-        //console.log("orderDetailsparam000",orderDetails);
         var order = angular.toJson( orderDetails );      
-        //console.log("orderDetailsparam",order);
-        // while( orderDetails <= orderDetails.length){
-        	
-        return $http.post( urlBaseOrder,order )
 
-	    	.then( function( result ){
-	    		console.log("result",result.data);
-	    	})
-    		
-        // }	
-    }
+        deferred = $q.defer();
+        
+        $http.post( urlBaseOrder,order )
+	    .success( function( result ){
+	    	console.log("result",result);
+	    	if ( result ) {
+	    		removeItemLocalStorage( keyOfUserCart );
+	    		deferred.resolve({'msg':'Thank you! Your ordered some products from our store.You can check your orders in your account page. '});
+	    	};
+	    }).error( function(){
+	    	alert("Something went wrong");
+	    })
+	    return deferred.promise;
+    };
 
 
     function meetCartUserOrderInfo( param ){
 
-
-        // console.log("keyOfUserCart",keyOfUserCart);
     	cart = getLocalStorageObject( keyOfUserCart );
-    	// console.log("ordercart ",cart);
     	
     	var user = keyOfUserCart;
-    	// console.log("usercart ",user); 	
-    	var userObj ={'user_id':user};    	
-    	
+    	var userObj ={'user_id':user};    	  	
     	var order ={};
     	var orderList= [];
     	var order_total ={};
 
-    	for (var i = 0; i < cart.length; i++) {
-    		// console.log("i",i);	
-    	
-    		// console.log("paramassign",param );
+    	for (var i = 0; i < cart.length; i++) {    	
     		var album = cart[i].album;
-    		// console.log("album specific i ",album);
     		var total = { "order_total":cart[i].price};
-	        // var total = { "order_total":cart[i].price*cart[i].quantety };
-	        // console.log("total specific i ",total);
-	        order[i] = _.assign( album,param,userObj,total );
-            // console.log("orderList0asign ",order[i]);
 	       
+	        order[i] = _.assign( album,param,userObj,total );
 	        orderList.push( order[i] );
-	        // console.log("orderListsplice ",orderList);
-    	   // return orderList;
     	}
-        //console.log("orderList1 ",orderList);
     	return orderList;
     }
 
@@ -191,18 +169,16 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 	}
 
 
-
 	function calcAddTotal(){
 	  	var tpr = _.map( products,'price' );
 	  	totalPrice =_.reduce(tpr, function( accumulator, value ) {
                 console.log("totalPrice",tpr,accumulator,value)
                 return (+accumulator) + ( +value );
         });
-		//return totalPrice;
 	}
 
-	CartFactory.deleteProduct = function ( albumId ){
-		
+
+	CartFactory.deleteProduct = function ( albumId ){		
 		for (var i = 0; i <= products.length-1; i++) {
 			var key = products[i].album.album_id;		
 			if ( key===albumId ) {
@@ -213,16 +189,16 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
 		};
 	}
 
-	CartFactory.clearCart = function(){
-		
+
+	CartFactory.clearCart = function(){		
 		if ( products ) {
 			products.splice( products,products.length );
 			removeItemLocalStorage( keyOfUserCart );
 		};	
 	}
 
-	CartFactory.addToCart = function( quantety,albumId ) {
-	
+
+	CartFactory.addToCart = function( quantety,albumId ) {	
 		var album = AlbumsFactory.getAlbumDetails( albumId );
 		var price = album.album_price;		
 		cartUpdated( quantety, album, price );
@@ -231,3 +207,4 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,AlbumsFactory,lo
     return CartFactory;
 
 });
+

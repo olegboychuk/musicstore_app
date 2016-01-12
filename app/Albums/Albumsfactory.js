@@ -34,9 +34,9 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q,$rootScope ){
 	}
 
 
-    AlbumsFactory.getPriceAlbum = function(albumId){
+    // AlbumsFactory.getPriceAlbum = function(albumId){
     	
-    }
+    // }
 
     /**
 	/*  function findIndex
@@ -68,7 +68,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q,$rootScope ){
 		for ( i = i;i<stockAlbums.length; i++) {
 			Albums.push( stockAlbums[i] ); 
 		};
-		console.log("Albumslist",Albums);
+		//console.log("Albumslist",Albums);
 		return Albums;
 	}
 
@@ -113,7 +113,5 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q,$rootScope ){
     // AlbumsFactory.pushAlbums = function(albums){
 
     // }
-
-
 	return AlbumsFactory;
 });

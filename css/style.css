@@ -388,9 +388,9 @@ main .info-head p.head-artist{
 }
 
 
-/*.albums img:hover, .page img:hover{
-    transform: scale(1.5,1.5);
-}*/
+.albums img:hover, .page img:hover{
+    transform: scale(1.1,1.1);
+}
 
 .head:nth-child(1n+2){
     width: 210px;
@@ -480,10 +480,7 @@ main .info-head p.head-artist{
 .left{
     margin-top: 10px;
 }
-/*#left-albums .info-head{
-    background-color: red;
-    height:300px;
-}*/
+
 
 #page{
     float: left;
@@ -516,6 +513,14 @@ main .info-head p.head-artist{
     
 }
 
+.info-content{
+    color: lightgrey;
+    font-size: 10px;
+    height: 86px;
+    margin-top: -85px;
+    position: absolute;
+    background-color: black;
+}
 
 
 /*____GENRE ALBUMS____*/
@@ -626,10 +631,6 @@ main .info-head p.head-artist{
     font-size: 22px;
     color: red;
 }
-/*.album-price {
-    padding-top: 5px;
-    margin-left: 5px;
-}*/
 
 .stock{
     color: black;
@@ -882,24 +883,48 @@ span.outStock{
     opacity: 0.8;
     background-color: white
 }
-<<<<<<< HEAD
 
-.blank{
+.infinity{
+    float: left;
     width: 100%;
-    min-height:100%;
-=======
-
-.margin-right-xs{
-    margin-right: 5px;
-    
->>>>>>> origin/master
+    height: 1px;
 }
-footer{
+
+/*footer{
     position: absolute;
     background-color: black;
     height: 180px;
-    /*margin-top: -183px;*/
+    /*margin-top: -183px;
     width: 100%;
     left: 50%;
     bottom: 0;
 }
+*/
+
+ 
+    
+/*.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide.ng-enter,
+.slide.ng-leave {
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+}
+.slide.ng-enter {
+    left: 100%;
+}
+.slide.ng-enter-active {
+    left: 0;
+}
+.slide.ng-leave {
+    left: 0;
+}
+.slide.ng-leave-active {
+    left: -100%;
+}*/
+

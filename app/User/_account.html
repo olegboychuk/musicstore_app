@@ -1,0 +1,33 @@
+<main ng-controller="AccountController">
+	<div id="myAccount">
+		
+		<ul id="order" class="order cf">
+
+			<div class="boxes">
+				<div class="line1 box1"><bold>Product name</bold></div>
+				<div class="line1 box2"><bold>Price</bold></div>
+				<div class="line1 box3"><bold>Qty</bold></div>
+				<div class="line1 box4"><bold>Subtotal</bold></div>
+			</div>
+
+			<div class="boxes2" ng-repeat="i in cart track by $index">
+				<div class="line2 box1">{{i.album.album_name}}</div>
+				<div class="line2 box2">{{i.album.album_price}}</div>
+				<div class="line2 box3">{{i.quantety}}</div>
+				<div class="line2 box4">{{i.price}}</div>
+			</div>
+
+			<div class="boxes3">
+				<div class="line3 box1"><bold>Total</bold></div>
+				<div class="line3 box2"><bold>{{total}}</bold></div>
+			</div>
+
+			
+			<div class="billingInfo-row full">	
+				<input type="submit" value="Please Order" ng-click="makeOrder(checkOut)" class="btn finalize" >
+			</div>		
+
+		</ul>
+					
+	</div>
+</main>

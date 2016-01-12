@@ -13,9 +13,9 @@
 		<nav>
 			<ul>
 				<a ui-sref="home"><li>Home</li></a>
-				<a ui-sref="myAcoount" ng-show="logout"><li>My Account</li></a>
+				<a ui-sref="account" ng-show="logout"><li>My Account</li></a>
 				<a ui-sref="myWishlist"><li>My Wishlist</li></a>
-				<a ui-sref="check-out"><li>Checkout</li></a>
+				<a ui-sref="check-out" ng-show="logout"><li>Checkout</li></a>
 				<a ui-sref="login"  ng-if="login"><li>Log In</li></a>
 				<a ng-href="#/logout"  ng-if="logout" ng-click="signOut()"><li>Log Out</li></a>
 			</ul>	
@@ -40,7 +40,7 @@
 		</div>
 	</header>
 
-	<div ui-view id="view-route"></div>
+	<div ui-view id="view-route" ></div>
 	<!-- <div id="view-route"><ng-view></ng-view></div> -->
 		
 <!-- <footer></footer> -->
