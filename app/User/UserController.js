@@ -38,7 +38,7 @@ UserModule.controller('UserController',function($scope,$timeout,UserFactory){
     }  
     $scope.submitted = true;
     param = angular.toJson($scope.user)
-   
+   console.log("paramlogin",param);
     UserFactory.matchUser( param )
     .then( function( responce ){    
       $scope.logResponce = responce.data.result.msg;
