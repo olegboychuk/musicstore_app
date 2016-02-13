@@ -104,10 +104,14 @@ app.config(function( $stateProvider,$urlRouterProvider ){
 	.state('myWishlist',{
 		url:'/wishlist',
 		templateUrl:"app/Cart/_wishlist.html",
-		controller: "WishListController"
+		controller: "WishListController",
 		// data: {
   //         requireLogin: true
   //       }
+        ncyBreadcrumb: {
+           label: 'Account ',
+           parent:'home'
+        }
 	}),
 
 	$stateProvider

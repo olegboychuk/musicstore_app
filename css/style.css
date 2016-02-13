@@ -260,6 +260,8 @@ img.logo{
 #wrapper{
     width: 900px;
     margin: 0 auto;
+    min-height:100%;
+    height:100%;
 }
 
 
@@ -503,9 +505,9 @@ main .info-head p.head-artist{
 .page{
     display: inline-table;
     width: 199px;
-    height: 247px;
-    background: grey;
-    border: 1px solid;
+    height: 260px;
+    background: black;
+ /*   border: 1px solid;*/
     margin-top: 10px;
     margin-left: 15px;
     overflow:hidden;
@@ -613,7 +615,7 @@ main .info-head p.head-artist{
     width: 625px;
  /*   margin-left: 477px;*/
     margin-left: 277px;
-    float: left;
+   /* float: left;*/
     top: 171px;
     position: absolute;
     margin-top: 20px;
@@ -906,17 +908,34 @@ span.outStock{
     height: 1px;
 }
 
-/*footer{
-    position: absolute;
+footer{
+   /* position :absolute;*/
+    display: block;
     background-color: black;
     height: 180px;
-    /*margin-top: -183px;
     width: 100%;
-    left: 50%;
-    bottom: 0;
+    left: 0;
+    margin-top: 50px;
+    float:left;
+    color:white;
 }
-*/
 
+.foo{
+     /* border: 1px solid #FCFCFC; */
+    color: white;
+    width: 100%;
+    /* position: absolute; */
+    height: 90%;
+    padding-left: 30px;
+    padding-top: 30px;
+    /* margin: auto 0; */
+    /* margin-top: 30px; */
+    font-size: 14px;
+}
+
+.foo a{
+    color:white;
+}
  
     
 /*.slide {
@@ -942,5 +961,5 @@ span.outStock{
 }
 .slide.ng-leave-active {
     left: -100%;
-}*/
+}
 

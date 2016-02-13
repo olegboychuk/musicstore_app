@@ -90,7 +90,7 @@ AlbumsModule.factory( 'AlbumsFactory',function( $log,$http,$q,$rootScope ){
 
 		return promise = $http.get( urlBase +'/:'+ requestedPage )
 		.then( function( data ) {	   	 
-		 
+		     console.log("album",data);
 	        loadedPages+=data.data.result.albums.length;
             
 		    createListAlbums( data.data.result.albums );

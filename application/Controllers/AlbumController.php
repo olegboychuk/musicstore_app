@@ -31,7 +31,7 @@ class AlbumController extends Controller{
 	public function getAlbums( $start ){
 		$albums = $this->model->getAlbums( $start );
 		
-		if ($albums !== NULL) 
+		if ( $albums !== NULL ) 
 			return $albums;
 		else
 			return false;	

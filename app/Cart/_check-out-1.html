@@ -16,7 +16,7 @@
 					<div id="billingInfo" class="showBilling cf"  ng-show="billing" >
 						<div class="billingInfo-row">
 							<div class="label full"><label for="Adress">Adress<span>*</span></label></div>
-							<input type="text" name="order_shipping_address"  class="adress" ng-model="form.order_shipping_address" ng-pattern="[a-zA-Z0-8]" placeholder="London str 345" ng-minlength=5 ng-maxlength=20 ng-required="true" >
+							<input type="text" name="order_shipping_address"  class="adress" ng-model="form.order_shipping_address" ng-pattern="[a-zA-Z0-9]" placeholder="London str 345" ng-minlength=5 ng-maxlength=20 ng-required="true" >
 						</div>
 
 						<div class="billingInfo-row">
@@ -32,7 +32,7 @@
 
 						<div class="billingInfo-row">
 							<label  class="label label-half" for="Phone Number">Telephone<span>*</span></label>
-							<input type="phone"  name="order_shipping_phone"  ng-model="form.order_shipping_phone" ng-pattern="/^[0-9]{1,7}$/" placeholder="0523336699" ng-minlength=6 ng-maxlength=10 ng-required="true" >
+							<input type="phone"  name="order_shipping_phone"  ng-model="form.order_shipping_phone" ng-pattern="/^[0-9]{1,8}$/" placeholder="0523336699" ng-minlength=6 ng-maxlength=10 ng-required="true" >
 						</div>
 
 						<div class="billingInfo-row">

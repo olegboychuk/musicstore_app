@@ -12,7 +12,6 @@ AlbumsModule.controller( 'AlbumsGenreController',function( $scope,$stateParams,G
 		albums.then( function( data ) {
 			$scope.albums = data.albums;
 			$scope.genreLength = data.albums.length;
-			
 		});
 	}
 

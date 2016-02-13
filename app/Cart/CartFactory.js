@@ -4,7 +4,6 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
 	var CartFactory = {};
 	var urlBaseOrder = 'api/order';
 	var products = [];
-	// var price = 0;
 	var totalPrice = 0;
     var itemsPrice = 0;
     var key = " ";
@@ -36,7 +35,7 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
 	    		deferred.resolve({'msg':'Thank you! Your ordered some products from our store.You can check your orders in your account page. '});
 	    	};
 	    }).error( function(){
-	    	alert("Something went wrong");
+	    	// alert("Something went wrong");
 	    })
 	    return deferred.promise;
     };
@@ -71,7 +70,6 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
 
     function setLocalStorageObject( keyOfUserCart,products ){
     	if (keyOfUserCart === 'underfined') {
-    		alert(keyOfUserCart);
     		removeItemLocalStorage(keyOfUserCart);
     		//--- localstorage for unregisted users  
     	}else{
@@ -85,7 +83,6 @@ CartModule.factory('CartFactory', function( $http,$q,$rootScope,
     }
 
      function resetLocalStorage(){
-    	alert("kuku");
     	return localStorageService.clearAll();
     }
 

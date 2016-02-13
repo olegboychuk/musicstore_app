@@ -1,7 +1,10 @@
 
 <main ng-controller="WishListController">
+	<p ng-bind="search"></p>
+	
+    <div ncy-breadcrumb></div>
 	<div id="wishList">
-		{{wishList}}
+		<input type="text" ng-model="search">
 		<div id ="center-albums">
 			<div class="center albums" class="ng-trans ng-trans-flip-y" ng-repeat="album in albums track by $index" >
 				<a ui-sref="album({id:album.album_id})"><img ng-src="Images/{{album.image_path}}"  alt=""></a> 			

@@ -30,8 +30,8 @@ class AlbumRestController extends AlbumController{
 	*/
 	public function getAlbums( $start ){
 		$albums = parent::getAlbums( $start );
-
-		if ( is_array($albums) ) {
+		
+		if ( is_array( $albums ) && $albums != NULL ) {
 			return $this->createAnswer( 0,array("albums"=>$albums) );
 		}elseif ( $albums == NULL  ) {
 			return $this->createAnswer( 1,"empty result",402 );
